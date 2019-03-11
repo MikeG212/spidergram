@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -51,9 +50,9 @@ class SessionForm extends React.Component {
     demoLoginButton() {
         if (this.props.formType === "login") {
             return (
-                <div className="login-guest-button">
+                <div className="session-demo-button">
                     <p>OR</p>
-                    <button onClick={this.demoLogin}>Log in with Demo Account</button>
+                    <button className="session-button" onClick={this.demoLogin}>Log in with Demo Account</button>
                 </div>
             );
         }
@@ -62,43 +61,48 @@ class SessionForm extends React.Component {
     render() {
         debugger
         return (
-            <div className="login-form-container landing-right">
-                <form onSubmit={this.handleSubmit} className="login-form-box form-login">
-                    Welcome to Spidergram!
-                    <br />
-                    Please {this.props.formType} or {this.props.navLink}
-                    {this.renderErrors()}
-                    <div className="login-form">
-                        <label>Email:
-                            <input type="text"
-                                value={this.state.email}
-                                onChange={this.update('email')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <br />
-                        <label>Username:
-                            <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <label>Password:
-                            <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
-                        <br />
-                        {this.demoLoginButton()}
+            <div className="page">
+                <div className="session-form-container group">
+                    <img className="session-image" src="/"></img>
+                    <div className="session-right-side">
+                        <form onSubmit={this.handleSubmit} className="session-form-box">
+                            <div className="sessionForm">
+                                <h1>Welcome to Spidergram!</h1>
+                                <div className="session-form-text">Please {this.props.formType} or {this.props.navLink}</div>
+                                {this.renderErrors()}
+
+                                    <label for="email">Email:
+                                        <input type="text"
+                                            value={this.state.email}
+                                            onChange={this.update('email')}
+                                            className="form-input"
+                                        />
+                                    </label>
+                                    <br />
+                                    <br />
+                                    <label for="username">Username:
+                                        <input type="text"
+                                            value={this.state.username}
+                                            onChange={this.update('username')}
+                                            className="form-input"
+                                        />
+                                    </label>
+                                    <br />
+                                    <label for="password">Password:
+                                        <input type="password"
+                                            value={this.state.password}
+                                            onChange={this.update('password')}
+                                            className="form-input"
+                                        />
+                                    </label>
+                                    <br />
+                                    <input className="session-button submit-button" type="submit" value={this.props.formType} />
+                                    <br />
+                                    {this.demoLoginButton()}
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

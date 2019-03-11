@@ -8,6 +8,8 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+import Header from './Header';
+// import Post from './Post';
 import GreetingContainer from './greeting/greeting_container';
 import SignupFormContainer from './session_form/signup_form_container.jsx';
 import LoginFormContainer from './session_form/login_form_container.jsx';
@@ -18,11 +20,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = ({ children }) => { 
   debugger 
   return (<div>
-    <header>
-      <h1>Spidergram The APP.jsx</h1>
-      <GreetingContainer />
+    <Header />
+    <GreetingContainer />
+    {/* <Post username="peterParker" caption="All black everything"/> */}
       {children}
-    </header>
 
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
