@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   has_many :likers,
     through: :likes,
     source: :user
+  
+  has_one_attached :photo
 end

@@ -18,7 +18,6 @@ import LoginFormContainer from './session_form/login_form_container.jsx';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = ({ children }) => { 
-  debugger 
   return (<div>
     <Header />
     <GreetingContainer />
