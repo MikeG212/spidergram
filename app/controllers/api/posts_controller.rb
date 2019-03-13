@@ -29,7 +29,7 @@ class Api::PostsController < ApplicationController
     if like.save
       render :show
     else
-      render({ json: ["cannot like post twice"], status: 422 })
+      render({ json: ["You already like this"], status: 422 })
     end
   end
 
@@ -39,11 +39,11 @@ class Api::PostsController < ApplicationController
     if like.destroy
       render :show
     else
-      render ({ json: ["cannot unlike post twice"], status: 422 })
+      render ({ json: ["You already don't like this"], status: 422 })
     end
   end
 
   def post_params
-    params.require(:post).permit(:caption, :image)
+    params.require(:post).permit(:caption, :image_url)
   end
 end
