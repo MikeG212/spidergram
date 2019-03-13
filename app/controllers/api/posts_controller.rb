@@ -1,10 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def index
-    # Post.where("posts.user_id = ? OR posts.user_id IN ")
-    # current_user.following_posts.pluck(:user_id).uniq
-    # posts_following = current_user.following_posts;
-
+    #show all of the user's posts
     @posts = current_user.feed_posts
     render :index
   end

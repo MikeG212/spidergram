@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, length: {in: 4..10}
   validates :password, length: {in: 6..25, allow_nil: true }
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   attr_reader :password
   after_initialize :ensure_session_token
