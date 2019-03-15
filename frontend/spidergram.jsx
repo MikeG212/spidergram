@@ -3,15 +3,28 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root';
 
-import {
-    receiveCurrentUser,
-    receiveErrors,
-    logout,
-    login,
-    signup
-} from './actions/session_actions';
+// import {
+//     receiveCurrentUser,
+//     receiveErrors,
+//     logout,
+//     login,
+//     signup
+// } from './actions/session_actions';
+// window.login = login;
 
-window.login = login;
+import {
+    requestPosts,
+    requestPost,
+    receivePosts,
+    receivePost,
+    createPost
+} from './actions/post_actions';
+
+window.requestPosts = requestPosts;
+window.requestPost = requestPost;
+window.receivePosts = receivePosts;
+window.receivePost = receivePost;
+window.createPost = createPost;
 
 
 document.addEventListener('DOMContentLoaded', () => {

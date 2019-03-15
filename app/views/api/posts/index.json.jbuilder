@@ -3,5 +3,3 @@
     json.partial! 'post', post: post
   end
 end
-
-# json.post_order @posts.map(&:id)
