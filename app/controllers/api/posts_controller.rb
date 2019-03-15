@@ -1,12 +1,13 @@
 class Api::PostsController < ApplicationController
+
   def index
-    @posts = Post.all
+    #show all of the user's posts
+    @posts = current_user.feed_posts
     render :index
   end
 
   def show
     @post = Post.find(params[:id])
-    render :show
   end
 
   def create
@@ -25,7 +26,7 @@ class Api::PostsController < ApplicationController
     if like.save
       render :show
     else
-      render({ json: ["You already liked this"], status: 422 })
+      render({ json: ["You already like this"], status: 422 })
     end
   end
 
@@ -40,6 +41,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:caption, :image)
+    params.require(:post).permit(:caption, :image_url)
   end
 end
