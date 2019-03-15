@@ -1,8 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def index
-    #show all of the user's posts
-    @posts = current_user.feed_posts
+    @posts = Post.all
     render :index
   end
 
@@ -26,7 +25,7 @@ class Api::PostsController < ApplicationController
     if like.save
       render :show
     else
-      render({ json: ["You already like this"], status: 422 })
+      render({ json: ["You already liked this"], status: 422 })
     end
   end
 
