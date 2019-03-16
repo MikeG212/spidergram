@@ -24,3 +24,12 @@ export const createPost = (formData, success) => {
         success
     });
 };
+
+render() {
+    return (
+        <div>
+            <Form fetchPosts={this.fetchPosts}/>
+            <PostIndex post={this.state.posts}/>
+        </div>
+    )
+}

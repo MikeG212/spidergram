@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -18,11 +19,13 @@ class SessionForm extends React.Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user)
-            .then(() => this.props.history.push('/'));
+    navLink() {
+        debugger
+        if (this.props.formType === "login") {
+            return <Link to="/signup">Sign Up</Link>;
+        } else {
+            return <Link to="/login">Log In</Link>;
+        }
     }
 
     renderErrors() {
@@ -37,13 +40,19 @@ class SessionForm extends React.Component {
         );
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user)
+            .then(() => this.props.history.push('/'));
+    }
+
     // componentDidMount() {
     //     this.props.removeErrors();
     // }
 
     demoLogin() {
         this.setState({username: "johnJonah", email: "jj@dailybugle.com", password: "starwars"});
-        const user = { username: "johnJonah", email: "jj@dailybugle.com", password: "starwars" };
     }
 
     demoLoginButton() {
@@ -66,10 +75,9 @@ class SessionForm extends React.Component {
                         <form onSubmit={this.handleSubmit} className="session-form-box">
                             <div className="sessionForm">
                                 <h1>Welcome to Spidergram!</h1>
-                                <div className="session-form-text">Please {this.props.formType} or {this.props.navLink}</div>
+                                <div className="session-form-text">Please {this.props.formType} or {this.navLink()}</div>
                                 {this.renderErrors()}
-
-                                    <label for="email">Email:
+                                    <label htmlFor="email">Email:
                                         <input type="text"
                                             value={this.state.email}
                                             onChange={this.update('email')}
@@ -78,7 +86,7 @@ class SessionForm extends React.Component {
                                     </label>
                                     <br />
                                     <br />
-                                    <label for="username">Username:
+                                    <label htmlFor="username">Username:
                                         <input type="text"
                                             value={this.state.username}
                                             onChange={this.update('username')}
@@ -86,7 +94,7 @@ class SessionForm extends React.Component {
                                         />
                                     </label>
                                     <br />
-                                    <label for="password">Password:
+                                    <label htmlFor="password">Password:
                                         <input type="password"
                                             value={this.state.password}
                                             onChange={this.update('password')}

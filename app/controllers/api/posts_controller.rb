@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
 
   def show
-    debugger
     @post = Post.find_by_id(params[:id])
     render :show
   end
@@ -42,6 +41,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:caption, :image_url, :id)
+    params.require(:post).permit(:caption, :image_url, :photo, :id)
   end
 end

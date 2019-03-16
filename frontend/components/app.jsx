@@ -11,8 +11,7 @@ import {
 import Header from './Header';
 // import Post from './Post';
 import GreetingContainer from './greeting/greeting_container';
-import SignupFormContainer from './session_form/signup_form_container.jsx';
-import LoginFormContainer from './session_form/login_form_container.jsx';
+import SessionFormContainer from './session_form/session_form_container.jsx';
 // import UserShowContainer from './user_show/user_show_container.jsx';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -20,12 +19,10 @@ const App = ({ children }) => {
   return (<div>
     <Header />
     <GreetingContainer />
-    {/* <Post username="peterParker" caption="All black everything"/> */}
-      {children}
-
+    {children}
     <Switch>
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
       {/* <ProtectedRoute exact path="/photo/new"/> */}
       <Route exact path="/"/>
     </Switch>
