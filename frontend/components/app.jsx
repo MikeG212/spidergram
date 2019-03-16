@@ -10,9 +10,8 @@ import {
 
 import Header from './Header';
 // import Post from './Post';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import SessionFormContainer from './session_form/session_form_container.jsx';
-// import UserShowContainer from './user_show/user_show_container.jsx';
+import NavBarContainer from './nav_bar/nav_bar_container.js';
+import SessionFormContainer from './session_form/session_form_container.js';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = ({ children }) => { 

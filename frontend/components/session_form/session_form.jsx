@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
     }
 
     navLink() {
-        debugger
         if (this.props.formType === "login") {
             return <Link to="/signup">sign up</Link>;
         } else {
@@ -70,7 +69,7 @@ class SessionForm extends React.Component {
         return (
             <div className="page">
                 <div className="session-form-container group">
-                    <img className="session-image" src="/"></img>
+                    <img className="session-logo" src={window.images.sessionLogo} alt="dummyPhone"></img>
                     <div className="session-right-side">
                         <form onSubmit={this.handleSubmit} className="session-form-box">
                             <div className="sessionForm">
