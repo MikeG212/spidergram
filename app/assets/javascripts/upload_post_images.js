@@ -1,5 +1,3 @@
-Dropzone.autoDiscover = false;
-
 $(document).ready(function () {
     $(".upload-images").dropzone({
         addRemoveLinks: true,

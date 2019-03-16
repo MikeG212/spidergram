@@ -16,6 +16,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require dropzone
 //= require_tree .
-//= require_toastr
