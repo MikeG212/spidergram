@@ -10,7 +10,7 @@ import {
 
 import Header from './Header';
 // import Post from './Post';
-import GreetingContainer from './greeting/greeting_container';
+import NavBarContainer from './nav_bar/nav_bar_container';
 import SessionFormContainer from './session_form/session_form_container.jsx';
 // import UserShowContainer from './user_show/user_show_container.jsx';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -18,12 +18,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = ({ children }) => { 
   return (<div>
     <Header />
-    <GreetingContainer />
+    <NavBarContainer />
     {children}
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
-      {/* <ProtectedRoute exact path="/photo/new"/> */}
       <Route exact path="/"/>
     </Switch>
   </div>);
