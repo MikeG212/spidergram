@@ -4,11 +4,19 @@
     <title>Spidergram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script>
         window.images = {
-          sessionLogo: "<%= asset_path('dummy-phone-2x.png') %>"
+          dummyPhone: "<%= asset_path('dummy-phone-2x.png') %>",
+          coreSprite2x: "<%= asset_path('core-sprite-2x.png') %>",
+          coreSprite: "<%= asset_path('core-sprite.png') %>",
+          icon: "<%= asset_path('icon.png') %>",
+          screenshot1: "<%= asset_path('screenshot1.jpg') %>",
+          screenshot2: "<%= asset_path('screenshot2.jpg') %>",
+          screenshot3: "<%= asset_path('screenshot3.jpg') %>",
+          screenshot4: "<%= asset_path('screenshot4.jpg') %>",
+          screenshot5: "<%= asset_path('screenshot5.jpg') %>",
         }
     </script>
     <% if current_user %>

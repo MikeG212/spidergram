@@ -20,9 +20,3 @@ const NavBar = ({ currentUser, logout }) => {
 };
 
 export default NavBar;
-
-// class NavBar extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-// }

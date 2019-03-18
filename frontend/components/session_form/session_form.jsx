@@ -66,6 +66,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+
         return (
             <div className="page">
                 <div className="session-form-container group">
