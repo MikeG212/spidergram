@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
         return (
             <div className="page">
                 <div className="session-form-container group">
-                    <img className="session-logo" src={window.images.sessionLogo} alt="dummyPhone"></img>
+                    <img className="session-logo" src={window.images.dummyPhone} alt="dummyPhone"></img>
                     <div className="session-right-side">
                         <form onSubmit={this.handleSubmit} className="session-form-box">
                             <div className="sessionForm">

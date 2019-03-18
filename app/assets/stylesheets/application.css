@@ -13,3 +13,110 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  background-color: #fafafa;
+}
+
+.nav-brand-logo {
+  background-image: url("window.images.coreSprite");
+}
+
+.session-form-container {
+  margin: 0 auto;
+  margin-top: 100px;
+  max-width: 935px;
+}
+
+
+.session-logo {
+  height: 500px;
+  float: left;
+}
+
+.session-form-box {
+  float: left;
+  background: white;
+  padding: 40px;
+  margin-left: 30px;
+  border: 1px solid #efefef;
+}
+
+.session-right-side {
+  float: left;
+}
+
+.session-button {
+  background: #3897f0;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  width: 270px;
+  outline: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.submit-button {
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.session-button:active {
+  background: rgba(#3897f0, 0.7);
+}
+
+.form-input {
+  display: block;
+  height: 32px;
+  margin-top: 7px;
+  width: 258px;
+  padding-left: 8px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #dbdbdb;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 1pt 1pt #999999;
+}
+
+li, ul {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+.errors-list > li {
+  color: #ed4956;
+  width: 245px;
+  font-size: 12px;
+  margin: 5px 0 0 20px;
+  list-style-type: circle;
+}
+
+.errors-list > li:first-child {
+  margin-top: 20px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 14px;
+  color: #999999;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: 14px;
+  color: #999999;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #999999;
+  font-size: 14px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #999999;
+  font-size: 14px;
+}
