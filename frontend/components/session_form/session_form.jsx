@@ -70,19 +70,7 @@ class SessionForm extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 landing-left">
-                            <div className="dummy-phone">
-                                <div className="screen-shot">
-                                    <div className="carousel carousel-fade" data-ride="carousel" >
-                                        <div className="carousel-inner">
-                                            <img className="carouse-item active screen-shot" src={window.images.screenshot1} alt="dummyPhone1"></img>
-                                            <img className="carousel-item screen-shot" src={window.images.screenshot2} alt="dummyPhone2"></img>
-                                            <img className="carousel-item screen-shot" src={window.images.screenshot3} alt="dummyPhone3"></img>
-                                            <img className="carousel-item screen-shot" src={window.images.screenshot4} alt="dummyPhone4"></img>
-                                            <img className="carousel-item screen-shot" src={window.images.screenshot5} alt="dummyPhone5"></img>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <img className="loginAsset" src={window.images.dummyPhoneNoAnimate} alt="dummyPhone"></img>
                         </div>
                         <div className="col-lg-6 landing-right text-center d-flex align-items-center">
                             <div className="session-form-container">
