@@ -14,8 +14,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = ({ children }) => (
   <div>
-    <Link to="/" className="nav-brand-logo">
-    </Link>
     <NavBarContainer />
     {children}
     <Switch>

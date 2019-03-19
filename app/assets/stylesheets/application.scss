@@ -14,12 +14,31 @@
  *= require_self
  */
 
-html {
-  background-color: #fafafa;
+ @import "bootstrap";
+
+ body {
+   background-color: #fafafa;
+   font-size: 14px;
+   color: #262626;
 }
 
-.nav-brand-logo {
-  background-image: url("window.images.coreSprite");
+.core-sprite {
+  background-image: image-url("core-sprite-2x.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.navbar-brand {
+  background-position: -176px 0;
+  height: 35px;
+  width: 176px;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
 }
 
 .session-form-container {
