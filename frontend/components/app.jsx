@@ -14,11 +14,12 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = ({ children }) => (
   <div>
-    <NavBarContainer />
+    <ProtectedRoute component={NavBarContainer} />
     {children}
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
+      <Redirect to="/login" />
     </Switch>
   </div>
 );

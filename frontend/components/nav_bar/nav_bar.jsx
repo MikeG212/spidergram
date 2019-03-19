@@ -40,7 +40,7 @@ const NavBar = ({ currentUser, logout }) => {
         </nav>
     );
 
-    return currentUser ? navBar() : sessionLinks();
+    return currentUser ? navBar() : <div></div>
 };
 
 export default NavBar;
