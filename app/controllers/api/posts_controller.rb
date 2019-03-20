@@ -1,13 +1,14 @@
 class Api::PostsController < ApplicationController
+  before_action :require_logged_in
+  
+  def index
+    @posts = Post.all
+    render :index
+  end
 
   def show
     @post = Post.find_by_id(params[:id])
     render :show
-  end
-
-  def index
-    @posts = Post.all
-    render :index
   end
 
   def create

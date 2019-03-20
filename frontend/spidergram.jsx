@@ -11,7 +11,23 @@ import {
     signup
 } from './actions/session_actions';
 
-window.login = login;
+import {
+  requestPosts,
+  requestPost,
+  receivePosts,
+  receivePost,
+  createPost
+} from './actions/post_actions';
+window.requestPosts = requestPosts;
+window.requestPost = requestPost;
+window.receivePosts = receivePosts;
+window.receivePost = receivePost;
+window.createPost = createPost;
+// testing Post Actions from the console
+
+import { requestUser } from './actions/post_actions';
+window.store = configureStore();
+window.requestUser = requestUser;
 
 
 document.addEventListener('DOMContentLoaded', () => {
