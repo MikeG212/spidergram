@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="session-error" key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -73,7 +73,6 @@ class SessionForm extends React.Component {
                                 <form onSubmit={this.handleSubmit} className="session-form-box">
                                 <h3>Spidergram</h3>
                                     <div className="session-form text">Please {this.props.formType} or {this.navLink()}</div>
-                                    {this.renderErrors()}
                                         <label htmlFor="email">Email:
                                             <input type="text"
                                                 value={this.state.email}
@@ -101,6 +100,7 @@ class SessionForm extends React.Component {
                                         <input className="session-button submit-button" type="submit" value={this.props.formType} />
                                         <br />
                                     {this.demoLoginButton()}
+                                    {this.renderErrors()}
                                 </form>
                             </div>
                         </div>
