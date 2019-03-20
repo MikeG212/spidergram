@@ -18,10 +18,6 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const removeErrors = () => ({
-    type: CLEAR_ERRORS,
-});
-
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(user => (
         dispatch(receiveCurrentUser(user))

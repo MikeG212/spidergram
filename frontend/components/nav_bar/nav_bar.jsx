@@ -40,7 +40,7 @@ const NavBar = ({ currentUser, logout }) => {
         </nav>
     );
 
-    return currentUser ? navBar() : <div></div>
+    return currentUser ? navBar() : <div>You aren't logged in! Whoops</div>
 };
 
 export default NavBar;

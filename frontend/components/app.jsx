@@ -10,16 +10,15 @@ import {
 
 import NavBarContainer from './nav_bar/nav_bar_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
+import PostIndexContainer from './post_index/post_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = ({ children }) => (
-  <div>
-    <ProtectedRoute component={NavBarContainer} />
-    {children}
+const App = (props) => (
+  <div className="boss-div">
     <Switch>
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
-      <Redirect to="/login" />
+      <AuthRoute exact path="/login" component={SessionFormContainer} />
+      <AuthRoute exact path="/signup" component={SessionFormContainer} />
+      <ProtectedRoute path='/' component={NavBarContainer} />
     </Switch>
   </div>
 );

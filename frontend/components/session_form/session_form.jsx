@@ -46,10 +46,6 @@ class SessionForm extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
-    // componentDidMount() {
-    //     this.props.removeErrors();
-    // }
-
     demoLogin() {
         this.setState({username: "johnJonah", email: "jj@dailybugle.com", password: "starwars"});
     }
