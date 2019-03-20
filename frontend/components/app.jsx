@@ -10,7 +10,7 @@ import {
 
 import NavBarContainer from './nav_bar/nav_bar_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
-import PostIndexContainer from './post_index/post_index_container';
+import PostIndexContainer from './post/post_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = (props) => (
