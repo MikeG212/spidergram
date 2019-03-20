@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoLogin = this.demoLogin.bind(this);
+        this.submitButton = this.submitButton.bind(this);
     }
 
     update(field) {
@@ -18,6 +19,8 @@ class SessionForm extends React.Component {
             [field]: e.currentTarget.value
         });
     }
+
+
 
     navLink() {
         if (this.props.formType === "login") {
@@ -61,6 +64,18 @@ class SessionForm extends React.Component {
         }
     }
 
+    submitButton() {
+        if (this.props.formType === "login") {
+            return (
+                <input className="session-button submit-button" type="submit" value="Login" />
+            );
+        } else {
+            return (
+                <input className="session-button submit-button" type="submit" value="Sign up" />
+            );
+        }
+    }
+
     render() {
         return (
                 <div className="container">
@@ -97,7 +112,7 @@ class SessionForm extends React.Component {
                                             />
                                         </label>
                                         <br />
-                                        <input className="session-button submit-button" type="submit" value={this.props.formType} />
+                                        {this.submitButton()}
                                         <br />
                                     {this.demoLoginButton()}
                                     {this.renderErrors()}
