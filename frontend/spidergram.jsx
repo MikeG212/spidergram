@@ -18,16 +18,15 @@ import {
   receivePost,
   createPost
 } from './actions/post_actions';
+window.store = configureStore();
+window.dispatch = store.dispatch;
+window.getState = store.dispatch;
 window.requestPosts = requestPosts;
 window.requestPost = requestPost;
 window.receivePosts = receivePosts;
 window.receivePost = receivePost;
 window.createPost = createPost;
 // testing Post Actions from the console
-
-import { requestUser } from './actions/post_actions';
-window.store = configureStore();
-window.requestUser = requestUser;
 
 
 document.addEventListener('DOMContentLoaded', () => {

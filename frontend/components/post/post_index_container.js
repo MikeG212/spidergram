@@ -10,7 +10,7 @@ const mapStateToProps = ({ posts }) => {
     });
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
     requestPosts: () => dispatch(requestPosts())
 });
 
