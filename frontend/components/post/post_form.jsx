@@ -1,32 +1,42 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class PostForm extends React.component{
    constructor(props) {
        super(props);
+       this.handleSubmit = this.handleSubmit.bind(this);
        this.state = this.props.post;
+    }
 
-       this.updateImage = this.updateImage.bind(this);
-       this.updateCaption = this.updateCaption.bind(this);
-   }
+    update(field) {
+        return (e) => {
+            this.setState({ [field]: e.target.value });
+        };
+    }
 
-   updateImage(e) {
-       this.setState({ image_url: e.currentTarget.value })
-   }
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.action(this.state);
+    }
 
-   updateCaption(e) {
-       this.setState({ caption: e.currentTarget.value })
-   }
     render () {
         return (
             <div>
-                <form onSubmit={() => this.props.action(this.state)}>
-                    <input onChange={this.props} type="submit" value="submit"/>
-                    <img src={image_url} alt={caption}/>
+                <h3>{this.props.formType}</h3>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="caption">
+                     <input
+                            type="text"
+                            value={this.state.caption}
+                            onChange={this.update('caption')} />
+                    </label>
+
+                    <input type="submit" value={this.props.formType} />
                 </form>
             </div>
         );
     }
 }
 
-export default PostForm;
+export default withRouter(PostForm);
 

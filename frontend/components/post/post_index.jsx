@@ -1,23 +1,32 @@
 import React from 'react';
+import PostIndexItem from './post_index_item';
+import CreatePostFormContainer from './create_post_form_container';
 
 class PostIndex extends React.Component {
+    
     componentDidMount() {
         this.props.fetchPosts();
     }
 
     render() {
+        const posts = this.props.posts.map(post => { //2
+            return (
+                <PostIndexItem
+                    key={post.id}
+                    post={post}
+                    deletePost={this.props.deletePost} />
+            );
+        });
+
         return (
             <div>
-                <CreatePostFormContainer />
                 <ul>
-                    {this.props.posts.map(post => {
-                        return <PostIndexItem post={post} deletePost={this.props.deletePost}/>;
-                    })}
+                    {posts}
                 </ul>
+                <CreatePostFormContainer />
             </div>
         );
     }
 }
 
-// <PostIndexItem post={post} key={post.id} />
 export default PostIndex;

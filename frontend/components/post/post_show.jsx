@@ -9,9 +9,9 @@ class PostShow extends React.Component {
     render() {
         return (
             <div>
-                {this.props.post.caption}
-                {this.props.post.image_url}
-                <Link to="/">Index</Link>
+                <h3>{this.props.post.caption}</h3>
+                <p>{this.props.post.image_url}</p>
+                <Link to="/">Back to Index</Link>
             </div>
         );
     };
