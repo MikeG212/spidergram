@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPost: id => dispatch(fetchPost(id))
+        fetchPost: id => dispatch(fetchPost(id)),
     };
 };
 
