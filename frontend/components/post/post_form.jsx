@@ -3,10 +3,7 @@ import React from 'react';
 class PostForm extends React.component{
    constructor(props) {
        super(props);
-       this.state = {
-           caption: '',
-           image_url: '',
-       };
+       this.state = this.props.post;
 
        this.updateImage = this.updateImage.bind(this);
        this.updateCaption = this.updateCaption.bind(this);

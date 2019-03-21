@@ -4,7 +4,10 @@ import PostForm  from './post_form';
 import { fetchPost, updatePost } from '../../actions/post_actions';
 
 class EditPostForm extends React.Component {
-    
+    componentDidMount() {
+        this.props.fetchPost(this.props.match.params.postId);
+    }
+
     render() {
         const {action, formType, post } = this.props;
         return (
@@ -25,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPost: id => dispatch(fetchPost(id)),
-        updatePost: post => dispatch(updatePost(post))
+        action: post => dispatch(updatePost(post))
     };
 };
 
