@@ -7,7 +7,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find(params[:id])
     render :show
   end
 
@@ -18,6 +18,26 @@ class Api::PostsController < ApplicationController
       render :show
     else
       render ({ json: @post.errors.full_messages, status: 422 })
+    end
+  end
+
+    def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      render :show
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+
+    if @post.destroy
+      render :show
+    else
+      render json: @post.errors.full_messages, status: 422
     end
   end
 
