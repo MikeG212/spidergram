@@ -1,35 +1,45 @@
-export const RECEIVE_POSTS = "RECEIVE_POSTS";
+import * as PostApiUtil from '../util/post_api_util'
+
+export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
-export const REQUEST_POSTS = "REQUEST_POSTS";
-export const REQUEST_POST = "REQUEST_POST";
-export const CREATE_POST = "CREATE_POST";
-export const CLEAR_POSTS = "CLEAR_POSTS";
+export const REMOVE_POST = "REMOVE_POST";
 
-export const requestPosts = () => ({
-    type: REQUEST_POSTS
-});
+export const fetchPosts = () => {
+    return dispatch => {
+        return PostApiUtil.fetchPosts().then(posts => {
+            return dispatch({type: RECEIVE_ALL_POSTS, posts: posts });
+        });
+    };
+};
 
-export const requestPost = id => ({
-    type: REQUEST_POST,
-    id
-});
+export const fetchPost = (id) => {
+    return dispatch => {
+        return PostApiUtil.fetchPost(id).then(post => {
+            return dispatch({ type: RECEIVE_POST, post: post });
+        });
+    };
+};
 
-export const receivePosts = posts => ({
-    type: RECEIVE_POSTS,
-    posts
-});
+export const createPost = (post) => {
+    return dispatch => {
+        return PostApiUtil.createPost(post).then(postFromServer => {
+            return dispatch({ type: RECEIVE_POST, post: postFromServer });
+        });
+    };
+}; 
 
-export const receivePost = post => ({
-    type: RECEIVE_POST,
-    post
-});
+export const updatePost = (post) => {
+    return dispatch => {
+        return PostApiUtil.updatePost(post).then(postFromServer => {
+            return dispatch({ type: RECEIVE_POST, post: postFromServer });
+        });
+    };
+};
 
-export const createPost = (post, success) => ({
-    type: CREATE_POST,
-    success,
-    post
-});
-
-export const clearPosts = () => ({
-    type: CLEAR_POSTS
-});
+export const deletePost = (id) => {
+    return dispatch => {
+        return PostApiUtil.deletePost(id).then(() => {
+            return dispatch({ type: REMOVE_POST, postId: id });
+        });
+    };
+};

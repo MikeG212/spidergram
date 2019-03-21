@@ -1,26 +1,19 @@
 import React from 'react';
 
 class PostIndex extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.images = this.images.bind(this);
-    }
-
     componentDidMount() {
-        this.props.requestPosts();
-    }
-
-    images() {
-        return this.props.posts.map(post => (
-            <img src={post.image_url} key={post.id} height="500" width="500" />
-        ));
+        this.props.fetchPosts();
     }
 
     render() {
         return (
             <div>
-                {this.images()}
+                <CreatePostFormContainer />
+                <ul>
+                    {this.props.posts.map(post => {
+                        return <PostIndexItem post={post} deletePost={this.props.deletePost}/>;
+                    })}
+                </ul>
             </div>
         );
     }
