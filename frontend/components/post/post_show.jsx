@@ -10,7 +10,7 @@ class PostShow extends React.Component {
         return (
             <div>
                 <h3>{this.props.post.caption}</h3>
-                <p>{this.props.post.image_url}</p>
+                <img className="postImage" src={this.props.post.image_url} alt={this.props.post.caption}/>
                 <Link to="/">Back to Index</Link>
             </div>
         );

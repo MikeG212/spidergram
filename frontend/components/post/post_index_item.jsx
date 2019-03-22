@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-const PostIndexItem = ({ post, deletePost }) => { //1
+const PostIndexItem = ({ post, deletePost }) => {
     return (
         <li>
             <Link to={`/posts/${post.id}`}>
@@ -10,7 +10,7 @@ const PostIndexItem = ({ post, deletePost }) => { //1
             <Link to={`/posts/${post.id}/edit`}>
                 Edit
             </Link>
-            <button onClick={() => deletePost(post.id)}>Delete</button> //5
+            <button onClick={() => deletePost(post.id)}>Delete</button>
         </li>);
 };
 
