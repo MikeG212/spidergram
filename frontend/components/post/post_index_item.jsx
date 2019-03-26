@@ -7,6 +7,9 @@ const PostIndexItem = ({ post, deletePost }) => {
             <Link to={`/posts/${post.id}`}>
                 {post.caption}
             </Link>
+            <br />
+            <img src={post.image_url} className="postImage" alt={post.caption}></img>
+            <br />
             <Link to={`/posts/${post.id}/edit`}>
                 Edit
             </Link>

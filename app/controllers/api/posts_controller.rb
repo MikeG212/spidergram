@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in
   
   def index
-    @posts = Post.all
+    @posts = Post.all.limit(10)
     render :index
   end
 
@@ -13,8 +13,8 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    debugger
     @post.user_id = current_user.id
+    @post.image_url = url_for(@post.photo) #is there a way to do this in the JSON file?
     if @post.save
       render :show
     else
