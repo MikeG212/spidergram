@@ -1,7 +1,56 @@
-.posts {
+.post-index-item {
   display: block;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 20px 0;
+  width: 600px;
+  border: 1px solid #dbdbdb;
+  background: white;
+}
+
+.post-index-item-header{
+  position: relative;
+  height: 50px;
+}
+
+.post-index-item-footer{
+  min-height: 153px;
+}
+
+.username-link {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+}
+
+.caption-holder {
+  margin: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.caption-username {
+  display: block;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 6px;
+  color: black;
+}
+
+.caption-text {
+  display: block;
+  float: left;
+  color: black;
+  font-size: 14px;
+  padding-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .new-post-container {
