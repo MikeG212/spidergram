@@ -35,7 +35,8 @@ class EditPostForm extends React.Component {
             <PostForm
                 action={action}
                 formType={formType}
-                post={post} />
+                post={post}
+                text="Edit"/>
         );
     }
 }

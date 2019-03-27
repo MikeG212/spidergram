@@ -5,7 +5,7 @@ import { createPost } from '../../actions/post_actions'
 
 const mapStateToProps = () => {
     const post = { caption: '', image_url: '' }
-    const formType = 'Create Post';
+    const formType = 'Upload';
 
     return { post, formType };
 };

@@ -16,10 +16,12 @@
   border-radius: 4px;
   outline: 0;
   border: 1px solid #dbdbdb;
+  padding: 10px;
   font-size: 13px;
   width: 263px;
   height: 25px;
   resize: vertical;
+  margin-bottom: 20px;
 }
 
 .choose-file-holder {

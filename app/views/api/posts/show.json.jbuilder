@@ -1,2 +1,1 @@
-  json.extract! @post, :id, :caption
-  json.image_url url_for(@post.photo)
+json.partial! '/api/posts/post', post: @post

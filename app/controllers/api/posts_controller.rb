@@ -14,7 +14,6 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.image_url = url_for(@post.photo) #is there a way to do this in the JSON file?
     if @post.save
       render :show
     else

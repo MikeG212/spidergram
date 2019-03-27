@@ -47,6 +47,10 @@
   white-space: nowrap;
 }
 
+img {
+  max-width: 600px
+}
+
 .explore-icon {
   background-position: -50px -355px;
   height: 24px;
@@ -239,4 +243,6 @@ li, ul {
 .post-image {
   height: 500px;
   width: 500px;
+  margin: 0 auto;
+  margin-top: 60px;
 }
