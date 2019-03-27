@@ -3,13 +3,16 @@ import PostIndexItem from './post_index_item';
 import CreatePostFormContainer from './create_post_form_container';
 
 class PostIndex extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     
     componentDidMount() {
         this.props.fetchPosts();
     }
 
     render() {
-        const posts = this.props.posts.map(post => { //2
+        const posts = this.props.posts.map(post => {
             return (
                 <PostIndexItem
                     key={post.id}
@@ -19,7 +22,7 @@ class PostIndex extends React.Component {
         });
 
         return (
-            <div>
+            <div className="post-index-items">
                 <ul>
                     {posts}
                 </ul>
