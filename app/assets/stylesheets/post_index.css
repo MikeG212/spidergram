@@ -3,13 +3,17 @@
   margin: 60px auto;
   padding: 20px 0;
   width: 600px;
-  border: 1px solid #dbdbdb;
+  max-width: 600px;
+  border: 1px solid #efefef;
   background: white;
 }
 
-.post-index-item-header{
+.post-index-item-header {
   position: relative;
+  display: flex;
   height: 50px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post-index-item-footer{
