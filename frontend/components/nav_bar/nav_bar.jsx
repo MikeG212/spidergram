@@ -1,5 +1,4 @@
 import React from 'react';
-import { hashHistory } from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props){
@@ -34,7 +33,7 @@ class NavBar extends React.Component {
                                     <a className="nav-link core-sprite profile-icon hide-text" href="#"></a>
                                 </li>
                             </ul>
-                            <button className="btn btn-outline-success logout my-2 my-sm-0" type="submit" onClick={this.props.logout}>Log Out</button>
+                            <button className="btn btn-outline-success logout my-2 my-sm-0" type="submit" onClick={() => this.props.logout()}>Log Out</button>
                         </div>
                     </div>
                 </nav>
@@ -42,13 +41,6 @@ class NavBar extends React.Component {
         );
 
     }
-
-    componentDidUpdate() {
-        if (!this.props.currentUser) {
-            hashHistory.push("/login");
-        }
-    }
-
 
     render() {
         return (

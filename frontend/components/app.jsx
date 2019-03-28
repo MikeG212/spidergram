@@ -20,14 +20,14 @@ const App = (props) => (
   <div className="boss-div">
     <ProtectedRoute component={NavBarContainer} />
     <Switch>
-      <AuthRoute exact path="/login" component= { SessionFormContainer } />
-      <AuthRoute exact path="/signup" component= { SessionFormContainer } />
-      <ProtectedRoute exact path= "/users/:userId" component= { UserShowContainer } />
-      <ProtectedRoute exact path="/" component= { PostIndexContainer } />
-      <ProtectedRoute exact path="/posts/:postId" component= { PostShowContainer } />
+      <AuthRoute path="/login" component= { SessionFormContainer } />
+      <AuthRoute path="/signup" component= { SessionFormContainer } />
+      <ProtectedRoute path= "/users/:userId" component= { UserShowContainer } />
+      <ProtectedRoute path="/posts/:postId" component= { PostShowContainer } />
       <ProtectedRoute path="/posts/:postId/edit" component= { EditPostFormContainer }/>
       <ProtectedRoute path="/upload" component= { EditPostFormContainer }/>
-
+      <ProtectedRoute exact path='/' component={ PostIndexContainer } />
+      <Redirect to="/" />
     </Switch>
   </div>
 );

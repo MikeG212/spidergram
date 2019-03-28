@@ -36,7 +36,9 @@ class PostForm extends React.Component{
         e.preventDefault();
         const formData = new FormData();
         formData.append('post[caption]', this.state.caption);
-        formData.append('post[photo]', this.state.photoFile);
+        if (this.state.photoFile) {
+            formData.append('post[photo]', this.state.photoFile);
+        }
 
         $.ajax({
             url: '/api/posts',
