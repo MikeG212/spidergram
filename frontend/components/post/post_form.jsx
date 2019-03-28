@@ -11,6 +11,7 @@ class PostForm extends React.Component{
            photoUrl: null
        };
        this.handleFile = this.handleFile.bind(this);
+       this.navigateToIndex = this.navigateToIndex.bind(this);
     }
 
     update(field) {
@@ -32,6 +33,11 @@ class PostForm extends React.Component{
         }
     }
 
+    navigateToIndex() {
+        debugger
+        this.props.history.push("/");
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
@@ -47,11 +53,11 @@ class PostForm extends React.Component{
             contentType: false,
             processData: false
         }).then(
-            () => console.log("Great Success"),
+            () => this.navigateToIndex(),
             () => console.log("Nope")
         );
 
-        // this.props.action(this.state);
+        this.navigateToIndex();
     }
 
     render () {
@@ -87,7 +93,7 @@ class PostForm extends React.Component{
                         </div>
                     </form>
                     <div className="button-holder">
-                        <button className="new-post-button cancel-button">Cancel</button>
+                        <button className="new-post-button cancel-button" onClick={this.navigateToIndex}>Cancel</button>
                     </div>
                 </div>
             </div>
