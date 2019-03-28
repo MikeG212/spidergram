@@ -15,7 +15,7 @@ class Api::PostsController < ApplicationController
     debugger
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.image_url = url_for(@post.photo) #how do i do this not in the controller?
+    @post.image_url = url_for(@post.photo)
     if @post.save
       render :show
     else
