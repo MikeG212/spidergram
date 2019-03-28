@@ -25,7 +25,7 @@ const NavBar = ({ currentUser, logout }) => {
                     </form>
                     <ul className="navbar-nav ml-md-auto">
                         <li className="nav-item">
-                            <a className="nav-link core-sprite explore-icon hide-text" href="#"></a>
+                            <a className="nav-link core-sprite upload-icon hide-text" href="#/upload"></a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link core-sprite notification-icon hide-text" href="#"></a>

@@ -19,6 +19,19 @@ class UserShow extends React.Component {
         }
     }
 
+    renderEmail() {
+        if (this.props.user) {
+            let user = Object.values(this.props.user)[0];
+            return <div className="currentEmail">{user.email}</div>;
+        } else {
+            return <div></div>;
+        }
+    }
+
+    //username
+    //# of posts
+    //email address
+    //show posts in rows of 3
     render() {
         return (
             <div>
@@ -26,6 +39,10 @@ class UserShow extends React.Component {
                 <div className="currentUsernameHolder">
                     Username:
                     {this.renderUsername()}
+                </div>
+                <div className="currentEmailHolder">
+                    Email:
+                    {this.renderEmail()}
                 </div>
                 <button onClick={()=> this.props.logout()}>Logout</button>
             </div>
