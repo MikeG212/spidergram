@@ -26,7 +26,6 @@ class PostIndex extends React.Component {
                 <ul>
                     {posts}
                 </ul>
-                <CreatePostFormContainer />
             </div>
         );
     }

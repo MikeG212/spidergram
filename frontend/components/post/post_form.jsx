@@ -5,7 +5,11 @@ class PostForm extends React.Component{
    constructor(props) {
        super(props);
        this.handleSubmit = this.handleSubmit.bind(this);
-       this.state = this.props.post;
+       this.state = {
+           caption: "",
+           photoFile: null,
+           photoUrl: null
+       };
        this.handleFile = this.handleFile.bind(this);
     }
 
@@ -16,7 +20,16 @@ class PostForm extends React.Component{
     }
 
     handleFile(e) {
-        this.setState({ photoFile: e.currentTarget.files[0] });
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+
+            this.setState({ photoFile: file, photoUrl: fileReader.result });
+        };
+        if (file) {
+            debugger
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSubmit(e) {
@@ -41,6 +54,7 @@ class PostForm extends React.Component{
 
     render () {
         console.log(this.state);
+        const preview = this.state.photoUrl ? <img className="image-preview" src={this.state.photoUrl} /> : null; 
         return (
             <div className="new-post-container">
                 <div className="new-post-form">
@@ -52,6 +66,9 @@ class PostForm extends React.Component{
                                 className="new-post-field choose-file-button"/>
                             <div className="choose-file-mask">Choose File
                             </div>
+                        </div>
+                        <div className="preview-holder">
+                            {preview}
                         </div>
 
                         <img className="upload" src={this.state.imageUrl} />

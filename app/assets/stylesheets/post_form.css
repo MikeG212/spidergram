@@ -10,16 +10,30 @@
   padding: 0 30px 30px 30px;
 }
 
+.preview-holder {
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  border: 1px lightgrey solid;
+  border-radius: 8px;
+}
+
+.image-preview {
+  max-height: 400px;
+  width: 400px;
+  max-width: 400px;
+}
+
 .caption-field {
   display: block;
   margin: 20px auto;
   border-radius: 4px;
   outline: 0;
   border: 1px solid #dbdbdb;
-  padding: 10px;
-  font-size: 13px;
+  padding: 2px;
+  font-size: 30px;
   width: 263px;
-  height: 25px;
+  height: 40px;
   resize: vertical;
   margin-bottom: 20px;
 }
