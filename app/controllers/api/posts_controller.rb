@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in
   
   def index
-    @posts = Post.all.limit(10)
+    @posts = Post.all.limit(10).order('created_at DESC')
     render :index
   end
 

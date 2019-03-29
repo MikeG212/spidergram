@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
+import { allPosts } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        posts:  Object.values(state.posts)
+        posts:  allPosts(state),
+        state
     };
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import CommentListContainer from '../comment_list/comment_list_container';
 
 class PostIndexItem extends React.Component {
     constructor(props) {
@@ -25,30 +26,15 @@ class PostIndexItem extends React.Component {
                         <div className="caption-username">@{ username } </div>
                         <div className="caption-text">{this.props.post.caption}</div>   
                     </div>
+                    <div className="comment-holder">
+                        <CommentListContainer postId={this.props.post.id} />
+                    </div>
                     <div className="post-index-item-created-at">{month}-{date}</div>
                 </div>
             </div>
         )
     }
 }
-
-// const PostIndexItem = ({ post, deletePost }) => {
-
-//     return (
-//         <li className="post-index-item">
-//             <Link to={`/posts/${post.id}`}>
-//                 {post.caption}
-//             </Link>
-//             <br />
-//             <img src={post.image_url} className="post-image" alt={post.caption}></img>
-//             <br />
-//             <Link to={`/posts/${post.id}/edit`}>
-//                 Edit
-//             </Link>
-//             <button onClick={() => deletePost(post.id)}>Delete</button>
-//         </li>);
-// };
-
 
 
 export default PostIndexItem;
