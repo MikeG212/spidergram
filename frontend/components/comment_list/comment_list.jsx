@@ -4,6 +4,7 @@ import CommentListItemContainer from './comment_list_item_container';
 import CommentForm from './comment_form';
 
 const CommentList = ({ comments, post_id, receiveComment }) => {
+    debugger
     const commentItems = comments.map(comment => (
         <CommentListItemContainer
             key={comment.id}

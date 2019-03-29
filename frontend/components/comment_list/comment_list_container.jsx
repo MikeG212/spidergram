@@ -13,7 +13,4 @@ const mapDispatchToProps = dispatch => ({
     receiveComment: comment => dispatch(receiveComment(comment))
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CommentList);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentList);

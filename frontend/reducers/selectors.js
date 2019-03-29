@@ -1,4 +1,7 @@
-export const allPosts = ({ posts }) => Object.keys(posts).map(id => posts[id]);
+export const allPosts = ({ posts }) => {
+    debugger
+    return Object.keys(posts).map(id => posts[id]);
+};
 
 export const commentsByPostId = ({ comments }, post_id) => {
     debugger
