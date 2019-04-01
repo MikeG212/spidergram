@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
-import { receiveComments } from '../../actions/comment_actions';
+import { receiveComments } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {

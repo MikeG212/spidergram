@@ -28,13 +28,11 @@ class PostForm extends React.Component{
             this.setState({ photoFile: file, photoUrl: fileReader.result });
         };
         if (file) {
-            debugger
             fileReader.readAsDataURL(file);
         }
     }
 
     navigateToIndex() {
-        debugger
         this.props.history.push("/");
     }
 
@@ -45,18 +43,7 @@ class PostForm extends React.Component{
         if (this.state.photoFile) {
             formData.append('post[photo]', this.state.photoFile);
         }
-
-        $.ajax({
-            url: '/api/posts',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(
-            () => this.navigateToIndex(),
-            () => console.log("Nope")
-        );
-
+        this.props.action(formData)
         this.navigateToIndex();
     }
 

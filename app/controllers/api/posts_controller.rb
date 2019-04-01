@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in
   
   def index
-    @posts = Post.all.limit(10).order('created_at DESC')
+    @posts = Post.all.limit(10)
     render :index
   end
 
@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
     end
   end
 
-    def update
+  def update
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
