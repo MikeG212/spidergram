@@ -3,6 +3,7 @@ import PostShow from './post_show';
 import { fetchPost } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
         post: state.posts[ownProps.match.params.postId]
     };

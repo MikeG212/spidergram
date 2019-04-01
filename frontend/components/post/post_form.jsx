@@ -61,7 +61,6 @@ class PostForm extends React.Component{
     }
 
     render () {
-        console.log(this.state);
         const preview = this.state.photoUrl ? <img className="image-preview" src={this.state.photoUrl} /> : null; 
         return (
             <div className="new-post-container">

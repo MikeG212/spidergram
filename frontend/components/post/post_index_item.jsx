@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        debugger
+        const postId = this.props.post.id;
+        this.props.history.push(`/posts/${postId}`);
     }
 
     render() {
@@ -12,7 +19,7 @@ class PostIndexItem extends React.Component {
         let date = this.props.post.created_at.slice(8, 10);
 
         return(
-            <div className="post-index-item">
+            <div className="post-index-item" onClick={this.handleClick}>
                 <div className="post-index-item-header">
                     <h5 className="username-link">
                         @{ username }
@@ -32,23 +39,4 @@ class PostIndexItem extends React.Component {
     }
 }
 
-// const PostIndexItem = ({ post, deletePost }) => {
-
-//     return (
-//         <li className="post-index-item">
-//             <Link to={`/posts/${post.id}`}>
-//                 {post.caption}
-//             </Link>
-//             <br />
-//             <img src={post.image_url} className="post-image" alt={post.caption}></img>
-//             <br />
-//             <Link to={`/posts/${post.id}/edit`}>
-//                 Edit
-//             </Link>
-//             <button onClick={() => deletePost(post.id)}>Delete</button>
-//         </li>);
-// };
-
-
-
-export default PostIndexItem;
+export default withRouter(PostIndexItem);
