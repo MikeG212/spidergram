@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 
 class PostShow extends React.Component {
     componentDidMount() {
-        debugger
         this.props.fetchPost(this.props.match.params.postId);
     }
 
     render() {
-        debugger
         const { post } = this.props;
 
         if (!post) {

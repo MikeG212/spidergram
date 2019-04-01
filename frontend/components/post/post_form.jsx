@@ -28,13 +28,11 @@ class PostForm extends React.Component{
             this.setState({ photoFile: file, photoUrl: fileReader.result });
         };
         if (file) {
-            debugger
             fileReader.readAsDataURL(file);
         }
     }
 
     navigateToIndex() {
-        debugger
         this.props.history.push("/");
     }
 

@@ -5,6 +5,8 @@ import Root from './components/root';
 
 // testing Post Actions from the console
 
+import { createComment } from './actions/post_actions'
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -19,6 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
+
+    window.dispatch = store.dispatch;
+    window.getState = store.dispatch;
+    window.createComment = createComment;
+
+
+
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={ store }/>, root);
 });
