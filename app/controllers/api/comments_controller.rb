@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    if params.has_key?(:post_id) #make this general for post_id or user_id
+    if params.has_key?(:post_id)
       @comments = Comment.where(post_id: params[:post_id])
     else
       @comments = Comment.all
@@ -15,10 +15,9 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
 
     if @comment.save
-      render_post_show(@comment)
+      render json: @comment
     else
       render json: @comment, status: :unprocessable_entity
     end
@@ -32,6 +31,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body, :post_id, :user_id)
   end
 end

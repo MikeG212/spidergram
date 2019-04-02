@@ -6,6 +6,7 @@ import {
 } from '../actions/post_actions';
 
 const commentsReducer = (state = {}, action) => {
+    debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_POST:

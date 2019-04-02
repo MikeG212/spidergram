@@ -14,7 +14,6 @@ class CommentForm extends React.Component {
     }
 
     update(property) {
-        debugger
         return e => this.setState({ [property]: e.target.value });
     }
 
@@ -23,7 +22,7 @@ class CommentForm extends React.Component {
         const comment = this.state;
         debugger
         this.setState({ body: "" });
-        this.props.createComment({ comment });
+        this.props.createComment(comment);
     }
 
     render() {
