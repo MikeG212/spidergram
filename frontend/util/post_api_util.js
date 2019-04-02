@@ -12,14 +12,6 @@ export const fetchPost = (id) => {
     });
 };
 
-export const fetchComments = (postId) => {
-    return $.ajax({
-        method: 'GET',
-        url: `/api/comments/${postId}`,
-        data: { postId }
-    });
-};
-
 export const createPost = (post) => {
     return $.ajax({
         method: 'POST',

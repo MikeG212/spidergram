@@ -10,16 +10,13 @@ class PostIndexItem extends React.Component {
         // this.handleClick = this.handleClick.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.props.fetchComments(postId);
-    // }
-
     // handleClick() {
     //     const postId = this.props.post.id;
     //     this.props.history.push(`/posts/${postId}`);
     // }
 
     render() {
+        debugger
         const username = this.props.post.user.username;
         const month = this.props.post.created_at.slice(5, 7);
         const date = this.props.post.created_at.slice(8, 10);

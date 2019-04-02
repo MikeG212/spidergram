@@ -19,14 +19,6 @@ export const receiveComments = comments => ({
     comments,
 });
 
-export const fetchComments = postId => {
-    return dispatch => {
-        PostAPIUtil.fetchBenches(postId).then(comments => {
-            return dispatch(receiveComments(comments));
-        });
-    }
-};
-
 export const receiveComment = ({ comment, body, user }) => ({
     type: RECEIVE_COMMENT,
     comment,
