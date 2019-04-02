@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom"
 // import CommentListItemContainer from "../comment/comment_list_container"
-import CommentFormContainer from "../comment/comment_form"
+import CommentFormContainer from "../comment/comment_form_container"
 
 
 class PostIndexItem extends React.Component {
