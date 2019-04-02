@@ -3,9 +3,13 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  def index
+    Comment.where(id: post_id)
+  end
+
   def create
-    # @comment = current_user.comments.new(comment_params)
     @comment = Comment.new(comment_params)
+    @commer.user_id = current_user.id
 
     if @comment.save
       render_post_show(@comment)

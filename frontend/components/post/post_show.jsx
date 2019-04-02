@@ -28,6 +28,7 @@ class PostShow extends React.Component {
                         <div className="caption-text">{post.caption}</div>
                     </div>
                     <div className="post-index-item-created-at">{month}-{date}</div>
+                    <CommentForm postId={post.id} />
                 </div>
                 <Link to="/">Back to Index</Link>
             </div>

@@ -1,36 +1,40 @@
 import React from "react";
 import { withRouter } from "react-router-dom"
-import CommentListItemContainer from "../comment/comment_list_container"
+// import CommentListItemContainer from "../comment/comment_list_container"
+import CommentFormContainer from "../comment/comment_form"
+
 
 class PostIndexItem extends React.Component {
     constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
+        super(props);        
+        // this.handleClick = this.handleClick.bind(this);
     }
 
-    
+    // componentDidMount() {
+    //     this.props.fetchComments(postId);
+    // }
 
-    handleClick() {
-        const postId = this.props.post.id;
-        this.props.history.push(`/posts/${postId}`);
-    }
+    // handleClick() {
+    //     const postId = this.props.post.id;
+    //     this.props.history.push(`/posts/${postId}`);
+    // }
 
     render() {
-        let username = this.props.post.user.username;
-        let month = this.props.post.created_at.slice(5, 7);
-        let date = this.props.post.created_at.slice(8, 10);
-
-        const commentList = (comment) => {
-            return comments.map(comment => (
-                <CommentListItemContainer
-                    comment={comment}
-                    key={comment.id}
-                />
-            ))
-        }
+        const username = this.props.post.user.username;
+        const month = this.props.post.created_at.slice(5, 7);
+        const date = this.props.post.created_at.slice(8, 10);
+        const postId = this.props.post.id;
+        // const commentList = (comments) => {
+        //     return comments.map(comment => (
+        //         <CommentListItemContainer
+        //             comment={comment}
+        //             key={comment.id}
+        //         />
+        //     ))
+        // }
 
         return (
-            <div className="post-index-item" onClick={this.handleClick}>
+            <div className="post-index-item">
                 <div className="post-index-item-header">
                     <h5 className="username-link">
                         @{username}
@@ -44,7 +48,8 @@ class PostIndexItem extends React.Component {
                         <div className="caption-text">{this.props.post.caption}</div>
                     </div>
                     <div className="post-index-item-created-at">{month}-{date}</div>
-                    {commentList(comment)}
+                    {/* {commentList(comments)} */}
+                    <CommentFormContainer postId={postId}/>
                 </div>
             </div>
         )

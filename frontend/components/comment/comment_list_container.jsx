@@ -4,11 +4,7 @@ import { connect } from 'react-redux';
 const Comment = ({ comment, user }) => {
     const { body } = comment;
     return (
-        <div>
-            <ul>
-                <li>{body} - by {user.username}</li>
-            </ul>
-        </div>
+        <li>{body} - by {user.username}</li>
     );
 };
 
