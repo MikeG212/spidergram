@@ -3,4 +3,3 @@ json.user do
   json.username post.user.username
 end
 json.image_url url_for(post.photo)
-json.commentIds []
