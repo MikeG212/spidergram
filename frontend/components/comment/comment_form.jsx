@@ -22,7 +22,7 @@ class CommentForm extends React.Component {
         const comment = this.state;
         debugger
         this.setState({ body: "" });
-        this.props.createComment(comment);
+        this.props.createComment({ comment });
     }
 
     render() {

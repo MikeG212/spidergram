@@ -8,8 +8,6 @@ const usersReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return merge({}, state, { [action.currentUser.id]: action.currentUser });
-        case RECEIVE_COMMENT:
-            return merge({}, state, { [action.user.id]: action.user });
         case RECEIVE_POST:
             return merge({}, state, action.users);
         default:

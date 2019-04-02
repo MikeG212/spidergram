@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     debugger
     return {
         posts:  Object.values(state.posts),
@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    //import and add fetch comments here THX
 });
 
 export default connect(

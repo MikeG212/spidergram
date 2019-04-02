@@ -20,13 +20,14 @@ export const createPost = (post) => {
     });
 };
 
-export const createComment = comment => (
-    $.ajax({
+export const makeComment = data => {
+    debugger
+    return $.ajax({
         method: 'POST',
         url: 'api/comments',
-        data: { comment }
+        data
     })
-);
+};
 
 export const updatePost = (post) => {
     return $.ajax({

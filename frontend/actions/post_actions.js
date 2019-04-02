@@ -4,7 +4,6 @@ export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
-export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 
 export const fetchPosts = () => {
     return dispatch => {
@@ -14,17 +13,13 @@ export const fetchPosts = () => {
     };
 };
 
-export const receiveComments = comments => ({
-    type: RECEIVE_COMMENTS,
-    comments,
-});
-
-export const receiveComment = ({ comment, body, user }) => ({
-    type: RECEIVE_COMMENT,
-    comment,
-    body,
-    user,
-});
+export const receiveComment = (comment) => {
+    debugger
+    return {
+        type: RECEIVE_COMMENT,
+        comment
+    };
+};
 
 export const fetchPost = (id) => {
     return dispatch => {
@@ -59,8 +54,9 @@ export const deletePost = (id) => {
 };
 
 export const createComment = (comment) => {
+    debugger
     return dispatch => {
-        return PostApiUtil.createComment(comment).then(comment => {
+        return PostApiUtil.makeComment(comment).then(comment => {
             return dispatch(receiveComment(comment));
         });
     };

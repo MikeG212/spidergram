@@ -8,6 +8,7 @@
 
 # User.destroy_all
 # Post.destroy_all
+# Comment.destroy_all
 
 # johnJonah= User.create!({username: "johnJonah", email: "jj@dailybugle.com", password: "starwars"})
 # peterParker = User.create!({username: "pParker", email: "peter@dailybugle.com", password: "starwars"})

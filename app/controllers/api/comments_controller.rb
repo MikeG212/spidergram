@@ -17,16 +17,16 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render json: @comment
+      render 'api/comments/show'
     else
       render json: @comment, status: :unprocessable_entity
     end
   end
 
-  def render_post_show(comment)
-    @post = comment.post
-    render 'api/posts/show'
-  end
+  # def render_post_show(comment)
+  #   @post = comment.post
+  #   render 'api/posts/show'
+  # end
 
   private
 
