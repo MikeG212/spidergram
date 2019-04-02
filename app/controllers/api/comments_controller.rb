@@ -4,12 +4,18 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    Comment.where(id: post_id)
+    if params.has_key?(:post_id) #make this general for post_id or user_id
+      @comments = Comment.where(post_id: params[:post_id])
+    else
+      @comments = Comment.all
+    end
+
+    render json: @comments
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @commer.user_id = current_user.id
+    @comment.user_id = current_user.id
 
     if @comment.save
       render_post_show(@comment)

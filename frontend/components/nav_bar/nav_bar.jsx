@@ -43,11 +43,11 @@ class NavBar extends React.Component {
     }
 
     render() {
-        return (
-            <div className="nav-container">
-                { this.showNavBar() }
-            </div>
-        );
+        if (this.props.currentUser) {
+            return this.showNavBar();
+        } else {
+            return (<div className="empty-nav-container"></div>)
+        }
     }
 }
 

@@ -2,8 +2,12 @@ import { connect } from 'react-redux';
 import CommentForm from './comment_form';
 import { createComment } from '../../actions/post_actions';
 
-const mapStateToProps = state => {
-    return { currentUser: state.session.currentUser };
+const mapStateToProps = ({ session, entities: { users } }, postId) => {
+    debugger
+    return {
+        currentUser: users[session.id],
+        postId
+    };
 };
 
 const mapDispatchToProps = dispatch => ({

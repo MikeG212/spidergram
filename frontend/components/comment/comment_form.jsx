@@ -6,7 +6,7 @@ class CommentForm extends React.Component {
 
         this.state = {
             body: "",
-            // user_id: this.props.currentUser.id,
+            user_id: this.props.currentUser.id,
             post_id: this.props.postId
         };
         this.handleSubmit = this.handleSubmit.bind(this);
