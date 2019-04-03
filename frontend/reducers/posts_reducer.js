@@ -12,9 +12,9 @@ const PostsReducer = (state = {}, action) => {
             return merge({}, state, newPost);
         case RECEIVE_COMMENT:
             debugger
-            const { comment } = action;
+            const comment = action.comment;
             let newState = merge({}, state);
-            newState[action.comment.post_id].commentIds.push(comment.id);
+            newState[comment.post_id].commentIds.push(comment.id); //newState is not properly merging and the comment is being nested THX
             return newState;
         case REMOVE_POST:
             const deletedState = merge({}, state);

@@ -13,11 +13,11 @@ export const fetchPosts = () => {
     };
 };
 
-export const receiveComment = (comment) => {
+export const receiveComment = (commentFromServer) => {
     debugger
     return {
         type: RECEIVE_COMMENT,
-        comment
+        comment: commentFromServer
     };
 };
 
