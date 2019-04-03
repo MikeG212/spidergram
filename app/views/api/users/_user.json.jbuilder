@@ -1,2 +1,2 @@
 json.extract! user, :id, :username, :email
-json.posts user.posts
+json.posts user.posts.pluck(:id)

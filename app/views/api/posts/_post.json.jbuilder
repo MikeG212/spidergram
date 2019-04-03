@@ -1,6 +1,7 @@
-json.extract! post, :id, :user_id, :caption, :created_at
-json.user do
+json.extract! post, :id, :caption, :created_at
+json.author do
   json.username post.user.username
+  json.id post.user_id
 end
 json.image_url url_for(post.photo)
-json.commentIds []
+json.commentIds post.comments.pluck(:id)
