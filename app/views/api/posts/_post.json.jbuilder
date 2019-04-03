@@ -4,4 +4,3 @@ json.author do
   json.id post.user_id
 end
 json.image_url url_for(post.photo)
-json.commentIds post.comments.pluck(:id)

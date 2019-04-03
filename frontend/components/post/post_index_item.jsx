@@ -24,14 +24,16 @@ class PostIndexItem extends React.Component {
         const month = this.props.post.created_at.slice(5, 7);
         const date = this.props.post.created_at.slice(8, 10);
         const postId = this.props.post.id;
-        // const commentList = (comments) => {
-        //     return comments.map(comment => (
-        //         <CommentListItemContainer
-        //             comment={comment}
-        //             key={comment.id}
-        //         />
-        //     ))
-        // }
+        const commentIds = this.props.post.commentIds;
+        debugger
+        const commentIds = (comments) => {
+            return comments.map(comment => (
+                <CommentListItemContainer
+                    comment={comment}
+                    key={comment.id}
+                />
+            ))
+        }
 
         return (
             <div className="post-index-item">
