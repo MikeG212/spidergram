@@ -14,7 +14,6 @@ export const fetchPosts = () => {
 };
 
 export const receiveComment = (commentFromServer) => {
-    debugger
     return {
         type: RECEIVE_COMMENT,
         comment: commentFromServer
@@ -54,7 +53,6 @@ export const deletePost = (id) => {
 };
 
 export const createComment = (comment) => {
-    debugger
     return dispatch => {
         return PostApiUtil.makeComment(comment).then(comment => {
             return dispatch(receiveComment(comment));

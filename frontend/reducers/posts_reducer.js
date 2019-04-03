@@ -2,7 +2,6 @@ import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST, RECEIVE_COMMENT } from '.
 import merge from 'lodash/merge';
 
 const PostsReducer = (state = {}, action) => {
-    debugger
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_ALL_POSTS:
@@ -11,7 +10,7 @@ const PostsReducer = (state = {}, action) => {
             const newPost = { [action.post.id]: action.post };
             return merge({}, state, newPost);
         case RECEIVE_COMMENT:
-            debugger
+    
             const comment = action.comment;
             let newState = merge({}, state);
             newState[comment.post_id].commentIds.push(comment.id); //newState is not properly merging and the comment is being nested THX

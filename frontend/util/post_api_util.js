@@ -21,7 +21,6 @@ export const createPost = (post) => {
 };
 
 export const makeComment = data => {
-    debugger
     return $.ajax({
         method: 'POST',
         url: 'api/comments',

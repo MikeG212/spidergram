@@ -16,8 +16,7 @@ class PostIndexItem extends React.Component {
     // }
 
     render() {
-        debugger
-        const username = this.props.post.user.username;
+        const username = this.props.post.author.username;
         const month = this.props.post.created_at.slice(5, 7);
         const date = this.props.post.created_at.slice(8, 10);
         const postId = this.props.post.id;
