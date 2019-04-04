@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom"
-// import CommentListItemContainer from "../comment/comment_list_container"
 import CommentFormContainer from "../comment/comment_form_container"
 
 
@@ -9,10 +8,6 @@ class PostIndexItem extends React.Component {
         super(props);        
         // this.handleClick = this.handleClick.bind(this);
     }
-
-    // componentDidMount() {
-    //     this.props.fetchComments(postId);
-    // }
 
     // handleClick() {
     //     const postId = this.props.post.id;
@@ -25,15 +20,10 @@ class PostIndexItem extends React.Component {
         const date = this.props.post.created_at.slice(8, 10);
         const postId = this.props.post.id;
         const commentIds = this.props.post.commentIds;
-        debugger
-        const commentIds = (comments) => {
-            return comments.map(comment => (
-                <CommentListItemContainer
-                    comment={comment}
-                    key={comment.id}
-                />
-            ))
-        }
+        const comments = this.props.post.comments;
+
+
+
 
         return (
             <div className="post-index-item">
@@ -50,7 +40,7 @@ class PostIndexItem extends React.Component {
                         <div className="caption-text">{this.props.post.caption}</div>
                     </div>
                     <div className="post-index-item-created-at">{month}-{date}</div>
-                    {/* {commentList(comments)} */}
+                    <div className="comments-holder">{commentIds}</div>
                     <CommentFormContainer postId={postId}/>
                 </div>
             </div>
