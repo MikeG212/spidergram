@@ -5,6 +5,9 @@ class User < ApplicationRecord
   validates :password, length: {in: 6..25, allow_nil: true }
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
 
   has_one_attached :avatar
 
