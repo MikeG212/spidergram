@@ -9,4 +9,4 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:create, :show]
   end
-end 
+end

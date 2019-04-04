@@ -3,9 +3,12 @@ import React from 'react';
 import { logout } from '../../actions/session_actions';
 import UserShow from './user_show';
 
-const mapStateToProps = state => ({
-    user: state.entities[state.session.id],
-});
+const mapStateToProps = (state, ownProps) => {
+    return  {
+        user: state.entities.users[state.session.id],
+        currentId: ownProps.match.params.userId
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {

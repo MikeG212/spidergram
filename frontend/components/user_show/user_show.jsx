@@ -10,19 +10,20 @@ class UserShow extends React.Component {
     //email address
     //show posts in rows of 3
     render() {
+        debugger
         return (
             <div className="user-show-container">
                 <div className="user-show-header">
                     <div className="user-show-information">
                         <div className="username-header">
-                            <div className="username-title">Username:{this.props.user.username}</div>
+                            <div className="username-title">Username:{this.props.currentId}</div>
                             
                         </div>
                     </div>
                 </div>
 
                 <div className="currentEmailHolder">
-                    {this.props.user.email}
+                    {this.props.currentId}
                 </div>
                 <button onClick={()=> this.props.logout()}>Logout</button>
             </div>
