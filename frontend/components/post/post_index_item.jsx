@@ -7,12 +7,17 @@ class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);        
         // this.handleClick = this.handleClick.bind(this);
+        this.doubleTapLike = this.doubleTapLike.bind(this);
     }
 
     // handleClick() {
     //     const postId = this.props.post.id;
     //     this.props.history.push(`/posts/${postId}`);
     // }
+
+    doubleTapLike() {
+
+    }
 
     render() {
         const username = this.props.post.user.username;
@@ -35,7 +40,7 @@ class PostIndexItem extends React.Component {
             debugger
             return (
                     <li className="comment-item" key={commentId}>
-                        <div className="comment-author">by {authorName}</div>
+                        <div className="comment-author">{authorName}</div>
                         <div className="comment-body">{comment.body}</div>
                     </li>
                 );
@@ -51,7 +56,7 @@ class PostIndexItem extends React.Component {
                 </div>
                 <div className="photo-container">
                     <img className="post-image"
-                        // onDoubleClick={this.doubleTapLike}
+                        onDoubleClick={this.doubleTapLike}
                         src={this.props.post.image_url} />
                 </div>
                 <div className="post-index-item-footer">

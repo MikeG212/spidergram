@@ -3,29 +3,6 @@ import React from 'react';
 class UserShow extends React.Component {
     constructor(props) {
         super(props);
-        this.renderUsername = this.renderUsername.bind(this)
-    }
-
-    componentDidMount() {
-        this.props.requestUser(this.props.currentId);
-    }
-
-    renderUsername() {
-        if (this.props.user) {
-            let user = Object.values(this.props.user)[0];
-            return <div className="currentUsername">{user.username}</div>;
-        } else {
-            return <div></div>;
-        }
-    }
-
-    renderEmail() {
-        if (this.props.user) {
-            let user = Object.values(this.props.user)[0];
-            return <div className="currentEmail">{user.email}</div>;
-        } else {
-            return <div></div>;
-        }
     }
 
     //username
@@ -34,15 +11,18 @@ class UserShow extends React.Component {
     //show posts in rows of 3
     render() {
         return (
-            <div>
-                {/* {this.renderUsername()} */}
-                <div className="currentUsernameHolder">
-                    Username:
-                    {this.renderUsername()}
+            <div className="user-show-container">
+                <div className="user-show-header">
+                    <div className="user-show-information">
+                        <div className="username-header">
+                            <div className="username-title">Username:{this.props.user.username}</div>
+                            
+                        </div>
+                    </div>
                 </div>
+
                 <div className="currentEmailHolder">
-                    Email:
-                    {this.renderEmail()}
+                    {this.props.user.email}
                 </div>
                 <button onClick={()=> this.props.logout()}>Logout</button>
             </div>
