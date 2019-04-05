@@ -52,6 +52,10 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def is_liked
+    Like.find_by(user_id: current_user.id, post_id: @post.id)
+  end
+
   def unlike
     @post = Post.find(params[:id])
     like = Like.find_by(user_id: current_user.id, post_id: @post.id)
