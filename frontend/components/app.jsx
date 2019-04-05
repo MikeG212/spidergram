@@ -10,7 +10,7 @@ import {
 
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SessionFormContainer from './session_form/session_form_container';
-import EditPostFormContainer from './post/edit_post_form_container';
+import ProfileContainer from './profile/profile_container'
 import CreatePostFormContainer from './post/create_post_form_container';
 import PostShowContainer from './post/post_show_container';
 import PostIndexContainer from './post/post_index_container';
@@ -24,9 +24,9 @@ const App = () => (
       
       <AuthRoute path="/login" component= { SessionFormContainer } />
       <AuthRoute path="/signup" component= { SessionFormContainer } />
+      <ProtectedRoute path='/profile' component={ProfileContainer} />
       <ProtectedRoute path= "/users/:userId" component= { UserShowContainer } />
       <ProtectedRoute path="/posts/:postId" component= { PostShowContainer } />
-      <ProtectedRoute path="/posts/:postId/edit" component= { EditPostFormContainer }/>
       <ProtectedRoute path="/upload" component= { CreatePostFormContainer }/>
       <ProtectedRoute exact path='/' component={ PostIndexContainer } />
       <Redirect to="/" />

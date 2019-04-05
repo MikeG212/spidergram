@@ -6,13 +6,7 @@ import CommentFormContainer from "../comment/comment_form_container"
 class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);        
-        // this.handleClick = this.handleClick.bind(this);
     }
-
-    // handleClick() {
-    //     const postId = this.props.post.id;
-    //     this.props.history.push(`/posts/${postId}`);
-    // }
 
     render() {
         const username = this.props.post.user.username;
@@ -20,19 +14,11 @@ class PostIndexItem extends React.Component {
         const date = this.props.post.created_at.slice(8, 10);
         const postId = this.props.post.id;
         const comments = this.props.post.comments || [];
-        debugger
         const authors = this.props.post.authors;
         const commentIds = Object.keys(comments);
-        console.log(comments)
-        console.log(commentIds)
-
-        debugger
         const commentList = commentIds.map(commentId => {
             let comment = comments[commentId];
-            debugger
             let authorName = authors[comment.user_id].username;
-
-            debugger
             return (
                     <li className="comment-item" key={commentId}>
                         <div className="comment-author">by {authorName}</div>

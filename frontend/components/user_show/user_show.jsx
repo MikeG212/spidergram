@@ -6,10 +6,6 @@ class UserShow extends React.Component {
         this.renderUsername = this.renderUsername.bind(this)
     }
 
-    componentDidMount() {
-        this.props.requestUser(this.props.currentId);
-    }
-
     renderUsername() {
         if (this.props.user) {
             let user = Object.values(this.props.user)[0];
