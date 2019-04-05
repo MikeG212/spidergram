@@ -1,0 +1,151 @@
+.index {
+  display: flex;
+  justify-content: center;
+  padding-top: 105px;
+  font-family: 'helvetica';
+}
+
+.index-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 650px;
+}
+
+.index-item-header {
+  position: relative;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.username-link {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+}
+
+.post-time {
+
+}
+
+.photo-container {
+  justify-content: center;
+  margin: 100px;
+  margin: 30px;
+}
+
+.index-images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 650px;
+}
+
+.index-image {
+  display: block;
+  width: 100%;
+}
+
+.index-item-footer {
+  display: flex;
+  align-items: center;
+  padding: 11px;
+  background: white;
+  border: 1px solid #efefef;
+}
+
+.caption-comment-holder {
+  margin: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.like-count {
+  
+}
+
+.caption-username {
+  display: block;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 6px;
+  color: black;
+}
+
+.caption-text {
+  display: block;
+  float: left;
+  color: black;
+  font-size: 14px;
+  padding-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.comment-input {
+  border: 1px solid white;
+  border: none;
+  min-height: 32px;
+  font-size: 14px;
+  margin-left: 2px;
+  width: 100%;
+}
+
+.comments {
+  margin-left: 3px;
+  font-size: 14px;
+}
+
+.comment-divider {
+  background: #efefef;
+  height: 1px;
+  margin-top: 5px;
+}
+
+.comment-and-username {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 4px 0 4px 0;
+  line-height: normal;
+}
+
+.comment-username-link {
+  font-weight: bold;
+  margin-right: 4.2px;
+  color: black;
+  text-decoration: none;
+}
+
+.comments-render {
+
+}
+
+.comment-item {
+
+}
+
+.comment-author {
+
+}
+
+.comment-body {
+
+}
+
+.like-render {
+
+}
+
+.material-icons {
+
+}

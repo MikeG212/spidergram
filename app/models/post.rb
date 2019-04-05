@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   validate :ensure_photo
   
   belongs_to :user
-  has_many :likes
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :likers,
     through: :likes,
