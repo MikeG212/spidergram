@@ -30,17 +30,18 @@ class SessionForm extends React.Component {
         }
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li className="session-error" key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     debugger
+    //     return (
+    //         <ul className="errors-list">
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -114,7 +115,7 @@ class SessionForm extends React.Component {
                                         {this.submitButton()}
                                         <br />
                                     {this.demoLoginButton()}
-                                    {this.renderErrors()}
+                                    {/* {this.renderErrors()} */}
                                 </form>
                             </div>
                         </div>

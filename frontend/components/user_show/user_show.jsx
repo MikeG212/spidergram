@@ -3,6 +3,29 @@ import React from 'react';
 class UserShow extends React.Component {
     constructor(props) {
         super(props);
+        this.renderUsername = this.renderUsername.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.requestUser(this.props.currentId);
+    }
+
+    renderUsername() {
+        if (this.props.user) {
+            let user = Object.values(this.props.user)[0];
+            return <div className="currentUsername">{user.username}</div>;
+        } else {
+            return <div></div>;
+        }
+    }
+
+    renderEmail() {
+        if (this.props.user) {
+            let user = Object.values(this.props.user)[0];
+            return <div className="currentEmail">{user.email}</div>;
+        } else {
+            return <div></div>;
+        }
     }
 
     //username
@@ -21,7 +44,6 @@ class UserShow extends React.Component {
                         </div>
                     </div>
                 </div>
-
                 <div className="currentEmailHolder">
                     {this.props.currentId}
                 </div>

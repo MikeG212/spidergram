@@ -1,16 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props){
         super(props);
 
         this.showNavBar = this.showNavBar.bind(this);
-        this.handleUserShow = this.handleUserShow.bind(this);
-    }
-
-    handleUserShow() {
-        this.props.history.push(`/user/${this.props.currentUser.id}`);
     }
 
     showNavBar(){
@@ -57,4 +51,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default withRouter(NavBar);
+export default NavBar;
