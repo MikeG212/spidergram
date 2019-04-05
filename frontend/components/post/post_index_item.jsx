@@ -5,13 +5,24 @@ import CommentFormContainer from "../comment/comment_form_container"
 
 class PostIndexItem extends React.Component {
     constructor(props) {
-        super(props);        
+        super(props);   
+        this.renderLikeText = this.renderLikeText.bind(this);     
+    }
+
+    renderLikeText(numLikes) {
+        if (numLikes !== 1 ){
+            return `${numLikes} likes`;
+        } else {
+            return '1 like';
+        }
     }
 
     render() {
+        debugger
         const username = this.props.post.username;
         const createdAt = this.props.post.created_at;
         const post = this.props.post;
+
         let comments = [];
 
         if (post.comments) {
@@ -44,7 +55,7 @@ class PostIndexItem extends React.Component {
                 </div>
                 <div className="index-item-footer">
                     <div className="caption-comment-holder">
-                        <div className="like-count">like</div>
+                        <div className="like-count">{this.renderLikeText(post.likes.length)}</div>
                         <span className="caption-username">@{username} </span>
                         <span className="caption-text">{post.caption}</span>
                     </div>
