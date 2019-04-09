@@ -27,11 +27,9 @@ export const fetchComments = postId => {
     }
 };
 
-export const receiveComment = ({ comment, body, user }) => ({
+export const receiveComment = comment => ({
     type: RECEIVE_COMMENT,
-    comment,
-    body,
-    user,
+    comment
 });
 
 export const fetchPost = (id) => {

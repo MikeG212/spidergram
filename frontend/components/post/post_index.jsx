@@ -17,6 +17,8 @@ class PostIndex extends React.Component {
                 <PostIndexItem post={post}
                     key={post.id}
                     currentUser={this.props.currentUser}
+                    currentUserId={this.props.currentUserId}
+                    createComment={this.props.createComment}
                 />
             );
         });

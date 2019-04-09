@@ -1,12 +1,33 @@
 import React from "react";
 import { withRouter } from "react-router-dom"
-import CommentFormContainer from "../comment/comment_form_container"
-
 
 class PostIndexItem extends React.Component {
     constructor(props) {
-        super(props);   
-        this.renderLikeText = this.renderLikeText.bind(this);     
+        super(props);
+        this.state = {
+            body: "",
+            post_id: 0
+        }
+        this.renderLikeText = this.renderLikeText.bind(this);  
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);   
+    }
+
+    update(property) {
+        return e => this.setState({ [property]: e.target.value });
+    }
+
+    handleSubmit(e) {
+        debugger
+        e.preventDefault();
+        const comment = {
+            body: this.state.body,
+            user_id: this.props.currentUserId,
+            post_id: this.props.post.id
+        };
+
+        this.props.createComment(comment).then(this.setState({ body: "" }))
+
     }
 
     renderHeart(post) {
@@ -80,8 +101,16 @@ class PostIndexItem extends React.Component {
                     <ul className="comments-render">{commentList}</ul>
                 </div>    
                 <div className="like-render">
-                    <div className="material-icons"></div>             
-                    <CommentFormContainer postId={post.id}/>
+                    <div className="material-icons"></div>            
+                    <form className="comment-form" onSubmit={this.handleSubmit}>
+                        <input type="text"
+                            className="comment-text-input"
+                            placeholder="Add a comment..."
+                            value={this.state.body}
+                            onChange={this.update("body")} />
+
+                        <input className="comment-submit" type="submit" value="Comment" />
+                    </form>
                 </div>
             </div>
         )

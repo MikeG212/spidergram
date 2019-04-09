@@ -3,6 +3,7 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
 import merge from 'lodash/merge';
 
 const PostsReducer = (state = {}, action) => {
+    debugger
     Object.freeze(state)
     let newState = merge({}, state);
     switch (action.type) {
@@ -12,8 +13,9 @@ const PostsReducer = (state = {}, action) => {
             const newPost = { [action.post.id]: action.post };
             return merge(newState, newPost);
         case RECEIVE_COMMENT:
-            const { comment } = action;  
-            newState[comment.post_id].commentIds.push(comment.id);
+            debugger
+            const { comment } = action;
+            newState[action.comment.post].commentIds.push(comment.id);
             return newState;
         case REMOVE_POST:
             delete newState[action.postId];
