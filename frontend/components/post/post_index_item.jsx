@@ -8,9 +8,10 @@ class PostIndexItem extends React.Component {
             body: "",
             post_id: 0
         }
-        this.renderLikeText = this.renderLikeText.bind(this);  
+        this.renderLikeText = this.renderLikeText.bind(this);
+        this.renderHeart = this.renderHeart.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.update = this.update.bind(this);   
+        this.update = this.update.bind(this);
     }
 
     update(property) {
@@ -31,19 +32,14 @@ class PostIndexItem extends React.Component {
     }
 
     renderHeart(post) {
-        if (post.likerIds.includes(this.props.currentUserId)) {
+        debugger
+        if (post.likers.includes(this.props.currentUserId)) {
             return (
-                <img
-                    className="heart"
-                    src={window.images.full_heart}
-                />
+                <div className="core-sprite heart red-heart"></div>
             )
         } else {
             return (
-                <img
-                    className="heart"
-                    src={window.images.empty_heart}
-                />
+                <div className="core-sprite heart empty-heart"></div>
             )
         }
     }
@@ -100,8 +96,8 @@ class PostIndexItem extends React.Component {
                     </div>
                     <ul className="comments-render">{commentList}</ul>
                 </div>    
-                <div className="like-render">
-                    <div className="material-icons"></div>            
+                <div className="like-comment-form-render">
+                    {this.renderHeart(post)}         
                     <form className="comment-form" onSubmit={this.handleSubmit}>
                         <input type="text"
                             className="comment-text-input"

@@ -30,7 +30,7 @@ class NavBar extends React.Component {
                                     <a className="nav-link core-sprite profile-icon hide-text" href="#/profile"></a>
                                 </li>
                             </ul>
-                            <button className="btn btn-outline-success logout my-2 my-sm-0" type="submit" onClick={() => this.props.logout()}>Log Out</button>
+                            <img className="logout-icon" src={window.images.logout_icon} alt="Log out" onClick={() => this.props.logout()}/>
                         </div>
                     </div>
                 </nav>

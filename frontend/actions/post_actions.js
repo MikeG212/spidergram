@@ -3,6 +3,7 @@ import * as PostApiUtil from '../util/post_api_util'
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 
@@ -68,6 +69,15 @@ export const createComment = (comment) => {
     return dispatch => {
         return PostApiUtil.createComment(comment).then(comment => {
             return dispatch(receiveComment(comment));
+        });
+    };
+};
+
+
+export const removeComment = (commentId) => {
+    return dispatch => {
+        return PostApiUtil.deleteComment(commentId).then(() => {
+            return dispatch({ type: REMOVE_COMMENT, commentId: id });
         });
     };
 };

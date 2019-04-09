@@ -197,3 +197,17 @@
   display: block;
   width: 100%;
 }
+
+.heart {
+  width: 26px;
+  height: 26.5px;
+  cursor: pointer;
+}
+
+.red-heart {
+  background-position: -200px -331px;
+}
+
+.empty-heart {
+  background-position: -124px -331px;
+}

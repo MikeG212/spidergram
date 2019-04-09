@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
-import { createComment } from '../../actions/post_actions';
+import { createComment, removeComment } from '../../actions/post_actions';
 
 const mapStateToProps = (state) => {
     debugger
@@ -23,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchPosts: () => dispatch(fetchPosts()),
         deletePost: (id) => dispatch(deletePost(id)),
         createComment: comment => dispatch(createComment(comment)),
+        removeComment: commentId => dispatch(removeComment(commentId)),
     }; 
 };
 

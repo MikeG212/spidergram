@@ -4,7 +4,6 @@ import { logout, } from '../../actions/session_actions';
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         currentUser: state.entities.users,
         userId: ownProps.match.params.userId
