@@ -9,6 +9,24 @@ class PostIndexItem extends React.Component {
         this.renderLikeText = this.renderLikeText.bind(this);     
     }
 
+    renderHeart(post) {
+        if (post.likerIds.includes(this.props.currentUserId)) {
+            return (
+                <img
+                    className="heart"
+                    src={window.images.full_heart}
+                />
+            )
+        } else {
+            return (
+                <img
+                    className="heart"
+                    src={window.images.empty_heart}
+                />
+            )
+        }
+    }
+
     renderLikeText(numLikes) {
         if (numLikes !== 1 ){
             return `${numLikes} likes`;
@@ -55,7 +73,7 @@ class PostIndexItem extends React.Component {
                 </div>
                 <div className="index-item-footer">
                     <div className="caption-comment-holder">
-                        <div className="like-count">{this.renderLikeText(post.likes.length)}</div>
+                        <div className="like-count">{this.renderLikeText(post.likers.length)}</div>
                         <span className="caption-username">@{username} </span>
                         <span className="caption-text">{post.caption}</span>
                     </div>
