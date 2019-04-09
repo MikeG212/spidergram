@@ -2,13 +2,13 @@ class Api::LikesController < ApplicationController
 
     def create
         @like = Like.new(like_params)
-        @like.user_id = current_user.id
+        # @like.user_id = current_user.id
         @like.save
         render :show
     end
 
     def destroy
-        @like = Like.where(user_id: current_user.id).where(image_id: params[:id])[0]
+        @like = Like.where(user_id: current_user.id).where(post_id: params[:id])[0]
         @like.destroy
         render :show
     end

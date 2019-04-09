@@ -1,2 +1,2 @@
-json.extract! @like, :user_id, :image_id, :id
+json.extract! @like, :user_id, :post_id, :id
 json.receiver @like.receiver
