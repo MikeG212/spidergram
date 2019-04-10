@@ -66,6 +66,7 @@ export const deletePost = (id) => {
 };
 
 export const createComment = (comment) => {
+    debugger
     return dispatch => {
         return PostApiUtil.createComment(comment).then(comment => {
             return dispatch(receiveComment(comment));

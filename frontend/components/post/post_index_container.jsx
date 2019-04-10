@@ -4,7 +4,6 @@ import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { createComment, removeComment } from '../../actions/post_actions';
 
 const mapStateToProps = (state) => {
-    debugger
     let posts = [];
     if (state.entities.posts) {
         posts = Object.values(state.entities.posts);
@@ -18,7 +17,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    debugger
     return {
         fetchPosts: () => dispatch(fetchPosts()),
         deletePost: (id) => dispatch(deletePost(id)),

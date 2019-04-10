@@ -4,14 +4,16 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_COMMENT, RECEIVE_POST } from '../actions/post_actions';
 
 const usersReducer = (state = {}, action) => {
+    debugger
     Object.freeze(state);
+    let newState = merge({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, { [action.currentUser.id]: action.currentUser });
-        case RECEIVE_COMMENT:
-            return merge({}, state, { [action.currentUser.id]: action.currentUser });
+            return merge(newState, { [action.currentUser.id]: action.currentUser });
+        // case RECEIVE_COMMENT:
+        //     return merge(newState, { [action.comment.username]: action.comment.user_id.username });
         case RECEIVE_POST:
-            return merge({}, state, action.users);
+            return merge(newState, action.users);
         default:
             return state;
     }

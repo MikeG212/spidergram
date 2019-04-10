@@ -12,17 +12,20 @@ const PostsReducer = (state = {}, action) => {
             const newPost = { [action.post.id]: action.post };
             return merge(newState, newPost);
         case RECEIVE_COMMENT:
+            if (!newState[action.comment.post_id].comments) {
+                newState[action.comment.post_id].comments = {};
+            }
             const { comment } = action;
-            newState[action.comment.post].commentIds.push(comment.id);
+            newState[action.comment.post_id].comments[comment.id] = comment;
             return newState;
         case REMOVE_POST:
             delete newState[action.postId];
             return newState;
         case RECEIVE_LIKE:
-            newState[action.like.imageId].likerIds.push(action.like.userId);
+            newState[action.like.imageId].likers.push(action.like.userId);
             return newState;
         case REMOVE_LIKE:
-            newState[action.like.imageId] = newState[action.like.imageId].likerIds.filter(id => id !== action.like.userId)
+            newState[action.like.imageId] = newState[action.like.imageId].likers.filter(id => id !== action.like.userId)
             return newState;
         default:
             return state;

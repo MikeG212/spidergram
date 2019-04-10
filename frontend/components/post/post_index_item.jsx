@@ -12,6 +12,7 @@ class PostIndexItem extends React.Component {
         this.renderHeart = this.renderHeart.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.renderComments = this.renderComments.bind(this);
     }
 
     update(property) {
@@ -19,16 +20,41 @@ class PostIndexItem extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const comment = {
             body: this.state.body,
             user_id: this.props.currentUserId,
+            username: this.props.currentUser.username,
             post_id: this.props.post.id
         };
 
         this.props.createComment(comment).then(this.setState({ body: "" }))
 
+    }
+
+    renderComments(post) {
+        let comments = [];
+
+        if (post.comments) {
+            comments = Object.values(post.comments);
+        }
+
+        return (
+            comments.map(comment => {
+                debugger
+                return (
+                    <li key={`comments-${comment.id}`} className="comment-item">
+                        <label>
+                            <a className="comment-username-link" href={`#/users/${comment.userId}`}>
+                                {comment.username}
+                            </a>
+                            <div className="comment-body">{comment.body}</div>
+                        </label>
+                        {/* {this.renderRemoveIcon(comment)} */}
+                    </li>
+                )
+            })
+        )
     }
 
     renderHeart(post) {
@@ -58,23 +84,6 @@ class PostIndexItem extends React.Component {
         const createdAt = this.props.post.created_at;
         const post = this.props.post;
 
-        let comments = [];
-
-        if (post.comments) {
-            comments = Object.values(post.comments);
-        }
-
-
-
-        const commentList = comments.map(comment => {
-            return (
-                    <li className="comment-item" key={comment.id}>
-                        <div className="comment-author">by {comment.username}</div>
-                        <div className="comment-body">{comment.body}</div>
-                    </li>
-                );
-        })
-
         return (
             <div className="index-item">
                 <div className="index-item-header">
@@ -94,7 +103,7 @@ class PostIndexItem extends React.Component {
                         <span className="caption-username">@{username} </span>
                         <span className="caption-text">{post.caption}</span>
                     </div>
-                    <ul className="comments-render">{commentList}</ul>
+                    <ul className="comments-render">{this.renderComments(post)}</ul>
                 </div>    
                 <div className="like-comment-form-render">
                     {this.renderHeart(post)}         
