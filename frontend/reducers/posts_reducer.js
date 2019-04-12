@@ -24,11 +24,11 @@ const PostsReducer = (state = {}, action) => {
             delete newState[action.postId];
             return newState;
         case RECEIVE_LIKE:
-            debugger
             newState[action.like.post_id].likers.push(action.like.userId);
             return newState;
         case REMOVE_LIKE:
-            newState[action.like.postId] = newState[action.like.postId].likers.filter(id => id !== action.like.userId)
+            debugger
+            newState[action.like.post_id] = newState[action.like.post_id].likers.filter(id => id !== action.like.user_id)
             return newState;
         default:
             return state;

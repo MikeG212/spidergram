@@ -15,7 +15,7 @@ class PostIndex extends React.Component {
         this.renderComments = this.renderComments.bind(this);
         this.renderPosts = this.renderPosts.bind(this);
         this.renderRemoveButton = this.renderRemoveButton.bind(this);
-        // this.doubleTapLike = this.doubleTapLike.bind(this);
+        this.doubleTapLike = this.doubleTapLike.bind(this);
     }
     
     componentDidMount() {
@@ -38,6 +38,12 @@ class PostIndex extends React.Component {
 
     }
 
+    doubleTapLike(post) {
+        if (!post.likers.includes(this.props.currentUserId)) {
+            this.props.createLike({ post_id: post.id });
+        }
+    }
+
     update(property, postId) {
         debugger
         return e => this.setState({ [property]: e.target.value, post_id: postId });
@@ -45,44 +51,46 @@ class PostIndex extends React.Component {
 
     renderPosts() {
         let posts = this.props.posts.map(post => {
-            return (
-                <li key={`post-${post.id}`} className="index-item-container">
-                    <ul className="info-and-image">
-                        <li className="index-item-byline">
-                            {/* profile pic */}
-                            <a href={`#/users/${post.userId}`}><p className="index-item-username">{post.username}</p></a>
-                        </li>
-                        <li className="index-item-image">
-                            <img className="index-image"
-                                onDoubleClick={() => this.doubleTapLike()}
-                                src={post.image_url}
-                            />
-                        </li>
-                        <div className="post-time">{post.createdAt}</div>
-                    </ul>
+            if (!!post) {
+                return (
+                    <li key={`post-${post.id}`} className="index-item-container">
+                        <ul className="info-and-image">
+                            <li className="index-item-byline">
+                                {/* profile pic */}
+                                <a href={`#/users/${post.userId}`}><p className="index-item-username">{post.username}</p></a>
+                            </li>
+                            <li className="index-item-image">
+                                <img className="index-image"
+                                    onDoubleClick={() => this.doubleTapLike(post)}
+                                    src={post.image_url}
+                                />
+                            </li>
+                            <div className="post-time">{post.createdAt}</div>
+                        </ul>
 
-                    <div className="index-item-footer">
-                        <div className="caption-comment-holder">
-                            <div className="like-count">{this.renderLikeText(post.likers.length)}</div>
-                            <span className="caption-username">{post.username} </span>
-                            <span className="caption-text">{post.caption}</span>
+                        <div className="index-item-footer">
+                            <div className="caption-comment-holder">
+                                <div className="like-count">{this.renderLikeText(post.likers.length)}</div>
+                                <span className="caption-username">{post.username} </span>
+                                <span className="caption-text">{post.caption}</span>
+                            </div>
+                            <ul className="comments-render">{this.renderComments(post)}</ul>
                         </div>
-                        <ul className="comments-render">{this.renderComments(post)}</ul>
-                    </div>
-                    <div className="like-comment-form-render">
-                        {this.renderHeart(post)}
-                        <form className="comment-form" onSubmit={this.handleSubmit}>
-                            <input type="text"
-                                className="comment-text-input"
-                                placeholder="Add a comment..."
-                                value={this.state.body}
-                                onChange={this.update("body", post.id)} />
+                        <div className="like-comment-form-render">
+                            {this.renderHeart(post)}
+                            <form className="comment-form" onSubmit={this.handleSubmit}>
+                                <input type="text"
+                                    className="comment-text-input"
+                                    placeholder="Add a comment..."
+                                    value={this.state.body}
+                                    onChange={this.update("body", post.id)} />
 
-                            <input className="comment-submit" type="submit" value="Comment" />
-                        </form>
-                    </div>
-                </li>
-            )
+                                <input className="comment-submit" type="submit" value="Comment" />
+                            </form>
+                        </div>
+                    </li>
+                );
+            }
         });
         return posts.reverse();
 
@@ -124,6 +132,7 @@ class PostIndex extends React.Component {
     }
 
     renderHeart(post) {
+        debugger
         if (post.likers.includes(this.props.currentUserId)) {
             return (
                 <div className="core-sprite comment-icons red-heart"
@@ -138,6 +147,7 @@ class PostIndex extends React.Component {
     }
 
     renderLikeText(numLikes) {
+        debugger
         if (numLikes !== 1) {
             return `${numLikes} likes`;
         } else {

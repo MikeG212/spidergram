@@ -14,7 +14,6 @@ const removeLike = like => ({
 });
 
 export const createLike = (like) => {
-    debugger
     return dispatch => {
         return LikeAPIUtil.createLike(like).then(like => {
             return dispatch(receiveLike(like));
@@ -23,6 +22,7 @@ export const createLike = (like) => {
 };
 
 export const deleteLike = (userId) => {
+    debugger
     return dispatch => {
         return LikeAPIUtil.deleteLike(userId).then(like => {
             return dispatch(removeLike(like));
