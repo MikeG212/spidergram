@@ -13,12 +13,19 @@ const removeLike = like => ({
     like: like
 });
 
-export const createLike = like => dispatch => (
-    LikeAPIUtil.createLike(like)
-        .then(like => dispatch(receiveLike(like)))
-);
+export const createLike = (like) => {
+    debugger
+    return dispatch => {
+        return LikeAPIUtil.createLike(like).then(like => {
+            return dispatch(receiveLike(like));
+        });
+    };
+};
 
-export const deleteLike = userId => dispatch => (
-    LikeAPIUtil.deleteLike(userId)
-        .then(like => dispatch(removeLike(like)))
-);
+export const deleteLike = (userId) => {
+    return dispatch => {
+        return LikeAPIUtil.deleteLike(userId).then(like => {
+            return dispatch(removeLike(like));
+        });
+    };
+};
