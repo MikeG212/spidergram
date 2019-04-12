@@ -66,7 +66,6 @@ export const deletePost = (id) => {
 };
 
 export const createComment = (comment) => {
-    debugger
     return dispatch => {
         return PostApiUtil.createComment(comment).then(comment => {
             return dispatch(receiveComment(comment));
@@ -76,9 +75,10 @@ export const createComment = (comment) => {
 
 
 export const removeComment = (commentId) => {
+    debugger
     return dispatch => {
-        return PostApiUtil.deleteComment(commentId).then(() => {
-            return dispatch({ type: REMOVE_COMMENT, commentId: id });
+        return PostApiUtil.deleteComment(commentId).then((comment) => {
+            return dispatch({ type: REMOVE_COMMENT, comment });
         });
     };
 };

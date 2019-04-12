@@ -1,3 +1,9 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .index-item {
   display: block;
   margin: 60px auto;
@@ -94,6 +100,9 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 4px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .comment-username {
@@ -198,7 +207,7 @@
   width: 100%;
 }
 
-.heart {
+.comment-icons {
   width: 25px;
   height: 25px;
   cursor: pointer;
@@ -211,3 +220,10 @@
 .empty-heart {
   background-position: -124px -331px;
 }
+
+.remove-icon {
+  background-position: -383px -20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+

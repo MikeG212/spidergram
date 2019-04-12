@@ -52,6 +52,7 @@ export const updatePost = (post) => {
 };
 
 export const deletePost = (id) => {
+    debugger
     return $.ajax({
         method: 'DELETE',
         url: `/api/posts/${id}`,

@@ -22,6 +22,12 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render :show
+  end
+
   def render_post_show(comment)
     @post = comment.post
     render 'api/posts/show'

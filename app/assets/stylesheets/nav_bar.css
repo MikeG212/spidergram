@@ -1,0 +1,17 @@
+.upload-icon {
+  background-position: -283px -176px;
+  height: 24px;
+  width: 24px;
+}
+
+.profile-icon {
+  background-position: -308px -176px;
+  height: 24px;
+  width: 24px;
+}
+
+.logout-icon {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}

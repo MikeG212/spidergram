@@ -4,7 +4,6 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_COMMENT, RECEIVE_POST } from '../actions/post_actions';
 
 const usersReducer = (state = {}, action) => {
-    debugger
     Object.freeze(state);
     let newState = merge({}, state);
     switch (action.type) {
