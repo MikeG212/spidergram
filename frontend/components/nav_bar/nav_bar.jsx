@@ -9,7 +9,8 @@ class NavBar extends React.Component {
     }
 
     currentUserProfile() {
-        return `#/users/${currentUser.id}`;
+        debugger
+        return `#/users/${this.props.currentUser.id}`;
     }
 
     showNavBar(){
@@ -45,6 +46,7 @@ class NavBar extends React.Component {
     }
 
     render() {
+        debugger
         if (this.props.currentUser) {
             return this.showNavBar();
         } else {
