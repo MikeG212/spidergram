@@ -17,3 +17,22 @@
   margin: 100px;
   margin: 30px;
 }
+
+.post-byline {
+  display: flex;
+  align-items: center;
+  padding: 11px;
+  background: white;
+  border: 1px solid #efefef;
+}
+
+.post-byline-username {
+  color: black;
+  padding-left: 9px;
+  font-size: 17px;
+}
+
+.post-image {
+  display: block;
+  width: 100%;
+}

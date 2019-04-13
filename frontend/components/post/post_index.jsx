@@ -62,7 +62,7 @@ class PostIndex extends React.Component {
                                 {/* profile pic */}
                                 <a href={`#/users/${post.user_id}`}><p className="post-byline-username">{post.username}</p></a>
                             </li>
-                            <li className="post-image-info">
+                            <li>
                                 <img className="index-image"
                                     onDoubleClick={() => this.doubleTapLike(post)}
                                     src={post.image_url}
