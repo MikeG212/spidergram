@@ -5,6 +5,11 @@ class NavBar extends React.Component {
         super(props);
 
         this.showNavBar = this.showNavBar.bind(this);
+        this.currentUserProfile = this.currentUserProfile.bind(this);
+    }
+
+    currentUserProfile() {
+        return `#/users/${currentUser.id}`;
     }
 
     showNavBar(){
@@ -27,7 +32,7 @@ class NavBar extends React.Component {
                                     <a className="nav-link core-sprite upload-icon hide-text" href="#/upload"></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link core-sprite profile-icon hide-text" href="#/profile"></a>
+                                    <a className="nav-link core-sprite profile-icon hide-text" href={this.currentUserProfile()}></a>
                                 </li>
                             </ul>
                             <img className="logout-icon" src={window.images.logout_icon} alt="Log out" onClick={() => this.props.logout()}/>

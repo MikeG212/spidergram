@@ -4,6 +4,7 @@ class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.renderPosts = this.renderPosts.bind(this);
+        this.renderFollowingButton = this.renderFollowingButton.bind(this);
     }
 
     renderPosts() {
@@ -18,6 +19,10 @@ class Profile extends React.Component {
             )
         })
         return posts.reverse();
+    }
+
+    renderFollowingButton() {
+        
     }
 
     render() {

@@ -3,10 +3,8 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
 import merge from 'lodash/merge';
 
 const PostsReducer = (state = {}, action) => {
-    debugger
     Object.freeze(state)
     let newState = merge({}, state);
-    debugger
     switch (action.type) {
         case RECEIVE_ALL_POSTS:
             return merge({}, state, action.posts); 

@@ -4,8 +4,10 @@ import Profile from './profile';
 import { logout } from '../../actions/session_actions';
 import { fetchUser } from '../../actions/user_actions';
 
-const mapStateToProps = (state) => {
-    const user = state.entities.users[state.session.id];
+const mapStateToProps = (state, ownProps) => {
+    debugger
+    const currentUser = state.entities.users[state.session.id];
+    const user = state.entities.users[ownProps.match.params.userId];
     let posts = [];
 
     if (user.posts) {
@@ -13,6 +15,7 @@ const mapStateToProps = (state) => {
     }
 
     return ({
+        currentUser: currentUser,
         user: user,
         posts: posts
     });
