@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoLogin = this.demoLogin.bind(this);
         this.submitButton = this.submitButton.bind(this);
+        this.renderInputFields = this.renderInputFields.bind(this);
     }
 
     update(field) {
@@ -46,6 +47,44 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
+    }
+
+    renderInputFields() {
+        if (this.props.formType === "login") {
+            return (
+                <div className="loginFields">
+                    <br />
+                    <label htmlFor="email">Email:
+                        <input type="text"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            className="form-input"
+                        />
+                    </label>
+                </div>
+            );
+        } else {
+            return (
+                <div className="signupFields">
+                    <label htmlFor="email">Email:
+                        <input type="email"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            className="form-input"
+                        />
+                    </label>
+                    <br />
+                    <label htmlFor="username">Username:
+                        <input type="text"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            className="form-input"
+                        />
+                    </label>
+                </div>
+            );
+        }
+
     }
 
     demoLogin() {
@@ -87,22 +126,7 @@ class SessionForm extends React.Component {
                                 <form onSubmit={this.handleSubmit} className="session-form-box">
                                 <h3>Spidergram</h3>
                                     <div className="session-form text">Please {this.props.formType} or {this.navLink()}</div>
-                                        <label htmlFor="email">Email:
-                                            <input type="text"
-                                                value={this.state.email}
-                                                onChange={this.update('email')}
-                                                className="form-input"
-                                            />
-                                        </label>
-                                        <br />
-                                        <label htmlFor="username">Username:
-                                            <input type="text"
-                                                value={this.state.username}
-                                                onChange={this.update('username')}
-                                                className="form-input"
-                                            />
-                                        </label>
-                                        <br />
+                                        {this.renderInputFields()}
                                         <label htmlFor="password">Password:
                                             <input type="password"
                                                 value={this.state.password}

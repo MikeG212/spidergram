@@ -11,7 +11,6 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return merge(newState, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_USER:
-            debugger
             return merge(newState, { [action.user.id]: action.user });
         case RECEIVE_POST:
             return merge(newState, action.users);

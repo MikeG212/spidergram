@@ -8,14 +8,14 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchUser(this.props.userId);
     }
 
     renderPosts() {
+        debugger
         let posts = []
         if (this.props.user.posts) {
-            posts = this.props.user.posts.map(post => {
+            posts = Object.values(this.props.user.posts).map(post => {
                 return (
                     <li key={`image-${post.id}`} className="post-container">
                         <img
@@ -34,7 +34,6 @@ class Profile extends React.Component {
     }
 
     render() {
-        debugger
         if (this.props.user) {
         return (
             <div className="profile">
