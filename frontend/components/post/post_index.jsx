@@ -24,6 +24,8 @@ class PostIndex extends React.Component {
     }
 
 
+
+
     handleSubmit(e) {
         e.preventDefault();
         debugger
@@ -51,15 +53,16 @@ class PostIndex extends React.Component {
 
     renderPosts() {
         let posts = this.props.posts.map(post => {
+            debugger
             if (!!post) {
                 return (
-                    <li key={`post-${post.id}`} className="index-item-container">
+                    <li key={`post-${post.id}`} className="post-container">
                         <ul className="info-and-image">
-                            <li className="index-item-byline">
+                            <li className="post-byline">
                                 {/* profile pic */}
-                                <a href={`#/users/${post.userId}`}><p className="index-item-username">{post.username}</p></a>
+                                <a href={`#/users/${post.user_id}`}><p className="post-byline-username">{post.username}</p></a>
                             </li>
-                            <li className="index-item-image">
+                            <li className="post-image-info">
                                 <img className="index-image"
                                     onDoubleClick={() => this.doubleTapLike(post)}
                                     src={post.image_url}
@@ -68,13 +71,13 @@ class PostIndex extends React.Component {
                             <div className="post-time">{post.createdAt}</div>
                         </ul>
 
-                        <div className="index-item-footer">
-                            <div className="caption-comment-holder">
-                                <div className="like-count">{this.renderLikeText(post.likers.length)}</div>
-                                <span className="caption-username">{post.username} </span>
-                                <span className="caption-text">{post.caption}</span>
+                        <div className="post-footer">
+                            <div className="post-caption-comment-holder">
+                                {this.renderLikeText(post.likers.length)}
+                                <span className="post-caption-username">{post.username} </span>
+                                <span className="post-caption-text">{post.caption}</span>
                             </div>
-                            <ul className="comments-render">{this.renderComments(post)}</ul>
+                            <ul className="post-comments-container">{this.renderComments(post)}</ul>
                         </div>
                         <div className="like-comment-form-render">
                             {this.renderHeart(post)}
@@ -109,7 +112,7 @@ class PostIndex extends React.Component {
                 let username = comment.username || currentUser.username;
                 debugger
                 return (
-                    <li key={`comments-${comment.id}`} className="comment-item">
+                    <li key={`comments-${comment.id}`} className="comment-and-username">
                         <label>
                             <a className="comment-username-link" href={`#/users/${comment.user_id}`}>
                                 {username}
@@ -127,7 +130,7 @@ class PostIndex extends React.Component {
         if (comment.user_id === this.props.currentUserId) {
             return (
                 <span className="core-sprite comment-icons remove-icon hide-text" onClick={() => this.props.removeComment(comment.id)}>Delete Comment</span>
-            )
+            );
         }
     }
 
@@ -149,9 +152,9 @@ class PostIndex extends React.Component {
     renderLikeText(numLikes) {
         debugger
         if (numLikes !== 1) {
-            return `${numLikes} likes`;
+            return <p className="post-like-count">{numLikes} likes</p>;
         } else {
-            return '1 like';
+            return <p className="post-like-count">1 like</p>;
         }
     }
 
@@ -162,7 +165,7 @@ class PostIndex extends React.Component {
         debugger
         return (
             <div className="index">
-                <ul className="index-posts">
+                <ul className="post-index-container">
                     {this.renderPosts()}
                 </ul>
             </div>
