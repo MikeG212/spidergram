@@ -7,25 +7,35 @@ class Profile extends React.Component {
         this.renderFollowingButton = this.renderFollowingButton.bind(this);
     }
 
+    componentDidMount() {
+        debugger
+        this.props.fetchUser(this.props.userId);
+    }
+
     renderPosts() {
-        let posts = this.props.posts.map(post => {
-            return (
-                <li key={`image-${post.id}`} className="post-container">
-                    <img
-                        className="image"
-                        key={`image-${post.id}`}
-                        src={post.image_url} />
-                </li>
-            )
-        })
+        let posts = []
+        if (this.props.user.posts) {
+            posts = this.props.user.posts.map(post => {
+                return (
+                    <li key={`image-${post.id}`} className="post-container">
+                        <img
+                            className="image"
+                            key={`image-${post.id}`}
+                            src={post.image_url} />
+                    </li>
+                )
+            })
+        }
         return posts.reverse();
     }
 
     renderFollowingButton() {
-        
+
     }
 
     render() {
+        debugger
+        if (this.props.user) {
         return (
             <div className="profile">
                 <div className="user-profile">
@@ -52,7 +62,10 @@ class Profile extends React.Component {
                     {this.renderPosts()}
                 </ul>
             </div>
-        )
+        );
+        } else {
+            return <div className="nullUser"></div>
+        }
     }
 
 }

@@ -8,16 +8,12 @@ const mapStateToProps = (state, ownProps) => {
     debugger
     const currentUser = state.entities.users[state.session.id];
     const user = state.entities.users[ownProps.match.params.userId];
-    let posts = [];
-
-    if (user.posts) {
-        posts = Object.values(user.posts);
-    }
-
+    const userId = ownProps.match.params.userId;
+    debugger
     return ({
-        currentUser: currentUser,
-        user: user,
-        posts: posts
+        currentUser,
+        user,
+        userId
     });
 }
 
