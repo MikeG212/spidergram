@@ -13,7 +13,16 @@ class PostIndex extends React.Component {
 
   render() {
     const posts = this.props.posts.map(post => {
-      return <PostIndexItem post={post} key={post.id} />;
+      return (
+        <PostIndexItem
+          key={post.id}
+          post={post}
+          currentUser={this.props.currentUser}
+          createLike={this.props.createLike}
+          deleteLike={this.props.deleteLike}
+          removeComment={this.props.removeComment}
+        />
+      );
     });
 
     return (

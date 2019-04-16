@@ -47,7 +47,8 @@ class PostIndexItem extends React.Component {
   }
 
   renderRemoveCommentButton(comment) {
-    if (comment.user_id === this.props.currentUserId) {
+    debugger;
+    if (comment.user_id === this.props.currentUser.id) {
       return (
         <span
           className="core-sprite comment-icons remove-icon hide-text"
@@ -61,7 +62,7 @@ class PostIndexItem extends React.Component {
 
   renderHeart(post) {
     debugger;
-    if (post.likers.includes(this.props.currentUserId)) {
+    if (post.likers.includes(this.props.currentUser.id)) {
       return (
         <div
           className="core-sprite comment-icons red-heart"
@@ -87,6 +88,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
+    debugger;
     const { post } = this.props;
     const { username, created_at, caption } = post;
     return (
@@ -111,6 +113,7 @@ class PostIndexItem extends React.Component {
             <span className="caption-text">{caption}</span>
           </div>
           <ul className="comments-render">{this.renderComments(post)}</ul>
+          {this.renderHeart(post)}
           <CommentFormContainer post={post} />
         </div>
         <div className="like-render">
