@@ -18,7 +18,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div className="boss-div">
-    <NavBarContainer />
+    <ProtectedRoute component={ NavBarContainer } />
     <Switch>
       
       <AuthRoute path="/login" component= { SessionFormContainer } />
