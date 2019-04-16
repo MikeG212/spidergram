@@ -43,6 +43,7 @@ class Api::PostsController < ApplicationController
   end
 
   def like
+    debugger
     @post = Post.find(params[:id])
     like = @post.likes.new(user_id: current_user.id)
     if like.save
@@ -52,11 +53,8 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def is_liked
-    Like.find_by(user_id: current_user.id, post_id: @post.id)
-  end
-
   def unlike
+    debugger
     @post = Post.find(params[:id])
     like = Like.find_by(user_id: current_user.id, post_id: @post.id)
     if like.destroy

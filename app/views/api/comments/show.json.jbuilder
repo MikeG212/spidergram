@@ -1,5 +1,3 @@
-json.comment do
-  json.partial! '/api/comments/comment', comment: @comment
-end
+json.partial! '/api/comments/comment', comment: @comment
 
 json.username @comment.user.username

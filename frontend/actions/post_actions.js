@@ -74,8 +74,10 @@ export const createComment = comment => {
 };
 
 export const removeComment = commentId => {
+  debugger;
   return dispatch => {
     return PostApiUtil.deleteComment(commentId).then(comment => {
+      debugger;
       return dispatch({ type: REMOVE_COMMENT, comment });
     });
   };

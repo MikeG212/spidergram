@@ -10,25 +10,25 @@ class PostIndexItem extends React.Component {
     this.renderRemoveCommentButton = this.renderRemoveCommentButton.bind(this);
     this.renderHeart = this.renderHeart.bind(this);
     this.doubleTapLike = this.doubleTapLike.bind(this);
-    this.renderLikeText = this.renderLikeText.bind(this);
+    this.likeStatus = this.likeStatus.bind(this);
+    this.likeAction = this.likeAction.bind(this);
   }
 
   doubleTapLike(post) {
-    if (!post.likers.includes(this.props.currentUserId)) {
+    if (!post.likers.includes(this.props.currentUser.id)) {
       this.props.createLike({ post_id: post.id });
     }
   }
 
   renderComments(post) {
-    debugger;
     let comments = [];
     if (post.comments) {
       comments = Object.values(post.comments);
     }
 
     return comments.map(comment => {
-      let username = comment.username || currentUser.username;
-      debugger;
+      let username = comment.username || this.props.currentUser.username;
+
       return (
         <li key={`comments-${comment.id}`} className="comment-and-username">
           <label>
@@ -46,8 +46,11 @@ class PostIndexItem extends React.Component {
     });
   }
 
+  likeStatus() {
+    return this.props.post.likers.includes(this.props.currentUser.id);
+  }
+
   renderRemoveCommentButton(comment) {
-    debugger;
     if (comment.user_id === this.props.currentUser.id) {
       return (
         <span
@@ -60,26 +63,26 @@ class PostIndexItem extends React.Component {
     }
   }
 
-  renderHeart(post) {
-    debugger;
-    if (post.likers.includes(this.props.currentUser.id)) {
-      return (
-        <div
-          className="core-sprite comment-icons red-heart"
-          onClick={() => this.props.deleteLike(post.id)}
-        />
-      );
+  likeAction() {
+    const post_id = this.props.post.id;
+    if (this.likeStatus()) {
+      this.props.deleteLike(post_id);
     } else {
-      return (
-        <div
-          className="core-sprite comment-icons empty-heart"
-          onClick={() => this.props.createLike({ post_id: post.id })}
-        />
-      );
+      this.props.createLike({ post_id });
     }
   }
 
-  renderLikeText(numLikes) {
+  heartClassname() {
+    return this.likeStatus() ? "red-heart" : "empty-heart";
+  }
+
+  renderHeart() {
+    let className = `core-sprite comment-icons ${this.heartClassname()}`;
+    return <div className={className} onClick={() => this.likeAction()} />;
+  }
+
+  renderLikeText() {
+    let numLikes = this.props.post.likers.length;
     if (numLikes !== 1) {
       return <p className="post-like-count">{numLikes} likes</p>;
     } else {
@@ -88,11 +91,10 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
-    const { post } = this.props;
+    const { post, key } = this.props;
     const { username, created_at, caption } = post;
     return (
-      <div className="index-item">
+      <li key={key} className="index-item">
         <div className="index-item-header">
           <h5 className="username-link">@{username}</h5>
           <div className="post-time">{created_at}</div>
@@ -106,20 +108,18 @@ class PostIndexItem extends React.Component {
         </div>
         <div className="index-item-footer">
           <div className="caption-comment-holder">
-            <div className="like-count">
-              {this.renderLikeText(post.likers.length)}
-            </div>
+            <div className="like-count">{this.renderLikeText()}</div>
             <span className="caption-username">@{username} </span>
             <span className="caption-text">{caption}</span>
           </div>
           <ul className="comments-render">{this.renderComments(post)}</ul>
-          {this.renderHeart(post)}
+          {this.renderHeart()}
           <CommentFormContainer post={post} />
         </div>
         <div className="like-render">
           <div className="material-icons" />
         </div>
-      </div>
+      </li>
     );
   }
 }
