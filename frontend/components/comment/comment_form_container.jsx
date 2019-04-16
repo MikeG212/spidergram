@@ -3,6 +3,7 @@ import CommentForm from "./comment_form";
 import { createComment, removeComment } from "../../actions/post_actions";
 
 const mapStateToProps = state => {
+  debugger;
   return {
     currentUser: state.entities.users[state.session.id]
   };

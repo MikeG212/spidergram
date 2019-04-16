@@ -20,6 +20,7 @@ class PostIndexItem extends React.Component {
   }
 
   renderComments(post) {
+    debugger;
     let comments = [];
     if (post.comments) {
       comments = Object.values(post.comments);
@@ -78,7 +79,6 @@ class PostIndexItem extends React.Component {
   }
 
   renderLikeText(numLikes) {
-    debugger;
     if (numLikes !== 1) {
       return <p className="post-like-count">{numLikes} likes</p>;
     } else {
@@ -87,7 +87,6 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
     const { post } = this.props;
     const { username, created_at, caption } = post;
     return (
@@ -112,7 +111,7 @@ class PostIndexItem extends React.Component {
             <span className="caption-text">{caption}</span>
           </div>
           <ul className="comments-render">{this.renderComments(post)}</ul>
-          <CommentFormContainer />
+          <CommentFormContainer post={post} />
         </div>
         <div className="like-render">
           <div className="material-icons" />

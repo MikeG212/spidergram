@@ -8,12 +8,10 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchPosts();
   }
 
   render() {
-    debugger;
     const posts = this.props.posts.map(post => {
       return <PostIndexItem post={post} key={post.id} />;
     });
