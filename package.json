@@ -27,7 +27,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack"
+    "start": "webpack",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
