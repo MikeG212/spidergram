@@ -14,17 +14,17 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
- body {
-   background-color: #fafafa;
-   font-size: 14px;
-   color: #262626;
+body {
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626;
 }
 
 .navbar {
   background-color: #fff;
-  border-bottom: 1px solid rgba(0,0,0,.0975);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
   height: 77px;
 }
 
@@ -48,18 +48,15 @@
 }
 
 .loginAsset {
-
 }
 
 img {
-  max-width: 600px
+  max-width: 600px;
 }
 
 .nav-item:not(:first-child) {
-  margin-left: 30px
+  margin-left: 30px;
 }
-
-
 
 .box {
   background-color: #fff;
@@ -114,7 +111,8 @@ img {
   box-shadow: 0 0 1pt 1pt #999999;
 }
 
-li, ul {
+li,
+ul {
   margin: 0;
   border: 0;
   padding: 0;
@@ -134,19 +132,23 @@ li, ul {
   margin-top: 20px;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   font-size: 14px;
   color: #999999;
 }
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   font-size: 14px;
   color: #999999;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: #999999;
   font-size: 14px;
 }
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
+  /* Firefox 18- */
   color: #999999;
   font-size: 14px;
 }
@@ -178,7 +180,6 @@ li, ul {
 
     .item {
       position: absolute;
-
     }
   }
 }
@@ -187,7 +188,7 @@ li, ul {
   .session-form-container {
     width: 350px;
     background-color: #fff;
-    border-bottom: 1px solid rgba(0,0,0,.0975);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     margin: 10px;
 
     form {
@@ -219,7 +220,7 @@ li, ul {
 
 .session-error {
   margin-top: 10px;
-  font-family: 'helvetica';
+  font-family: "helvetica";
   color: red;
   background-color: white;
   font-size: 14px;
