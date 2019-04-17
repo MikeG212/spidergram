@@ -5,8 +5,9 @@ import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT
 } from "../actions/post_actions";
-import { CREATE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 import merge from "lodash/merge";
+import { logoutCurrentUser } from "../actions/session_actions";
 
 const PostsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -18,7 +19,6 @@ const PostsReducer = (state = {}, action) => {
       const newPost = { [action.post.id]: action.post };
       return merge(newState, newPost);
     case RECEIVE_COMMENT:
-      debugger;
       if (!newState[action.comment.post_id].comments) {
         newState[action.comment.post_id].comments = {};
       }
@@ -31,6 +31,10 @@ const PostsReducer = (state = {}, action) => {
       return newState;
     case REMOVE_POST:
       delete newState[action.postId];
+      return newState;
+    case RECEIVE_LIKE:
+      debugger;
+      newState[action.like.post_id].likers.push[currentUser.id];
       return newState;
     default:
       return state;

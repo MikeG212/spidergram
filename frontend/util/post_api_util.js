@@ -21,10 +21,11 @@ export const fetchComments = postId => {
 };
 
 export const createPost = post => {
+  debugger;
   return $.ajax({
     method: "POST",
     url: "/api/posts",
-    data: { post },
+    data: post,
     contentType: false,
     processData: false
   });

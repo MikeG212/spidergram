@@ -47,6 +47,7 @@ class PostIndexItem extends React.Component {
   }
 
   likeStatus() {
+    debugger;
     return this.props.post.likers.includes(this.props.currentUser.id);
   }
 
@@ -64,19 +65,24 @@ class PostIndexItem extends React.Component {
   }
 
   likeAction() {
-    const post_id = this.props.post.id;
+    debugger;
+    const like = {
+      post_id: this.props.post.id
+    };
     if (this.likeStatus()) {
-      this.props.deleteLike(post_id);
+      this.props.deleteLike(like);
     } else {
-      this.props.createLike({ post_id });
+      this.props.createLike(like);
     }
   }
 
   heartClassname() {
+    debugger;
     return this.likeStatus() ? "red-heart" : "empty-heart";
   }
 
   renderHeart() {
+    debugger;
     let className = `core-sprite comment-icons ${this.heartClassname()}`;
     return <div className={className} onClick={() => this.likeAction()} />;
   }
@@ -91,6 +97,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
+    debugger;
     const { post, key } = this.props;
     const { username, created_at, caption } = post;
     return (

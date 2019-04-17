@@ -1,18 +1,21 @@
-import { connect } from 'react-redux';
-import PostForm from './post_form'
-import { createPost } from '../../actions/post_actions'
+import { connect } from "react-redux";
+import PostForm from "./post_form";
+import { createPost } from "../../actions/post_actions";
 
 const mapStateToProps = () => {
-    const post = { caption: '', image_url: '' }
-    const formType = 'Upload';
+  const post = { caption: "", image_url: "" };
+  const formType = "Upload";
 
-    return { post, formType };
+  return { post, formType };
 };
 
-const mapDispatchToProps =  dispatch => {
-    return {
-        action: post => dispatch(createPost(post)),
-    };
+const mapDispatchToProps = dispatch => {
+  return {
+    action: post => dispatch(createPost(post))
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostForm);

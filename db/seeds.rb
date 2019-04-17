@@ -17,20 +17,21 @@ auntMay = User.create!({username: "mayParker", email: "may@mail.com", password: 
 
 puts "here"
 
-def attach_photo(post, image)
+def attach_photo(post, url)
+    image = open(url)
     post.photo.attach(io: image, filename: "temp.jpg")
     post.save!
 end
 
 
 post1 = Post.new({caption: "My Spidey Sense is tingling!", user_id: peterParker.id })
-image1 = open("https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spiderVerse.jpg")
-attach_photo(post1, image1)
+url1 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spiderVerse.jpg";
+attach_photo(post1, url1)
 
 post2 = Post.new({caption: "All black everything!", user_id: peterParker.id })
-image2 = open("https://s3-us-west-1.amazonaws.com/spidergram-dev/images/blackSuit.jpg")
-attach_photo(post2, image2)
+url2 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/blackSuit.jpg"
+attach_photo(post2, url2)
 
 post3 = Post.new({caption: "Check my new movie", user_id: peterParker.id })
-image3 = open("https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spidermanMoviePoster.jpg")
-attach_photo(post3, image3)
+url3 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spidermanMoviePoster.jpg"
+attach_photo(post3, url3)

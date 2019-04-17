@@ -12,6 +12,7 @@ class PostForm extends React.Component {
     };
     this.handleFile = this.handleFile.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -32,10 +33,12 @@ class PostForm extends React.Component {
   }
 
   navigateToIndex() {
+    debugger;
     this.props.history.push("/");
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
@@ -44,7 +47,7 @@ class PostForm extends React.Component {
     }
 
     this.props
-      .createPost(formData)
+      .action(formData)
       .then(() => this.navigateToIndex(), () => console.log("Nope"));
   }
 
