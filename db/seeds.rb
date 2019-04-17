@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
-
 User.destroy_all
 Post.destroy_all
 
@@ -14,8 +12,6 @@ johnJonah= User.create!({username: "johnJonah", email: "jj@dailybugle.com", pass
 peterParker = User.create!({username: "pParker", email: "peter@dailybugle.com", password: "starwars"})
 maryJane = User.create!({username: "maryJane", email: "mj@mail.com", password: "starwars"})
 auntMay = User.create!({username: "mayParker", email: "may@mail.com", password: "starwars"})
-
-puts "here"
 
 def attach_photo(post, url)
     image = open(url)
