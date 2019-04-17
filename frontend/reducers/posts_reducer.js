@@ -3,11 +3,11 @@ import {
   RECEIVE_POST,
   REMOVE_POST,
   RECEIVE_COMMENT,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  SET_POST
 } from "../actions/post_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 import merge from "lodash/merge";
-import { logoutCurrentUser } from "../actions/session_actions";
 
 const PostsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -32,9 +32,16 @@ const PostsReducer = (state = {}, action) => {
     case REMOVE_POST:
       delete newState[action.postId];
       return newState;
-    case RECEIVE_LIKE:
-      debugger;
-      newState[action.like.post_id].likers.push[currentUser.id];
+    // case RECEIVE_LIKE:
+    //   newState[action.like.post_id].likers.push[currentUser.id];
+    //   return newState;
+    // case REMOVE_LIKE:
+    //   newState[action.like.post_id].likers = newState[
+    //     action.like.post_id
+    //   ].likers.filter(id => id !== currentUser.id);
+    //   return newState;
+    case SET_POST:
+      newState[action.post.id] = action.post;
       return newState;
     default:
       return state;

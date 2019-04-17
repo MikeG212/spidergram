@@ -1,31 +1,15 @@
 import * as LikeApiUtil from "../util/like_api_util";
-
-export const RECEIVE_LIKE = "CREATE_LIKE";
-export const REMOVE_LIKE = "REMOVE_LIKE";
-
-const receiveLike = like => {
-  debugger;
-  return {
-    type: RECEIVE_LIKE,
-    like
-  };
-};
-
-const removeLike = like => {
-  return {
-    type: REMOVE_LIKE,
-    like
-  };
-};
+import { setPost } from "./post_actions.js";
 
 export const createLike = like => dispatch => {
-  return LikeApiUtil.createLike(like).then(like => {
-    return dispatch(receiveLike(like));
+  return LikeApiUtil.createLike(like).then(post => {
+    debugger;
+    return dispatch(setPost(post));
   });
 };
 
 export const deleteLike = like => dispatch => {
-  return LikeApiUtil.deleteLike(like).then(() => {
-    return dispatch(removeLike(like));
+  return LikeApiUtil.deleteLike(like).then(post => {
+    return dispatch(setPost(post));
   });
 };

@@ -6,6 +6,7 @@ export const REMOVE_POST = "REMOVE_POST";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
+export const SET_POST = "SET_POST";
 
 export const fetchPosts = () => {
   return dispatch => {
@@ -74,11 +75,16 @@ export const createComment = comment => {
 };
 
 export const removeComment = commentId => {
-  debugger;
   return dispatch => {
     return PostApiUtil.deleteComment(commentId).then(comment => {
-      debugger;
       return dispatch({ type: REMOVE_COMMENT, comment });
     });
+  };
+};
+
+export const setPost = post => {
+  return {
+    type: SET_POST,
+    post
   };
 };

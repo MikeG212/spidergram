@@ -33,12 +33,10 @@ class PostForm extends React.Component {
   }
 
   navigateToIndex() {
-    debugger;
     this.props.history.push("/");
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);

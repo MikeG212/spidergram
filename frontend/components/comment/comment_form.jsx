@@ -17,7 +17,6 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const comment = this.state;
     this.setState({ body: "" });
@@ -25,7 +24,6 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <form className="comment-form" onSubmit={this.handleSubmit}>
         <input

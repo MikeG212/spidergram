@@ -21,7 +21,6 @@ export const fetchComments = postId => {
 };
 
 export const createPost = post => {
-  debugger;
   return $.ajax({
     method: "POST",
     url: "/api/posts",
@@ -39,7 +38,6 @@ export const createComment = comment =>
   });
 
 export const deleteComment = id => {
-  debugger;
   return $.ajax({
     method: "DELETE",
     url: `/api/comments/${id}`

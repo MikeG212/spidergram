@@ -14,8 +14,11 @@ class PostIndexItem extends React.Component {
     this.likeAction = this.likeAction.bind(this);
   }
 
+  likeStatus() {
+    return this.props.post.likers.includes(this.props.currentUser.id);
+  }
   doubleTapLike(post) {
-    if (!post.likers.includes(this.props.currentUser.id)) {
+    if (!this.likeStatus()) {
       this.props.createLike({ post_id: post.id });
     }
   }
@@ -46,11 +49,6 @@ class PostIndexItem extends React.Component {
     });
   }
 
-  likeStatus() {
-    debugger;
-    return this.props.post.likers.includes(this.props.currentUser.id);
-  }
-
   renderRemoveCommentButton(comment) {
     if (comment.user_id === this.props.currentUser.id) {
       return (
@@ -65,7 +63,6 @@ class PostIndexItem extends React.Component {
   }
 
   likeAction() {
-    debugger;
     const like = {
       post_id: this.props.post.id
     };
@@ -77,12 +74,10 @@ class PostIndexItem extends React.Component {
   }
 
   heartClassname() {
-    debugger;
     return this.likeStatus() ? "red-heart" : "empty-heart";
   }
 
   renderHeart() {
-    debugger;
     let className = `core-sprite comment-icons ${this.heartClassname()}`;
     return <div className={className} onClick={() => this.likeAction()} />;
   }
@@ -97,7 +92,6 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
     const { post, key } = this.props;
     const { username, created_at, caption } = post;
     return (
