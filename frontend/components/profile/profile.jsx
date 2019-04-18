@@ -18,10 +18,8 @@ class Profile extends React.Component {
 
   renderPosts() {
     let posts = [];
-    debugger;
     if (this.props.posts.length > 0) {
       posts = this.props.posts.map(post => {
-        debugger;
         return (
           <li key={`image-${post.id}`} className="post-container">
             <img
