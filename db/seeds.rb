@@ -55,7 +55,7 @@ post2 = Post.new({caption: "All black everything!", user_id: spiderMan.id })
 url2 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/blackSuit.jpg"
 attach_photo(post2, url2)
 
-post3 = Post.new({caption: "Check my new movie", user_id: spiderMan.id })
+post3 = Post.new({caption: "Check out my new movie", user_id: spiderMan.id })
 url3 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spidermanMoviePoster.jpg"
 attach_photo(post3, url3)
 
@@ -77,5 +77,8 @@ like14 = Like.create({post_id: post3.id, user_id: gwenStacy.id})
 like15 = Like.create({post_id: post3.id, user_id: prowler.id})
 
 #comments (20)
+
+comment1 = Comment.create({ post_id: post3.id, user_id: tobeyMaguire.id, body: "Looks awesome :)"})
+comment2 = Comment.create({ post_id: post3.id, user_id: deadpool.id, body: "^^You misspelled LAME :)"})
 #following
 

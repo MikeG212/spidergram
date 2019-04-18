@@ -12,19 +12,27 @@ class PostIndexItem extends React.Component {
     this.doubleTapLike = this.doubleTapLike.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
     this.likeAction = this.likeAction.bind(this);
+    this.navigateUserShow = this.navigateUserShow.bind(this);
   }
 
   likeStatus() {
     return this.props.post.likers.includes(this.props.currentUser.id);
   }
+
+  navigateUserShow(id) {
+    this.props.history.push(`/users/${id}`);
+  }
+
   doubleTapLike(post) {
     if (!this.likeStatus()) {
-      this.props.createLike({ post_id: post.id });
+      const like = {
+        post_id: this.props.post.id
+      };
+      this.props.createLike(like);
     }
   }
 
   renderComments() {
-    debugger;
     let comments = [];
     if (this.props.post.comments) {
       comments = Object.values(this.props.post.comments);
@@ -34,18 +42,16 @@ class PostIndexItem extends React.Component {
       let username = comment.username || this.props.currentUser.username;
 
       return (
-        <li key={`comments-${comment.id}`} className="comment-and-username">
-          <label>
-            <a
-              className="comment-username-link"
-              href={`#/users/${comment.user_id}`}
-            >
-              {username}
-            </a>
-            <span className="comment-body">{comment.body}</span>
-            {this.renderRemoveCommentButton(comment)}
-          </label>
-        </li>
+        <div key={`comments-${comment.id}`} className="comment-item">
+          <div
+            className="caption-username comment-username"
+            onClick={() => this.navigateUserShow(comment.user_id)}
+          >
+            {comment.username}
+          </div>
+          <span className="caption-text comment-text">{comment.body}</span>
+          {this.renderRemoveCommentButton(comment)}
+        </div>
       );
     });
   }
@@ -98,27 +104,36 @@ class PostIndexItem extends React.Component {
     return (
       <li key={key} className="index-item">
         <div className="index-item-header">
-          <a className="post-username-link" href={`#/users/${user_id}`}>
-            @{username}
-          </a>
+          <h5
+            className="post-username-link"
+            onClick={() => this.navigateUserShow(user_id)}
+          >
+            {username}
+          </h5>
           <div className="post-time">{created_at}</div>
         </div>
         <div className="photo-container">
           <img
-            className="index-image"
+            className="post-image"
             onDoubleClick={this.doubleTapLike}
             src={post.image_url}
           />
         </div>
         <div className="index-item-footer">
           <div className="caption-comment-holder">
-            <div className="like-count">{this.renderLikeText()}</div>
-            <a className="post-username-link" href={`#/users/${user_id}`}>
-              @{username}
-            </a>
-            <span className="caption-text">{caption}</span>
+            <div className="caption-holder">
+              <div className="like-count">{this.renderLikeText()}</div>
+              <span
+                className="caption-username"
+                onClick={() => this.navigateUserShow(user_id)}
+              >
+                {username}
+              </span>
+              <span className="caption-text">{caption}</span>
+            </div>
+            <div className="comments-render">{this.renderComments()}</div>
           </div>
-          <ul className="comments-render">{this.renderComments()}</ul>
+
           {this.renderHeart()}
           <CommentFormContainer post={post} />
         </div>
