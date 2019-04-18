@@ -1,13 +1,12 @@
 class User < ApplicationRecord
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :email, :username, :session_token, uniqueness: true
-  validates :username, length: {in: 4..10}
+  validates :username, length: {in: 4..20}
   validates :password, length: {in: 6..25, allow_nil: true }
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-
 
   has_one_attached :avatar
 
