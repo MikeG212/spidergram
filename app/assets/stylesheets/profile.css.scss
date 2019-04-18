@@ -9,10 +9,10 @@
   padding-top: 80px;
   background-color: #fafafa;
   align-items: center;
-  font-family: 'helvetica';
+  font-family: "helvetica";
 }
 
-.profile-page-images {
+.user-show-posts {
   display: flex;
   flex-wrap: wrap;
   width: 90%;
@@ -21,7 +21,7 @@
   padding-top: 24px;
 }
 
-.post-container {
+.user-show-post-container {
   position: relative;
   width: 33%;
   padding-top: 33%;
@@ -35,12 +35,6 @@
   height: 90%;
 }
 
-.profile-info {
-  width: 85%;
-  display: flex;
-  flex-direction: row;
-}
-
 .user-profile {
   display: flex;
   width: 85%;
@@ -49,7 +43,7 @@
   align-items: center;
 }
 
-.profile-info {
+.user-show-info {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -81,7 +75,7 @@
   max-width: 850px;
 }
 
-.profile-info-container {
+.user-show-info-container {
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -90,8 +84,8 @@
   margin-left: 50px;
 }
 
-.username {
-  font-family: 'helvetica';
+.user-show-username {
+  font-family: "helvetica";
   font-size: 130%;
   margin-right: 15px;
 }
@@ -101,13 +95,13 @@
   flex-direction: column;
 }
 
-.bio {
+.user-show-bio-header {
   font-weight: bold;
   margin: 5px 0 11px 0;
   margin-bottom: 5px;
 }
 
-.bio-text {
+.user-show-bio-text {
   margin-top: 5px;
   max-width: 450px;
   line-height: 1.2;

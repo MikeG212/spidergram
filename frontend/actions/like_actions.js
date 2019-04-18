@@ -3,7 +3,6 @@ import { setPost } from "./post_actions.js";
 
 export const createLike = like => dispatch => {
   return LikeApiUtil.createLike(like).then(post => {
-    debugger;
     return dispatch(setPost(post));
   });
 };
