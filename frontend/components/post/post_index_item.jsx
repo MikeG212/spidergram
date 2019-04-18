@@ -24,9 +24,10 @@ class PostIndexItem extends React.Component {
   }
 
   renderComments() {
+    debugger;
     let comments = [];
     if (this.props.post.comments) {
-      comments = Object.values(post.comments);
+      comments = Object.values(this.props.post.comments);
     }
 
     return comments.map(comment => {
