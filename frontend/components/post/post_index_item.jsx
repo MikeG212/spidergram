@@ -12,7 +12,6 @@ class PostIndexItem extends React.Component {
     this.doubleTapLike = this.doubleTapLike.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
     this.likeAction = this.likeAction.bind(this);
-    this.renderUsernameLink = this.renderUsernameLink.bind(this);
   }
 
   likeStatus() {
@@ -92,24 +91,15 @@ class PostIndexItem extends React.Component {
     }
   }
 
-  renderUsernameLink() {
-    return (
-      <a
-        className="post-username-link"
-        href={`#/users/${this.props.post.user_id}`}
-      >
-        @{this.props.post.username}
-      </a>
-    );
-  }
-
   render() {
     const { post, key } = this.props;
-    const { username, created_at, caption } = post;
+    const { username, user_id, created_at, caption } = post;
     return (
       <li key={key} className="index-item">
         <div className="index-item-header">
-          {this.renderUsernameLink()}
+          <a className="post-username-link" href={`#/users/${user_id}`}>
+            @{username}
+          </a>
           <div className="post-time">{created_at}</div>
         </div>
         <div className="photo-container">
@@ -122,7 +112,9 @@ class PostIndexItem extends React.Component {
         <div className="index-item-footer">
           <div className="caption-comment-holder">
             <div className="like-count">{this.renderLikeText()}</div>
-            {this.renderUsernameLink()}
+            <a className="post-username-link" href={`#/users/${user_id}`}>
+              @{username}
+            </a>
             <span className="caption-text">{caption}</span>
           </div>
           <ul className="comments-render">{this.renderComments()}</ul>

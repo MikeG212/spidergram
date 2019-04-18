@@ -23,7 +23,7 @@ def attach_photo(post, url)
 end
 
 johnJonah= User.create!({username: "johnJonah", email: "jj@dailybugle.com", password: "starwars", bio: "Bring me pictures of Spider-man!"})
-peterParker = User.create!({username: "pParker", email: "peter@dailybugle.com", password: "starwars"})
+peterParker = User.create!({username: "pParker", email: "peter@dailybugle.com", password: "starwars", bio: "Hello world!"})
 spiderMan = User.create!({username: "spiderMan", email: "spiderMan@mail.com", password: "starwars", bio: "Your friendly neighborhood Spiderman"})
 maryJane = User.create!({username: "maryJane", email: "mj@midtown.edu", password: "starwars", bio: "Face it, tiger. You hit the jackpot"})
 auntMay = User.create!({username: "mayParker", email: "may@mail.com", password: "starwars"})
@@ -58,6 +58,12 @@ url3 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spidermanMovieP
 attach_photo(post3, url3)
 
 #likes (200)
+like1 = Like.create({post_id: post1.id, user_id: peterParker.id})
+like2 = Like.create({post_id: post1.id, user_id: spiderMan.id})
+like3 = Like.create({post_id: post1.id, user_id: spiderHam.id})
+like4 = Like.create({post_id: post1.id, user_id: gwenStacy.id})
+like5 = Like.create({post_id: post1.id, user_id: prowler.id})
+
 #comments (20)
 #following
 

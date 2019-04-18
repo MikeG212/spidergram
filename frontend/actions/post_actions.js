@@ -8,9 +8,9 @@ export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const SET_POST = "SET_POST";
 
-export const fetchPosts = () => {
+export const fetchPosts = userId => {
   return dispatch => {
-    return PostApiUtil.fetchPosts().then(posts => {
+    return PostApiUtil.fetchPosts(userId).then(posts => {
       return dispatch({ type: RECEIVE_ALL_POSTS, posts: posts });
     });
   };
