@@ -6,23 +6,16 @@
   z-index: 1;
 }
 
-.navBar-items {
+.navBar-icons-group {
+  order: 3;
+  margin-left: 200px;
   display: flex;
-  background-color: white;
-  border-bottom: 1px solid #efefef;
-  padding: 14px 9px;
-  padding-top: 14px;
-  align-items: center;
 }
 
-.navBar-left {
-  margin-right: 20%;
-}
-
-.navBar-right {
-  display: flex;
-  margin-left: 20%;
-  align-items: center;
+.navBar-logo {
+  height: 43px;
+  width: auto;
+  cursor: pointer;
 }
 
 .navbar-brand {
@@ -44,29 +37,20 @@
   white-space: nowrap;
 }
 
-.icons-group {
-  order: 3;
-  margin-left: 200px;
-  display: flex;
-}
-
-.nav-bar-icons {
-  cursor: pointer;
-}
-
 .upload-icon {
   background-position: -287px -179px;
-  width: 24px;
-  height: 24px;
 }
 
 .profile-icon {
   background-position: -314px -181px;
-  width: 24px;
-  height: 24px;
 }
 
 .logout-icon {
-  width: 24px;
-  height: 24px;
+}
+
+.navBar-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  cursor: pointer;
 }

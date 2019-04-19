@@ -9,29 +9,29 @@ class NavBar extends React.Component {
   render() {
     const { currentUser, logout, history } = this.props;
     return (
-      <nav className="navBar">
+      <div className="navBar">
         <div
           className="navBar-logo navbar-brand core-sprite main-logo"
           onClick={() => this.props.history.push("/")}
         />
 
-        <div className="icons-group">
+        <div className="navBar-icons-group">
           <div
-            className="nav-link core-sprite upload-icon hide-text nav-bar-icons"
+            className="core-sprite upload-icon hide-text navBar-icon"
             onClick={() => history.push("/upload")}
           />
           <div
-            className="nav-link core-sprite profile-icon hide-text nav-bar-icons"
+            className="core-sprite profile-icon hide-text navBar-icon"
             onClick={() => history.push(`/users/${currentUser.id}`)}
           />
           <img
-            className="logout-icon nav-bar-icons"
+            className="logout-icon navBar-icon"
             src={window.images.logout_icon}
             alt="Log out"
             onClick={() => logout()}
           />
         </div>
-      </nav>
+      </div>
     );
   }
 }
