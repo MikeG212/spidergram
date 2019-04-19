@@ -31,7 +31,7 @@
   outline: 0;
   border: 1px solid #dbdbdb;
   padding: 2px;
-  font-size: 30px;
+  font-size: 13px;
   width: 263px;
   height: 40px;
   resize: vertical;
@@ -58,7 +58,7 @@
   text-align: center;
   border-radius: 4px;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .choose-file-holder:active {
@@ -75,7 +75,6 @@
   cursor: pointer;
 }
 
-
 .new-post-button {
   display: block;
   background: #3897f0;
@@ -87,7 +86,7 @@
   font-weight: bold;
   font-size: 14px;
   padding: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: auto;
   cursor: pointer;
 }
@@ -105,7 +104,6 @@
   padding: 0;
   display: block;
   text-align: center;
-  color: black;
   font-size: 32px;
   font-weight: 300;
   margin-top: 15px;

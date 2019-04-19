@@ -43,6 +43,14 @@
   align-items: center;
 }
 
+.stat-number {
+  font-weight: 700;
+}
+
+.post-stats {
+  font-weight: 700;
+}
+
 .user-show-info {
   display: flex;
   justify-content: center;
@@ -86,8 +94,8 @@
 
 .user-show-username {
   font-family: "helvetica";
-  font-size: 130%;
   margin-right: 15px;
+  font-size: 32px;
 }
 
 .bio-container {

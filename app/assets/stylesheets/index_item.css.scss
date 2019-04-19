@@ -40,7 +40,6 @@ ul {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 14px;
-  color: black;
   margin: 20px;
   cursor: pointer;
 }
@@ -56,11 +55,9 @@ ul {
   font-weight: 700;
   font-size: 14px;
   margin-right: 3px;
-  color: black;
 }
 
 .caption-text {
-  color: black;
   font-size: 14px;
   font-family: "Open-sans", sans-serif;
   font-weight: 400;
@@ -72,7 +69,7 @@ ul {
 //   margin-bottom: 1px;
 // }
 
-.like-comment-render {
+.like-comment-form {
   display: flex;
   flex-flow: flex-start;
   align-items: center;
@@ -168,7 +165,6 @@ ul {
 }
 
 .like-count {
-  color: black;
   font-family: "open-sans", sans-serif;
   font-weight: 600;
   font-size: 14.5px;
@@ -229,15 +225,14 @@ ul {
 }
 
 .red-heart {
-  background-position: -200px -331px;
+  background-position: -208px -338px;
 }
 
 .empty-heart {
-  background-position: -124px -331px;
+  background-position: -234px -338px;
 }
 
 .remove-icon {
-  background-position: -383px -20px;
-  cursor: pointer;
+  background-position: -336px -62px;
   margin-left: auto;
 }

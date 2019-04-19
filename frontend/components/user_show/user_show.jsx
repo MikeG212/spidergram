@@ -18,9 +18,9 @@ class UserShow extends React.Component {
 
   postText() {
     return this.props.user.posts.length === 1 ? (
-      <span className="posts-stats"> post</span>
+      <span className="post-stats"> post</span>
     ) : (
-      <span className="posts-stats"> posts</span>
+      <span className="post-stats"> posts</span>
     );
   }
 

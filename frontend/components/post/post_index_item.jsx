@@ -13,6 +13,7 @@ class PostIndexItem extends React.Component {
     this.likeStatus = this.likeStatus.bind(this);
     this.likeAction = this.likeAction.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
+    this.navigatePostShow = this.navigatePostShow.bind(this);
   }
 
   likeStatus() {
@@ -21,6 +22,11 @@ class PostIndexItem extends React.Component {
 
   navigateUserShow(id) {
     this.props.history.push(`/users/${id}`);
+  }
+
+  navigatePostShow() {
+    debugger;
+    this.props.history.push(`/posts/${this.props.post.id}`);
   }
 
   doubleTapLike(post) {
@@ -40,14 +46,13 @@ class PostIndexItem extends React.Component {
 
     return comments.map(comment => {
       let username = comment.username || this.props.currentUser.username;
-
       return (
         <div key={`comments-${comment.id}`} className="comment-item">
           <div
             className="caption-username comment-username"
             onClick={() => this.navigateUserShow(comment.user_id)}
           >
-            {comment.username}
+            {username}
           </div>
           <span className="caption-text comment-text">{comment.body}</span>
           {this.renderRemoveCommentButton(comment)}
@@ -86,7 +91,7 @@ class PostIndexItem extends React.Component {
 
   renderHeart() {
     let className = `core-sprite comment-icons ${this.heartClassname()}`;
-    return <div className={className} onClick={() => this.likeAction()} />;
+    return <span className={className} onClick={() => this.likeAction()} />;
   }
 
   renderLikeText() {
@@ -116,6 +121,7 @@ class PostIndexItem extends React.Component {
           <img
             className="post-image"
             onDoubleClick={this.doubleTapLike}
+            onClick={() => this.navigatePostShow()}
             src={post.image_url}
           />
         </div>
@@ -134,11 +140,10 @@ class PostIndexItem extends React.Component {
             <div className="comments-render">{this.renderComments()}</div>
           </div>
 
-          {this.renderHeart()}
-          <CommentFormContainer post={post} />
-        </div>
-        <div className="like-render">
-          <div className="material-icons" />
+          <div className="like-comment-form">
+            {this.renderHeart()}
+            <CommentFormContainer post={post} />
+          </div>
         </div>
       </li>
     );

@@ -1,17 +1,72 @@
+.navBar {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  height: 77px;
+  width: 100vw;
+  z-index: 1;
+}
+
+.navBar-items {
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid #efefef;
+  padding: 14px 9px;
+  padding-top: 14px;
+  align-items: center;
+}
+
+.navBar-left {
+  margin-right: 20%;
+}
+
+.navBar-right {
+  display: flex;
+  margin-left: 20%;
+  align-items: center;
+}
+
+.navbar-brand {
+  background-position: -176px 0;
+  height: 35px;
+  width: 176px;
+  cursor: pointer;
+}
+
+.core-sprite {
+  background-image: image-url("core-sprite.png");
+  background-repeat: no-repeat;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
+
+.icons-group {
+  order: 3;
+  margin-left: 200px;
+  display: flex;
+}
+
+.nav-bar-icons {
+  cursor: pointer;
+}
+
 .upload-icon {
-  background-position: -283px -176px;
-  height: 24px;
+  background-position: -287px -179px;
   width: 24px;
+  height: 24px;
 }
 
 .profile-icon {
-  background-position: -308px -176px;
-  height: 24px;
+  background-position: -314px -181px;
   width: 24px;
+  height: 24px;
 }
 
 .logout-icon {
-  cursor: pointer;
-  height: 24px;
   width: 24px;
+  height: 24px;
 }

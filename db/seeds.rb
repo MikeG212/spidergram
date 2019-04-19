@@ -8,7 +8,6 @@
 require 'open-uri'
 
 User.destroy_all
-Post.destroy_all
 
 def attach_avatar(user, url)
     image = open(url)
@@ -25,12 +24,12 @@ end
 johnJonah= User.create!({username: "johnJonah", email: "jj@dailybugle.com", password: "starwars", bio: "Bring me pictures of Spider-man!"})
 peterParker = User.create!({username: "pParker", email: "peter@dailybugle.com", password: "starwars", bio: "Hello world!"})
 spiderMan = User.create!({username: "spiderMan", email: "spiderMan@mail.com", password: "starwars", bio: "Your friendly neighborhood Spiderman"})
-maryJane = User.create!({username: "maryJane", email: "mj@midtown.edu", password: "starwars", bio: "Face it, tiger. You hit the jackpot"})
+maryJane = User.create!({username: "maryJane", email: "mj@midtown.edu", password: "starwars", bio: "Face it, tiger. You just hit the jackpot"})
 auntMay = User.create!({username: "mayParker", email: "may@mail.com", password: "starwars"})
 uncleBen = User.create!({username: "benParker", email: "ben@mail.com", password: "starwars", bio: "With great power comes great responsibility"})
 harryOsborn = User.create!({username: "harryOsborn", email: "harry@oscorp.com", password: "starwars"})
 normanOsborn = User.create!({username: "greenGoblin", email: "norman@oscorp.com", password: "starwars"})
-flashThompson = User.create!({username: "flashThompson", email: "flash@midtown.edu", password: "starwars"})
+flashThompson = User.create!({username: "flashThompson", email: "flash@midtown.edu", password: "starwars", bio: "Get lost, bookworm. Spider-Man rules!"})
 milesMorales = User.create!({username: "milesMorales", email: "miles@mail.com", password: "starwars", })
 gwenStacy = User.create!({username: "gwenStacy", email: "gwen@midtown.edu", password: "starwars", bio: "What makes it precious is that it ends"})
 spiderHam = User.create!({username: "spiderHam", email: "peterporker@mail.com", password: "starwars", bio: "Does what ever a spider-pig can"})
@@ -44,6 +43,8 @@ andrewGarfield = User.create!({username: "andrewGarfield", email: "andrewGarfiel
 ned = User.create!({username: "nedLeeds", email: "ned@mail.com", password: "starwars", bio: "Guy in the chair"})
 deadpool = User.create!({username: "deadpool", email: "deadpool@mail.com", password: "starwars", bio: "Frances!?"})
 lego = User.create!({username: "legoSpiderman", email: "legoSpiderman@mail.com", password: "starwars", bio: "Everything is awesome"})
+derekJeter = User.create!({username: "derekJeter", email: "thecaptain2@yankeemail.com", password: "starwars", bio: "The Captain."})
+holdenCaulfield = User.create!({username: "holdenCaulfield", email: "catcher@mail.com", password: "starwars", bio: "RIP Ali. I'm always saying “Glad to've met you” to someone I'm not at all glad I met."})
 
 #avatars (plus default avatar)
 #posts (15)
@@ -58,6 +59,10 @@ attach_photo(post2, url2)
 post3 = Post.new({caption: "Check out my new movie", user_id: spiderMan.id })
 url3 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/spidermanMoviePoster.jpg"
 attach_photo(post3, url3)
+
+post4 =  Post.new({caption: "The rest is history...", user_id: maryJane.id })
+url4 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/mary-jane-watson.jpg"
+attach_photo(post4, url4)
 
 #likes (200)
 like1 = Like.create({post_id: post1.id, user_id: peterParker.id})
@@ -75,10 +80,28 @@ like12 = Like.create({post_id: post3.id, user_id: spiderMan.id})
 like13 = Like.create({post_id: post3.id, user_id: spiderHam.id})
 like14 = Like.create({post_id: post3.id, user_id: gwenStacy.id})
 like15 = Like.create({post_id: post3.id, user_id: prowler.id})
+like16 = Like.create({post_id: post4.id, user_id: peterParker.id})
+like17 = Like.create({post_id: post4.id, user_id: spiderMan.id})
+like18 = Like.create({post_id: post4.id, user_id: spiderHam.id})
+like19 = Like.create({post_id: post4.id, user_id: auntMay.id})
+like20 = Like.create({post_id: post4.id, user_id: derekJeter.id})
+like21 = Like.create({post_id: post4.id, user_id: tomHolland.id})
+like22 = Like.create({post_id: post4.id, user_id: andrewGarfield.id})
+like23 = Like.create({post_id: post4.id, user_id: tobeyMaguire.id})
 
 #comments (20)
 
 comment1 = Comment.create({ post_id: post3.id, user_id: tobeyMaguire.id, body: "Looks awesome :)"})
 comment2 = Comment.create({ post_id: post3.id, user_id: deadpool.id, body: "^^You misspelled LAME :)"})
+comment3 = Comment.create({ post_id: post3.id, user_id: johnJonah.id, body: "The Webbed Menace"})
+comment4 = Comment.create({ post_id: post3.id, user_id: derekJeter.id, body: "Makes me proud to be a New Yorker!"})
+comment5 = Comment.create({ post_id: post3.id, user_id: holdenCaulfield.id, body: "Phony..."})
+
+comment6 = Comment.create({ post_id: post2.id, user_id: tobeyMaguire.id, body: "I've been trying to forget about this"})
+comment7 = Comment.create({ post_id: post2.id, user_id: spiderMan.id, body: "Please don't start dancing"})
+comment8 = Comment.create({ post_id: post2.id, user_id: venom.id, body: "Copycat...."})
+comment9 = Comment.create({ post_id: post2.id, user_id: holdenCaulfield.id, body: "Phony..."})
+comment10 = Comment.create({ post_id: post2.id, user_id: johnJonah.id, body: "The Black Webbed Menace"})
+
 #following
 
