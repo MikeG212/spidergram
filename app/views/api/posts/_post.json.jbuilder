@@ -4,6 +4,7 @@ json.image_url url_for(post.photo)
 json.username post.user.username
 json.user_id post.user.id
 json.likers post.likers.pluck(:id)
+json.commentIds post.comments.pluck(:id)
 
 json.comments do
     post.comments.each do |comment|
