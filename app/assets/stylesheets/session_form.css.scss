@@ -1,3 +1,112 @@
 html {
   background-color: #fafafa;
 }
+
+.session-form-container {
+  margin: 0 auto;
+  margin-top: 100px;
+  max-width: 935px;
+}
+
+.landing-left {
+  float: left;
+}
+
+ul {
+  list-style: none;
+}
+
+li,
+ul {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+.landing-right {
+  float: left;
+}
+
+.session-form-box {
+  float: left;
+  background: white;
+  padding: 40px;
+  margin-left: 30px;
+  border: 1px solid #efefef;
+}
+
+.session-button {
+  background: #3897f0;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  width: 270px;
+  outline: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.form-input {
+  display: block;
+  height: 32px;
+  margin-bottom: 7px;
+  width: 258px;
+  padding-left: 8px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #dbdbdb;
+}
+
+.errors-list > li:first-child {
+  margin-top: 20px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 14px;
+  color: #999999;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 14px;
+  color: #999999;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #999999;
+  font-size: 14px;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #999999;
+  font-size: 14px;
+}
+
+.signup-fields {
+  display: block;
+}
+
+.login-fields {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.app-name {
+  text-align: center;
+}
+
+.toggle {
+  text-align: center;
+  display: block;
+}
+
+.or {
+  text-align: center;
+  margin: 0px;
+}

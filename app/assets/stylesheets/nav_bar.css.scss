@@ -1,21 +1,32 @@
 .navBar {
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-  height: 77px;
+  height: 50px;
   width: 100vw;
   z-index: 1;
+  display: flex;
+  position: fixed;
+  top: 0;
+  border: 10px;
 }
 
 .navBar-icons-group {
   order: 3;
-  margin-left: 200px;
   display: flex;
+  position: absolute;
+  right: 0;
+  margin: 10px;
 }
 
 .navBar-logo {
   height: 43px;
   width: auto;
   cursor: pointer;
+  margin: 10px;
+}
+
+h3 {
+  text-align: center;
 }
 
 .navbar-brand {

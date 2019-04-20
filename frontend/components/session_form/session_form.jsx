@@ -32,11 +32,9 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors-list">
         {this.props.errors.map((error, i) => (
-          <li className="session-error" key={`error-${i}`}>
-            {error}
-          </li>
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
@@ -51,15 +49,14 @@ class SessionForm extends React.Component {
   renderInputFields() {
     if (this.props.formType === "login") {
       return (
-        <div className="loginFields">
-          <br />
+        <div className="login-fields">
           <label htmlFor="email">
             Email:
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
-              placeholder="greenGoblin@mail.com"
+              placeholder="Email"
               className="form-input"
             />
           </label>
@@ -67,25 +64,24 @@ class SessionForm extends React.Component {
       );
     } else {
       return (
-        <div className="signupFields">
+        <div className="signup-fields">
           <label htmlFor="email">
             Email:
             <input
               type="email"
               value={this.state.email}
               onChange={this.update("email")}
-              placeholder="greenGoblin@mail.com"
+              placeholder="Email"
               className="form-input"
             />
           </label>
-          <br />
           <label htmlFor="username">
             Username:
             <input
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              placeholder="greenGoblin"
+              placeholder="Username"
               className="form-input"
             />
           </label>
@@ -106,7 +102,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === "login") {
       return (
         <div className="session-demo-button">
-          <p>OR</p>
+          <p className="or">OR</p>
           <button className="session-button" onClick={this.demoLogin}>
             Log in with Demo Account
           </button>
@@ -137,40 +133,39 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 landing-left">
-            <img
-              className="loginAsset"
-              src={window.images.dummyPhoneNoAnimate}
-              alt="dummyPhone"
-            />
-          </div>
-          <div className="col-lg-6 landing-right text-center d-flex align-items-center">
-            <div className="session-form-container">
-              <form onSubmit={this.handleSubmit} className="session-form-box">
-                <h3>Spidergram</h3>
-                <div className="session-form text">
-                  Please {this.props.formType} or {this.navLink()}
-                </div>
-                {this.renderInputFields()}
-                <label htmlFor="password">
-                  Password:
-                  <input
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    className="form-input"
-                  />
-                </label>
-                <br />
-                {this.submitButton()}
-                <br />
-                {this.demoLoginButton()}
-                {this.renderErrors()}
-              </form>
+      <div className="session-form-container">
+        <div className="landing-left">
+          <img
+            className="login-asset"
+            src={window.images.dummyPhoneNoAnimate}
+            alt="dummyPhone"
+          />
+        </div>
+        <div className="landing-right">
+          <form onSubmit={this.handleSubmit} className="session-form-box">
+            <h3 className="app-name">Spidergram</h3>
+            <div className="session-form toggle">
+              Please {this.props.formType} or {this.navLink()}
             </div>
-          </div>
+            <br />
+            <br />
+            {this.renderInputFields()}
+            <label htmlFor="password">
+              Password:
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password..."
+                className="form-input"
+              />
+            </label>
+            <br />
+            {this.submitButton()}
+            <br />
+            {this.demoLoginButton()}
+            {this.renderErrors()}
+          </form>
         </div>
       </div>
     );
