@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
     this.submitButton = this.submitButton.bind(this);
     this.renderInputFields = this.renderInputFields.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -31,6 +32,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+    debugger;
     return (
       <ul className="errors-list">
         {this.props.errors.map((error, i) => (
