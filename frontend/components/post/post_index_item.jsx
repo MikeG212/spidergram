@@ -121,7 +121,7 @@ class PostIndexItem extends React.Component {
           <img
             className="post-image"
             onDoubleClick={this.doubleTapLike}
-            onClick={() => this.navigatePostShow()}
+            // onClick={() => this.navigatePostShow()}
             src={post.image_url}
           />
         </div>
