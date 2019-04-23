@@ -11,6 +11,7 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     const { userId, fetchUser, fetchPosts } = this.props;
     fetchUser(userId);
     fetchPosts();
@@ -41,8 +42,9 @@ class UserShow extends React.Component {
   renderFollowingButton() {}
 
   render() {
+    debugger;
     const { user } = this.props;
-    if (this.props.user) {
+    if (user) {
       return (
         <div className="user-show-container">
           <div className="user-show-header">

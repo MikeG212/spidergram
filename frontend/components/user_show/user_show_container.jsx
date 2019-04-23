@@ -6,6 +6,7 @@ import { fetchUser } from "../../actions/user_actions";
 import { fetchPosts } from "../../actions/post_actions";
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   const currentUser = state.entities.users[state.session.id];
   const userId = ownProps.match.params.userId;
   const user = state.entities.users[userId];
