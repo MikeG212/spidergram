@@ -6,10 +6,14 @@ import { fetchPost } from "../../actions/post_actions";
 
 const mapStateToProps = (state, ownProps) => {
   debugger
+  const user = state.entities.users[ownProps.options.userId];
+  const post = state.entities.posts[ownProps.options.postId];
   return {
-    currentUser: state.entities.users[state.session.id],
-    post: state.entities.posts[ownProps.match.params.postId],
-    postId: ownProps.match.params.postId
+    user: user,
+    post: post,
+    userId: ownProps.options.userId,
+    posttId: ownProps.options.posttId,
+    currentUserId: state.session.id
   };
 };
 const mapDispatchToProps = dispatch => ({

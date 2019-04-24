@@ -5,7 +5,6 @@ import { removeComment, fetchComments } from "../../actions/post_actions";
 import { createLike, deleteLike } from "../../actions/like_actions";
 
 const mapStateToProps = state => {
-  debugger
   let posts = [];
   if (state.entities.posts) {
     posts = JSON.parse(JSON.stringify(state.entities.posts));
@@ -16,7 +15,6 @@ const mapStateToProps = state => {
       }).filter(comment => comment);
     })
   }
-  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     users: state.entities.users,

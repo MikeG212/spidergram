@@ -1,8 +1,8 @@
 import * as UserAPIUtil from "../util/user_api_util";
 
-
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+export const RECEIVE_SEARCH_USERS = "RECEIVE_SEARCH_USERS";
 export const REMOVE_SEARCHED_USERS = 'REMOVED_SEARCHED_USERS'
 
 export const receiveUser = user => ({
@@ -15,6 +15,10 @@ export const receiveUsers = users => ({
   users: users
 })
 
+export const receiveSearchUsers = users => ({
+  type: RECEIVE_SEARCH_USERS,
+  users: users
+})
 
 export const fetchUser = userId => {
   return dispatch => {
@@ -28,6 +32,14 @@ export const fetchUsers = (username) => {
   return dispatch => {
     return UserAPIUtil.fetchUsers(username).then(users => {
       return dispatch(receiveUsers(users))
+    });
+  };
+};
+
+export const searchUsers = (username) => {
+  return dispatch => {
+    return UserAPIUtil.fetchUsers(username).then(users => {
+      return dispatch(receiveSearchUsers(users))
     });
   };
 };

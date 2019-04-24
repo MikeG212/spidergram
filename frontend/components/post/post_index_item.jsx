@@ -105,7 +105,6 @@ class PostIndexItem extends React.Component {
           <img
             className="post-image"
             src={post.image_url}
-            onClick={() => this.props.history.push(`posts/${post.id}`)}
           />
         </div>
         <div className="index-item-footer">

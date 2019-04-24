@@ -31,13 +31,13 @@ class UserShow extends React.Component {
     let posts = [];
     if (this.props.posts.length > 0) {
       posts = this.props.posts.map(post => {
+        let that = this;
         return (
           <li key={`image-${post.id}`} className="user-show-post-container">
             <img
               className="user-show-image"
               src={post.image_url}
-              onClick={() => this.props.openModal({ userId: this.props.user.id, post_id: post.id })}
-            // onClick={() => this.props.history.push(`/posts/${post.id}`)}
+              onClick={() => this.props.openModal({ userId: this.props.user.id, postId: post.id })}
             />
           </li>
         );
@@ -94,6 +94,7 @@ class UserShow extends React.Component {
         </div>
       );
     } else {
+      debugger
       return <div className="nullUser" />;
     }
   }

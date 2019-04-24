@@ -16,7 +16,6 @@ class PostShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchPost(this.props.postId);
   }
 
@@ -94,7 +93,6 @@ class PostShow extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.post) {
       const { post, key } = this.props;
       const { username, user_id, created_at, caption } = post;

@@ -14,7 +14,9 @@ const mapStateToProps = (state, ownProps) => {
     user && Object.keys(state.entities.posts).length > 0
       ? user.posts.map(postId => state.entities.posts[postId])
       : [];
-
+  if (!user) {
+    debugger
+  }
   return {
     currentUser,
     userId,
@@ -28,7 +30,7 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchUser: userId => dispatch(fetchUser(userId)),
     fetchPosts: () => dispatch(fetchPosts()),
-    openModal: () => dispatch(openModal("post")),
+    openModal: (options) => dispatch(openModal("post", options)),
     closeModal: () => dispatch(closeModal())
   };
 };

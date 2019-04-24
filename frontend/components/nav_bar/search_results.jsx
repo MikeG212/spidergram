@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
-import { fetchUsers } from '../../actions/user_actions';
+import { searchUsers } from '../../actions/user_actions';
 
 class SearchResults extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             searchTerm: this.props.searchTerm,
-            users: this.props.users,
+            searchResults: this.props.searchResults,
         };
 
         this.renderUsers = this.renderUsers.bind(this);
@@ -18,15 +18,15 @@ class SearchResults extends React.Component {
     componentWillReceiveProps(newProps) {
         if (this.props.searchTerm !== newProps.searchTerm) {
             this.setState({ searchTerm: newProps.searchTerm })
-            this.props.fetchUsers(this.props.searchTerm)
-                .then(() => this.setState({ users: newProps.users }))
+            this.props.searchUsers(newProps.searchTerm)
+                .then(() => this.setState({ searchResults: newProps.searchResults }))
         }
         if (JSON.stringify(this.props.users) != JSON.stringify(newProps.users)) {
-            this.props.fetchUsers(this.props.searchTerm)
+            this.props.searchUsers(this.props.searchTerm)
                 .then(() => this.setState({ users: newProps.users }))
         }
         setTimeout(() => {
-            window.addEventListener('click', this.setState({ searcTerm: "" }))
+            window.addEventListener('click', this.setState({ searchTerm: "" }))
         });
     }
 
@@ -45,11 +45,12 @@ class SearchResults extends React.Component {
     }
 
     render() {
-        let { users } = this.state;
+        debugger
+        let { searchResults } = this.state;
         let { searchTerm, currentUserId } = this.props;
 
 
-        let searchedUsers = merge({}, users);
+        let searchedUsers = merge({}, searchResults);
         delete searchedUsers[currentUserId];
 
         return (
@@ -63,14 +64,15 @@ class SearchResults extends React.Component {
 
 
 const mapStateToProps = (state) => {
+    debugger
     return {
-        users: state.entities.users,
+        searchResults: state.entities.search,
         currentUserId: state.session.id
     };
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchUsers: (term) => dispatch(fetchUsers(term))
+    searchUsers: (term) => dispatch(searchUsers(term))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchResults))

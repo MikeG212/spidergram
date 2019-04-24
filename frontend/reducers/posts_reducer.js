@@ -13,12 +13,10 @@ const PostsReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      debugger
       let postsCopy = JSON.parse(JSON.stringify(action.posts));
       Object.values(postsCopy).map(post => {
         delete post.comments;
       })
-      debugger
       return merge(newState, postsCopy);
     case RECEIVE_POST:
       const newPost = { [action.post.id]: action.post };
