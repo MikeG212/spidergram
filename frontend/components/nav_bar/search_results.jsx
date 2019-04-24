@@ -5,7 +5,6 @@ import { merge } from 'lodash';
 import { fetchUsers } from '../../actions/user_actions';
 
 class SearchResults extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -32,11 +31,21 @@ class SearchResults extends React.Component {
         }
     }
 
-    renderUsers() {
-        this.props.users
+    renderUsers(users) {
+        debugger
+        const arrayOfUsers = Object.values(users);
+        return arrayOfUsers.map(user => {
+            return (<li key={user.id} className="search-result-user"
+                onClick={() => this.props.history.push(`/users/${user.id}`)}>
+                <img className="search-result-user-image" src={user.avatar_url} alt={user.username} />
+
+                {user.username}
+            </li>)
+        });
     }
 
     render() {
+        debugger
         let { users } = this.state;
         let { searchTerm, currentUserId } = this.props;
 
@@ -46,7 +55,7 @@ class SearchResults extends React.Component {
 
         return (
             <ul className="search-results">
-                {this.renderUsers()}
+                {this.renderUsers(searchedUsers)}
             </ul>
         )
     }

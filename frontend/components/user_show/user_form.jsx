@@ -42,7 +42,6 @@ class UserForm extends React.Component {
 
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
 
         if (this.state.bio.length > 150) {
@@ -54,7 +53,6 @@ class UserForm extends React.Component {
             formData.append('user[id]', this.state.id);
 
             if (this.state.photoFile) {
-                debugger
                 formData.append('user[avatar]', this.state.photoFile);
             }
 
@@ -75,7 +73,6 @@ class UserForm extends React.Component {
 
 
     render() {
-        debugger
         return (
             <div className="edit-profile">
                 <div className="edit-container">
