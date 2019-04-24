@@ -1,17 +1,20 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import PostShowModalContainer from "../modal/post_show_modal_container";
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalOpen: false,
+      currentImage: null,
       posts: []
     };
     this.renderPosts = this.renderPosts.bind(this);
-    this.renderFollowingButton = this.renderFollowingButton.bind(this);
+    this.renderEditButton = this.renderEditButton.bind(this);
   }
 
   componentDidMount() {
-    debugger;
     const { userId, fetchUser, fetchPosts } = this.props;
     fetchUser(userId);
     fetchPosts();
@@ -21,8 +24,17 @@ class UserShow extends React.Component {
     return this.props.user.posts.length === 1 ? (
       <span className="post-stats"> post</span>
     ) : (
-      <span className="post-stats"> posts</span>
-    );
+        <span className="post-stats"> posts</span>
+      );
+  }
+
+  openModal(post_id) {
+    this.setState({ modalOpen: true, currentImage: post_id });
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false, currentImage: null });
+    this.props.fetchPosts();
   }
 
   renderPosts() {
@@ -31,7 +43,11 @@ class UserShow extends React.Component {
       posts = this.props.posts.map(post => {
         return (
           <li key={`image-${post.id}`} className="user-show-post-container">
-            <img className="image" src={post.image_url} />
+            <img
+              className="image"
+              src={post.image_url}
+              onClick={e => this.openModal(post.post_id)}
+            />
           </li>
         );
       });
@@ -39,10 +55,22 @@ class UserShow extends React.Component {
     return posts.reverse();
   }
 
-  renderFollowingButton() {}
+  renderEditButton() {
+    if (this.props.currentUser.id === this.props.userId) {
+      return (
+        <button
+          className="edit-button"
+          onClick={() =>
+            this.props.history.push(`/users/${this.props.userId}/edit`)
+          }
+        >
+          Edit Profile
+        </button>
+      );
+    }
+  }
 
   render() {
-    debugger;
     const { user } = this.props;
     if (user) {
       return (
@@ -59,6 +87,7 @@ class UserShow extends React.Component {
                     {this.props.user.posts.length}
                   </span>
                   {this.postText()}
+                  {this.renderEditButton()}
                 </div>
                 <div className="bio-container">
                   <p className="user-show-bio-header">
@@ -79,4 +108,4 @@ class UserShow extends React.Component {
   }
 }
 
-export default UserShow;
+export default withRouter(UserShow);

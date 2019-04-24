@@ -1,17 +1,24 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import { withRouter } from "react-router";
 import CommentFormContainer from "../comment/comment_form_container";
-import { withRouter } from "react-router-dom";
 
-class PostIndexItem extends React.Component {
+class PostShowModal extends React.Component {
   constructor(props) {
     super(props);
     this.renderLikeText = this.renderLikeText.bind(this);
     this.renderComments = this.renderComments.bind(this);
     this.renderRemoveCommentButton = this.renderRemoveCommentButton.bind(this);
     this.renderHeart = this.renderHeart.bind(this);
+    this.doubleTapLike = this.doubleTapLike.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
     this.likeAction = this.likeAction.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
+    this.navigatePostShow = this.navigatePostShow.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.requestPost(this.props.state.currentImage); //THX
   }
 
   likeStatus() {
@@ -19,12 +26,13 @@ class PostIndexItem extends React.Component {
   }
 
   navigateUserShow(id) {
+    this.props.closeModal();
     this.props.history.push(`/users/${id}`);
   }
 
   renderComments() {
     let comments = [];
-    if (this.props.comments) {
+    if (this.props.post.comments) {
       comments = Object.values(this.props.post.comments);
     }
 
@@ -44,28 +52,6 @@ class PostIndexItem extends React.Component {
       );
     });
   }
-
-  // renderComments() {
-  //   // debugger
-  //   const { comments, post } = this.props;
-  //   if (comments[post.id]) {
-  //     comments[post.id].map(comment => {
-  //       let username = comment.username || this.props.currentUser.username;
-  //       return (
-  //         <div key={`comments-${comment.id}`} className="comment-item">
-  //           <div
-  //             className="caption-username comment-username"
-  //             onClick={() => this.navigateUserShow(comment.user_id)}
-  //           >
-  //             {username}
-  //           </div>
-  //           <span className="caption-text comment-text">{comment.body}</span>
-  //           {this.renderRemoveCommentButton(comment)}
-  //         </div>
-  //       );
-  //     })
-  //   }
-  // }
 
   renderRemoveCommentButton(comment) {
     if (comment.user_id === this.props.currentUser.id) {
@@ -126,6 +112,8 @@ class PostIndexItem extends React.Component {
         <div className="photo-container">
           <img
             className="post-image"
+            onDoubleClick={this.doubleTapLike}
+            // onClick={() => this.navigatePostShow()}
             src={post.image_url}
           />
         </div>
@@ -154,4 +142,4 @@ class PostIndexItem extends React.Component {
   }
 }
 
-export default withRouter(PostIndexItem);
+export default withRouter(PostShowModal);

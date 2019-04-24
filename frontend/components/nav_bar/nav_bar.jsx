@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Search from './search';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class NavBar extends React.Component {
           className="navBar-logo navbar-brand core-sprite main-logo"
           onClick={() => this.props.history.push("/")}
         />
-
+        <Search />
         <div className="navBar-icons-group">
           <div
             className="core-sprite upload-icon hide-text navBar-icon"

@@ -77,6 +77,7 @@ attach_avatar(tobeyMaguire, "https://s3-us-west-1.amazonaws.com/spidergram-dev/a
 attach_avatar(ned, "https://s3-us-west-1.amazonaws.com/spidergram-dev/avatar/ned.jpeg")
 attach_avatar(holdenCaulfield, "https://s3-us-west-1.amazonaws.com/spidergram-dev/avatar/holden-caulfield-min.jpg")
 attach_avatar(spiderPig, "https://s3-us-west-1.amazonaws.com/spidergram-dev/avatar/spider-pig-min.jpeg")
+attach_avatar(normanOsborn, "https://s3-us-west-1.amazonaws.com/spidergram-dev/avatar/green-goblin-min.jpeg")
 
 #posts (15)
 post1 = Post.new({caption: "My Spidey Sense is tingling!", user_id: milesMorales.id })
@@ -212,7 +213,7 @@ comment13 = Comment.create({ post_id: post5.id, user_id: peterParker.id, body: "
 comment14 = Comment.create({ post_id: post5.id, user_id: tomHolland.id, body: "How are you still in high school!?... you look at least 25"})
 comment15 = Comment.create({ post_id: post5.id, user_id: holdenCaulfield.id, body: "Phony..."})
 comment16 = Comment.create({ post_id: post5.id, user_id: johnJonah.id, body: "Parker... you're fired"})
-comment17 = Comment.create({ post_id: post5.id, user_id: johnJonah.id, body: "Actually...I need more pictures of Spider-Man, Parker, you're rehired"})
+comment17 = Comment.create({ post_id: post5.id, user_id: johnJonah.id, body: "Actually...I need more pictures of Spider-Man, Parker, you're re-hired"})
 comment18 = Comment.create({ post_id: post5.id, user_id: normanOsborn.id, body: "Peter, you're like the son I never had"})
 comment19 = Comment.create({ post_id: post5.id, user_id: harryOsborn.id, body: "Dad... WHAT?"})
 comment20 = Comment.create({ post_id: post5.id, user_id: normanOsborn.id, body: "Whoops, mean to private message that..."})

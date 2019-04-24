@@ -11,7 +11,10 @@ export const SET_POST = "SET_POST";
 export const fetchPosts = userId => {
   return dispatch => {
     return PostApiUtil.fetchPosts(userId).then(posts => {
-      return dispatch({ type: RECEIVE_ALL_POSTS, posts: posts });
+      return dispatch({
+        type: RECEIVE_ALL_POSTS,
+        posts: posts,
+      });
     });
   };
 };
@@ -23,7 +26,7 @@ export const receiveComments = comments => ({
 
 export const fetchComments = postId => {
   return dispatch => {
-    PostAPIUtil.fetchBenches(postId).then(comments => {
+    return PostApiUtil.fetchComments(postId).then(comments => {
       return dispatch(receiveComments(comments));
     });
   };

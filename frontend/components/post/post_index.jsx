@@ -20,6 +20,7 @@ class PostIndex extends React.Component {
           currentUser={this.props.currentUser}
           createLike={this.props.createLike}
           deleteLike={this.props.deleteLike}
+          comments={post.comments}
           removeComment={this.props.removeComment}
         />
       );

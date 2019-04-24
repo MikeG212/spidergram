@@ -16,6 +16,10 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
+  componentDidMount() {
+    this.props.removeErrors();
+  }
+
   update(field) {
     return e =>
       this.setState({
@@ -32,7 +36,6 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    debugger;
     return (
       <ul className="errors-list">
         {this.props.errors.map((error, i) => (

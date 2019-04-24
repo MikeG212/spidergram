@@ -7,7 +7,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.with_attached_photo.find(params[:id])
+    @post = Post.with_attached_photo.includes(:comments).find(params[:id])
     render :show
   end
 

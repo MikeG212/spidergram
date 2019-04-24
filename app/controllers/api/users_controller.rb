@@ -1,8 +1,11 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-
-
+    image = open("https://s3-us-west-1.amazonaws.com/spidergram-dev/avatar/default-avatar.jpeg")
+    @user.avatar.attach(io: image, filename: "temp.jpg")
+    
     if @user.save
       login(@user)
       render :show

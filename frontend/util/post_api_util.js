@@ -16,8 +16,7 @@ export const fetchPost = id => {
 export const fetchComments = postId => {
   return $.ajax({
     method: "GET",
-    url: `/api/comments/${postId}`,
-    data: { postId }
+    url: `/api/posts/${postId}/comments`,
   });
 };
 

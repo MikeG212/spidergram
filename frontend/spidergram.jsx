@@ -5,7 +5,7 @@ import Root from './components/root';
 
 // testing Post Actions from the console
 
-import { createComment } from './actions/post_actions'
+import { fetchComments } from './actions/post_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.dispatch = store.dispatch;
     window.getState = store.dispatch;
-    window.createComment = createComment;
+    window.fetchComments = fetchComments;
 
 
 
     const root = document.getElementById('root');
-    ReactDOM.render(<Root store={ store }/>, root);
+    ReactDOM.render(<Root store={store} />, root);
 });
