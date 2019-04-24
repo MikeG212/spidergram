@@ -27,15 +27,6 @@ class UserShow extends React.Component {
       );
   }
 
-  openModal(post_id) {
-    this.setState({ modalOpen: true, currentImage: post_id });
-  }
-
-  closeModal() {
-    this.setState({ modalOpen: false, currentImage: null });
-    this.props.fetchPosts();
-  }
-
   renderPosts() {
     let posts = [];
     if (this.props.posts.length > 0) {
@@ -45,7 +36,8 @@ class UserShow extends React.Component {
             <img
               className="user-show-image"
               src={post.image_url}
-              onClick={() => this.props.history.push(`/posts/${post.id}`)}
+              onClick={() => this.props.openModal({ userId: this.props.user.id, post_id: post.id })}
+            // onClick={() => this.props.history.push(`/posts/${post.id}`)}
             />
           </li>
         );

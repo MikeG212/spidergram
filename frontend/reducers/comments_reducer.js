@@ -11,12 +11,13 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       const { comment } = action;
       return merge(newState, { [comment.id]: comment });
-    // case RECEIVE_ALL_POSTS:
-    //   const { post } = action;
-    //   if (post.comments.length > 0) {
-    //     return merge(newState, { [post.id]: post.comments });
-    //   }
-    //   return newState;
+    case RECEIVE_ALL_POSTS:
+      let commentsArray = Object.values(action.posts).map(post => {
+        return post.comments || {};
+      });
+      return commentsArray.reduce((acc, el) => {
+        return Object.assign(acc, el);
+      })
     default:
       return state;
   }

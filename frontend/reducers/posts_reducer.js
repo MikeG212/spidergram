@@ -13,7 +13,13 @@ const PostsReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      return merge(newState, action.posts);
+      debugger
+      let postsCopy = JSON.parse(JSON.stringify(action.posts));
+      Object.values(postsCopy).map(post => {
+        delete post.comments;
+      })
+      debugger
+      return merge(newState, postsCopy);
     case RECEIVE_POST:
       const newPost = { [action.post.id]: action.post };
       return merge(newState, newPost);
@@ -31,14 +37,6 @@ const PostsReducer = (state = {}, action) => {
     case REMOVE_POST:
       delete newState[action.postId];
       return newState;
-    // case RECEIVE_LIKE:
-    //   newState[action.like.post_id].likers.push[currentUser.id];
-    //   return newState;
-    // case REMOVE_LIKE:
-    //   newState[action.like.post_id].likers = newState[
-    //     action.like.post_id
-    //   ].likers.filter(id => id !== currentUser.id);
-    //   return newState;
     case SET_POST:
       newState[action.post.id] = action.post;
       return newState;

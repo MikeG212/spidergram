@@ -5,15 +5,18 @@ import { removeComment, fetchComments } from "../../actions/post_actions";
 import { createLike, deleteLike } from "../../actions/like_actions";
 
 const mapStateToProps = state => {
+  debugger
   let posts = [];
-  let comments = [];
   if (state.entities.posts) {
-    posts = Object.values(state.entities.posts);
-    // comments = posts.map(post => {
-    //   debugger
-    //   return post.comments;
+    posts = JSON.parse(JSON.stringify(state.entities.posts));
+    posts = Object.values(posts);
+    posts.forEach(post => {
+      post.comments = post.commentIds.map(commentId => {
+        return state.entities.comments[commentId];
+      }).filter(comment => comment);
+    })
   }
-
+  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     users: state.entities.users,

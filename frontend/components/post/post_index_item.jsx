@@ -45,28 +45,6 @@ class PostIndexItem extends React.Component {
     });
   }
 
-  // renderComments() {
-  //   // debugger
-  //   const { comments, post } = this.props;
-  //   if (comments[post.id]) {
-  //     comments[post.id].map(comment => {
-  //       let username = comment.username || this.props.currentUser.username;
-  //       return (
-  //         <div key={`comments-${comment.id}`} className="comment-item">
-  //           <div
-  //             className="caption-username comment-username"
-  //             onClick={() => this.navigateUserShow(comment.user_id)}
-  //           >
-  //             {username}
-  //           </div>
-  //           <span className="caption-text comment-text">{comment.body}</span>
-  //           {this.renderRemoveCommentButton(comment)}
-  //         </div>
-  //       );
-  //     })
-  //   }
-  // }
-
   renderRemoveCommentButton(comment) {
     if (comment.user_id === this.props.currentUser.id) {
       return (
