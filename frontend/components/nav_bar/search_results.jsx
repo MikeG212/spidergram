@@ -15,10 +15,6 @@ class SearchResults extends React.Component {
         this.renderUsers = this.renderUsers.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchUsers(this.props.searchTerm);
-    }
-
     componentWillReceiveProps(newProps) {
         if (this.props.searchTerm !== newProps.searchTerm) {
             this.setState({ searchTerm: newProps.searchTerm })
@@ -33,19 +29,20 @@ class SearchResults extends React.Component {
 
     renderUsers(users) {
         debugger
-        const arrayOfUsers = Object.values(users);
-        return arrayOfUsers.map(user => {
-            return (<li key={user.id} className="search-result-user"
-                onClick={() => this.props.history.push(`/users/${user.id}`)}>
-                <img className="search-result-user-image" src={user.avatar_url} alt={user.username} />
+        if (this.props.searchTerm.length > 0) {
+            const arrayOfUsers = Object.values(users);
+            return arrayOfUsers.map(user => {
+                return (<li key={user.id} className="search-result-user"
+                    onClick={() => this.props.history.push(`/users/${user.id}`)}>
+                    <img className="search-result-user-image" src={user.avatar_url} alt={user.username} />
 
-                {user.username}
-            </li>)
-        });
+                    {user.username}
+                </li>)
+            });
+        }
     }
 
     render() {
-        debugger
         let { users } = this.state;
         let { searchTerm, currentUserId } = this.props;
 
