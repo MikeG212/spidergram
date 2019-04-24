@@ -25,10 +25,12 @@ class SearchResults extends React.Component {
             this.props.fetchUsers(this.props.searchTerm)
                 .then(() => this.setState({ users: newProps.users }))
         }
+        setTimeout(() => {
+            window.addEventListener('click', this.setState({ searcTerm: "" }))
+        });
     }
 
     renderUsers(users) {
-        debugger
         if (this.props.searchTerm.length > 0) {
             const arrayOfUsers = Object.values(users);
             return arrayOfUsers.map(user => {

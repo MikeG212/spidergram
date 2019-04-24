@@ -27,12 +27,17 @@
   padding-top: 33%;
 }
 
-.image {
+.user-show-image {
   position: absolute;
   object-fit: cover;
   top: 0;
   width: 90%;
   height: 90%;
+}
+
+.user-show-image:hover {
+  opacity: 0.5;
+  cursor: pointer
 }
 
 .user-profile {

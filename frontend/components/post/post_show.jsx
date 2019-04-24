@@ -3,22 +3,21 @@ import ReactDOM from "react-dom";
 import { withRouter } from "react-router";
 import CommentFormContainer from "../comment/comment_form_container";
 
-class PostShowModal extends React.Component {
+class PostShow extends React.Component {
   constructor(props) {
     super(props);
     this.renderLikeText = this.renderLikeText.bind(this);
     this.renderComments = this.renderComments.bind(this);
     this.renderRemoveCommentButton = this.renderRemoveCommentButton.bind(this);
     this.renderHeart = this.renderHeart.bind(this);
-    this.doubleTapLike = this.doubleTapLike.bind(this);
     this.likeStatus = this.likeStatus.bind(this);
     this.likeAction = this.likeAction.bind(this);
     this.navigateUserShow = this.navigateUserShow.bind(this);
-    this.navigatePostShow = this.navigatePostShow.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestPost(this.props.state.currentImage); //THX
+    debugger
+    this.props.fetchPost(this.props.postId);
   }
 
   likeStatus() {
@@ -26,7 +25,6 @@ class PostShowModal extends React.Component {
   }
 
   navigateUserShow(id) {
-    this.props.closeModal();
     this.props.history.push(`/users/${id}`);
   }
 
@@ -96,50 +94,53 @@ class PostShowModal extends React.Component {
   }
 
   render() {
-    const { post, key } = this.props;
-    const { username, user_id, created_at, caption } = post;
-    return (
-      <li key={key} className="index-item">
-        <div className="index-item-header">
-          <h5
-            className="post-username-link"
-            onClick={() => this.navigateUserShow(user_id)}
-          >
-            {username}
-          </h5>
-          <div className="post-time">{created_at}</div>
-        </div>
-        <div className="photo-container">
-          <img
-            className="post-image"
-            onDoubleClick={this.doubleTapLike}
-            // onClick={() => this.navigatePostShow()}
-            src={post.image_url}
-          />
-        </div>
-        <div className="index-item-footer">
-          <div className="caption-comment-holder">
-            <div className="caption-holder">
-              <div className="like-count">{this.renderLikeText()}</div>
-              <span
-                className="caption-username"
-                onClick={() => this.navigateUserShow(user_id)}
-              >
-                {username}
-              </span>
-              <span className="caption-text">{caption}</span>
+    debugger
+    if (this.props.post) {
+      const { post, key } = this.props;
+      const { username, user_id, created_at, caption } = post;
+      return (
+        <li key={key} className="index-item">
+          <div className="index-item-header">
+            <h5
+              className="post-username-link"
+              onClick={() => this.navigateUserShow(user_id)}
+            >
+              {username}
+            </h5>
+            <div className="post-time">{created_at}</div>
+          </div>
+          <div className="photo-container">
+            <img
+              className="post-image"
+              onDoubleClick={this.doubleTapLike}
+              // onClick={() => this.navigatePostShow()}
+              src={post.image_url}
+            />
+          </div>
+          <div className="index-item-footer">
+            <div className="caption-comment-holder">
+              <div className="caption-holder">
+                <div className="like-count">{this.renderLikeText()}</div>
+                <span
+                  className="caption-username"
+                  onClick={() => this.navigateUserShow(user_id)}
+                >
+                  {username}
+                </span>
+                <span className="caption-text">{caption}</span>
+              </div>
+              <div className="comments-render">{this.renderComments()}</div>
             </div>
-            <div className="comments-render">{this.renderComments()}</div>
-          </div>
 
-          <div className="like-comment-form">
-            {this.renderHeart()}
-            <CommentFormContainer post={post} />
+            <div className="like-comment-form">
+              {this.renderHeart()}
+              <CommentFormContainer post={post} />
+            </div>
           </div>
-        </div>
-      </li>
-    );
+        </li>
+      );
+    } return <div className="nullPost"></div>
   }
 }
 
-export default withRouter(PostShowModal);
+export default withRouter(PostShow);

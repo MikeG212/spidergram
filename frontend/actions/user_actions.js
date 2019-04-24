@@ -33,7 +33,6 @@ export const fetchUsers = (username) => {
 };
 
 export const updateUser = user => {
-  debugger
   return dispatch => {
     return UserAPIUtil.updateUser(user).then(user => dispatch(receiveUser(user)),
       errors => dispatch(receiveUserErrors(errors.responseJSON)));

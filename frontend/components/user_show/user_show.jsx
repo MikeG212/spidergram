@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import PostShowModalContainer from "../modal/post_show_modal_container";
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -44,9 +43,9 @@ class UserShow extends React.Component {
         return (
           <li key={`image-${post.id}`} className="user-show-post-container">
             <img
-              className="image"
+              className="user-show-image"
               src={post.image_url}
-              onClick={e => this.openModal(post.post_id)}
+              onClick={() => this.props.history.push(`/posts/${post.id}`)}
             />
           </li>
         );
