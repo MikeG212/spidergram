@@ -1,31 +1,36 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-
+import SearchResults from './search_results';
 
 class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
+            searchTerm: "",
+            render: false,
         };
+
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
-    update(field) {
+    updateSearch() {
         return e =>
             this.setState({
-                username: e.currentTarget.value
+                searchTerm: e.currentTarget.value
             });
     }
 
     render() {
+        let { searchTerm, render } = this.state;
+        let results = (<SearchResults searchTerm={searchTerm} />)
         return (
             <div className="search-container">
                 <input className="user-search"
                     type="search"
-                    onChange={this.update()}
+                    onChange={this.updateSearch()}
                     value={this.state.username}
                     placeholder="Search" />
-                <ul className="search-results">Results</ul>
+                <ul className="search-results">{results}</ul>
 
             </div>
         )

@@ -30,7 +30,6 @@ class Search extends React.Component {
     }
 
     render() {
-        debugger
         let listCssClass = "blank-class";
 
         // // if (this.state.displaySearch && this.props.searchUsers.length > 0) {

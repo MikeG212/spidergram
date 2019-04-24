@@ -4,12 +4,12 @@ import { withRouter } from "react-router-dom";
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       caption: "",
       photoFile: null,
       photoUrl: null
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,8 +25,16 @@ class PostForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
+      const fileExtension = file.name.split('.').pop();
+      const extensions = ['jpg', 'png', 'JPG', 'PNG'];
+
+      if (extensions.includes(fileExtension)) {
+        this.setState({ photoFile: file, photoUrl: fileReader.result });
+      } else {
+        this.setState({ uploadErrors: ['Please select a jpg or png file'] })
+      }
     };
+
     if (file) {
       fileReader.readAsDataURL(file);
     }
