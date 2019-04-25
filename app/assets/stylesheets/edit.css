@@ -41,15 +41,14 @@
   align-items: center;
 }
 
-.edit-username {
-  margin-right: 11px;
+.edit-label {
+  width: 95px;
   font-weight: bold;
-  opacity: .8;
 }
 
 .edit-username-input {
   border: 1px solid #efefef;
-  width: 124px;
+  width: 250px;
   padding: 3px;
 }
 
@@ -59,33 +58,15 @@
   margin-top: 7px;
 }
 
-.edit-password {
-  margin-right: 13px;
-  font-weight: bold;
-  opacity: .8;
-}
-
-.edit-password-input {
-  width: 124px;
-  padding: 2px;
-  border: 1px solid #efefef;
-}
-
 .bio-label {
   display: flex;
   margin-top: 7px;
 }
 
-.edit-bio {
-  margin-right: 62.5px;
-  font-weight: bold;
-  opacity: .8;
-}
-
 .bio-input {
   width: 250px;
   height: 50px;
-  padding: 6px;
+  padding: 3px;
   margin-top: 2px;
   border: 1px solid #efefef;
   resize: none;
@@ -93,14 +74,17 @@
 
 .edit-button {
   font-family: 'helvetica';
+  height: 30px;
   font-size: 13px;
-  width: 200px;
-  margin-top: 15px;
+  width: 150px;
   background-color: #3897f0;
   padding: 5px;
   border-radius: 5px;
   color: white;
-  margin-left: 86px;
+  margin-left: 95px;
+  margin-top: 15px;
+  cursor: pointer;
+  
 }
 
 .name-and-edit-container {
@@ -123,10 +107,6 @@
 .edit-profile-button:active {
   opacity: .5;
   border-style: outset;
-}
-
-.edit-button {
-  cursor: pointer;
 }
 
 .edit-button:active {

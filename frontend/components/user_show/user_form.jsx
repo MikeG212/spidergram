@@ -94,7 +94,7 @@ class UserForm extends React.Component {
                         </label>
                         <div className="edit-input-boxes">
                             <label className="username-label">
-                                <p className="edit-username">Username</p>
+                                <p className="edit-label">Username</p>
                                 <input
                                     type="text"
                                     className="edit-username-input"
@@ -104,7 +104,7 @@ class UserForm extends React.Component {
                                 />
                             </label>
                             <label className="bio-label">
-                                <p className="edit-bio">Bio</p>
+                                <p className="edit-label">Bio</p>
                                 <textarea
                                     className="bio-input"
                                     value={this.state.bio}

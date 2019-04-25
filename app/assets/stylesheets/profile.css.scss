@@ -12,6 +12,11 @@
   font-family: "helvetica";
 }
 
+.user-show-header {
+  width: 50vw;
+  margin: 0 auto;
+}
+
 .user-show-posts {
   display: flex;
   flex-wrap: wrap;
@@ -122,10 +127,4 @@
   max-height: 60px;
   overflow: overlay;
   word-wrap: break-word;
-}
-
-.edit-button {
-  height: 30px;
-  margin-left: 50px;
-  width: 100px;
 }

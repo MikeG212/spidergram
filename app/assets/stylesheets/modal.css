@@ -16,16 +16,15 @@
 }
 
 .modal-image {
-    width: 50%
+    min-width: 500px;
+    min-height: 500px;
+    max-width: 600px;
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+
 }
 
-.modal {
-  margin: auto;
-  display: flex;
-  width: 50%;
-  min-height: 500px;
-  max-height: 600px;
-}
 
 .modal-content {
   display: flex;
