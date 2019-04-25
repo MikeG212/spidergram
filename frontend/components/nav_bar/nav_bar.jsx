@@ -12,7 +12,7 @@ class NavBar extends React.Component {
     return (
       <div className="navBar">
         <div
-          className="navBar-logo navbar-brand core-sprite main-logo"
+          className="navBar-logo core-sprite main-logo"
           onClick={() => this.props.history.push("/")}
         />
         <Search />
