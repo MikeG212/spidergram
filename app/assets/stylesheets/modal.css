@@ -14,3 +14,94 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.modal-image {
+    width: 50%
+}
+
+.modal {
+  margin: auto;
+  display: flex;
+  width: 50%;
+  min-height: 500px;
+  max-height: 600px;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  width: 50%;
+  font-size: 12px;
+}
+
+.modal-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 14px;
+  width: 304px;
+}
+
+.modal-username {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.caption-text-modal {
+  color: black;
+  font-size: 14px;
+  font-family: 'Open-sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1px;
+  width: 100%;
+}
+
+.like-comment-render-modal {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #efefef;
+}
+
+.modal-upper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #efefef;
+}
+
+.comments-like-input-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.like-count-modal {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: black;
+  font-size: 14px;
+}
+
+.modal-time {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  color: #9f9f9f;
+}

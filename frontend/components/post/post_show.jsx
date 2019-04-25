@@ -37,7 +37,7 @@ class PostShow extends React.Component {
     return comments.map(comment => {
       let username = comment.username || this.props.currentUser.username;
       return (
-        <div key={`comments-${comment.id}`} className="comment-item">
+        <li key={`comments-${comment.id}`} className="comment-item">
           <div
             className="caption-username comment-username"
             onClick={() => this.navigateUserShow(comment.user_id)}
@@ -46,7 +46,7 @@ class PostShow extends React.Component {
           </div>
           <span className="caption-text comment-text">{comment.body}</span>
           {this.renderRemoveCommentButton(comment)}
-        </div>
+        </li>
       );
     });
   }
@@ -94,48 +94,44 @@ class PostShow extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.post) {
       const { post } = this.props;
-      const { username, user_id, created_at, caption } = post;
+      const { username, user_id, created_at, caption, image_url } = post;
+      debugger
       return (
-        <li key={post.id} className="index-item">
-          <div className="index-item-header">
-            <h5
-              className="post-username-link"
-              onClick={() => this.navigateUserShow(user_id)}
-            >
-              {username}
-            </h5>
-            <div className="post-time">{created_at}</div>
-          </div>
-          <div className="photo-container">
-            <img
-              className="post-image"
-              src={post.image_url}
-            />
-          </div>
-          <div className="index-item-footer">
-            <div className="caption-comment-holder">
-              <div className="caption-holder">
-                <div className="like-count">{this.renderLikeText()}</div>
-                <span
-                  className="caption-username"
-                  onClick={() => this.navigateUserShow(user_id)}
-                >
+        <div className="modal-content">
+          <img className="modal-image" src={image_url} />
+          <div className="modal-right">
+            <div className="modal-upper">
+              <div className="modal-header">
+                <span className="modal-username"
+                  onClick={() => this.navigateUserShow(user_id)}>{username}</span>
+              </div>
+              <div className="like-count-modal">
+                <span>
+                  {this.renderLikeText()}
+                </span>
+                <span className="modal-time">
+                  {post.created_at}
+                </span>
+              </div>
+              <div className="caption-text-modal">
+                <span className="caption-username"
+                  onClick={() => this.navigateUserShow(user_id)}>
                   {username}
                 </span>
-                <span className="caption-text">{caption}</span>
+                <span className="caption-text-modal"> {caption}</span>
               </div>
-              <div className="comments-render">{this.renderComments()}</div>
+              <ul className="comments-render">
+                {this.renderComments()}
+              </ul>
             </div>
-
             <div className="like-comment-form">
               {this.renderHeart()}
-              <CommentFormContainer post={post} />
+              <CommentFormContainer postId={post.id} />
             </div>
           </div>
-        </li>
+        </div>
       );
     } return <div className="nullPost"></div>
   }

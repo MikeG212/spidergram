@@ -124,7 +124,7 @@ class PostIndexItem extends React.Component {
 
           <div className="like-comment-form">
             {this.renderHeart()}
-            <CommentFormContainer post={post} />
+            <CommentFormContainer postId={post.id} />
           </div>
         </div>
       </li>

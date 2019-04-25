@@ -9,6 +9,7 @@ class Search extends React.Component {
             searchTerm: "",
             render: false,
         };
+        this.timeout = 0;
 
         this.updateSearch = this.updateSearch.bind(this);
     }

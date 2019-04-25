@@ -15,6 +15,10 @@ class SearchResults extends React.Component {
         this.renderUsers = this.renderUsers.bind(this);
     }
 
+    componentDidMount() {
+        this.props.searchUsers(this.props.searchTerm);
+    }
+
     componentWillReceiveProps(newProps) {
         if (this.props.searchTerm !== newProps.searchTerm) {
             this.setState({ searchTerm: newProps.searchTerm })
