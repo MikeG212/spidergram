@@ -26,7 +26,6 @@ const PostsReducer = (state = {}, action) => {
       newState[comment.post_id].commentIds.push(comment.id);
       return newState;
     case REMOVE_COMMENT:
-      debugger
       const commentToDelete = action.comment;
       const newCommentIds = newState[action.comment.post_id].commentIds.filter(id => id !== commentToDelete.id)
       newState[action.comment.post_id].commentIds = newCommentIds;

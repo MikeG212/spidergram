@@ -12,7 +12,7 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal.type) {
         case 'post':
-            component = <PostShowContainer options={modal.options} closeModal={closeModal} />;
+            component = <PostShowContainer options={modal.options} />;
             break;
         default:
             return null;

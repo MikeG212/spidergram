@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import PostShow from "./post_show";
 import { createLike, deleteLike } from "../../actions/like_actions";
+import { fetchUser } from "../../actions/user_actions";
 import { removeComment, fetchPost } from "../../actions/post_actions";
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[ownProps.options.userId];
@@ -22,9 +24,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = dispatch => ({
   fetchPost: id => dispatch(fetchPost(id)),
+  fetchUser: id => dispatch(fetchUser(id)),
   removeComment: commentId => dispatch(removeComment(commentId)),
   createLike: postId => dispatch(createLike(postId)),
   deleteLike: postId => dispatch(deleteLike(postId)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(

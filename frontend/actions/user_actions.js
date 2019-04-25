@@ -28,9 +28,9 @@ export const fetchUser = userId => {
   };
 };
 
-export const fetchUsers = (username) => {
+export const fetchUsers = () => {
   return dispatch => {
-    return UserAPIUtil.fetchUsers(username).then(users => {
+    return UserAPIUtil.fetchUsers().then(users => {
       return dispatch(receiveUsers(users))
     });
   };
@@ -38,7 +38,7 @@ export const fetchUsers = (username) => {
 
 export const searchUsers = (username) => {
   return dispatch => {
-    return UserAPIUtil.fetchUsers(username).then(users => {
+    return UserAPIUtil.searchUsers(username).then(users => {
       return dispatch(receiveSearchUsers(users))
     });
   };
