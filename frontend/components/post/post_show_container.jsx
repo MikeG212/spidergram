@@ -1,19 +1,23 @@
 import { connect } from "react-redux";
 import PostShow from "./post_show";
 import { createLike, deleteLike } from "../../actions/like_actions";
-import { removeComment } from "../../actions/post_actions";
-import { fetchPost } from "../../actions/post_actions";
+import { removeComment, fetchPost } from "../../actions/post_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const user = state.entities.users[ownProps.options.userId];
-  const post = state.entities.posts[ownProps.options.postId];
+  let post = state.entities.posts[ownProps.options.postId];
+  if (post) {
+    post = JSON.parse(JSON.stringify(post));
+    post.comments = post.commentIds.map(commentId => {
+      return state.entities.comments[commentId];
+    }).filter(comment => comment);
+  }
   return {
     user: user,
     post: post,
     userId: ownProps.options.userId,
-    posttId: ownProps.options.posttId,
-    currentUserId: state.session.id
+    postId: ownProps.options.postId,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 const mapDispatchToProps = dispatch => ({

@@ -220,16 +220,16 @@ comment20 = Comment.create({ post_id: post5.id, user_id: normanOsborn.id, body: 
 
 comment21 = Comment.create({ post_id: post6.id, user_id: deadpool.id, body: "Go Red Sox!!"})
 comment22 = Comment.create({ post_id: post6.id, user_id: peterParker.id, body: "Oh captain, my captain"})
-comment23 = Comment.create({ post_id: post6.id, user_id: spiderMan.id, body: "It's an honor"})
-comment24 = Comment.create({ post_id: post6.id, user_id: holdenCaulfield.id, body: "Phony..."})
-comment25 = Comment.create({ post_id: post6.id, user_id: deadpool.id, body: "Derek... did you just like your own picture?"})
-comment26 = Comment.create({ post_id: post6.id, user_id: derekJeter.id, body: "Yeah..."})
-comment27 = Comment.create({ post_id: post6.id, user_id: deadpool.id, body: "Why would you do that?"})
-comment28 = Comment.create({ post_id: post6.id, user_id: derekJeter.id, body: "Cuz it's a sick picture..."})
+comment23 = Comment.create({ post_id: post6.id, user_id: flashThompson.id, body: "Can I have your autograph?"})
+comment24 = Comment.create({ post_id: post6.id, user_id: spiderMan.id, body: "It's an honor"})
+comment25 = Comment.create({ post_id: post6.id, user_id: holdenCaulfield.id, body: "Phony..."})
+comment26 = Comment.create({ post_id: post6.id, user_id: deadpool.id, body: "Derek... did you just like your own picture?"})
+comment27 = Comment.create({ post_id: post6.id, user_id: derekJeter.id, body: "Yeah..."})
+comment28 = Comment.create({ post_id: post6.id, user_id: deadpool.id, body: "Why would you do that?"})
+comment29 = Comment.create({ post_id: post6.id, user_id: derekJeter.id, body: "Cuz it's a sick picture..."})
 
-comment29 = Comment.create({ post_id: post7.id, user_id: johnJonah.id, body: "Good work, Parker!!"})
-comment30 = Comment.create({ post_id: post7.id, user_id: holdenCaulfield.id, body: "Ok... this is actually pretty cool"})
-comment31 = Comment.create({ post_id: post7.id, user_id: deadpool.id, body: "Psh... I'd get more likes than this for a picture of big toe"})
+comment30 = Comment.create({ post_id: post7.id, user_id: johnJonah.id, body: "Good work, Parker!!"})
+comment31 = Comment.create({ post_id: post7.id, user_id: holdenCaulfield.id, body: "Ok... this is actually pretty cool"})
 
 
 

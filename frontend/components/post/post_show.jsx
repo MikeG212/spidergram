@@ -24,6 +24,7 @@ class PostShow extends React.Component {
   }
 
   navigateUserShow(id) {
+    this.props.closeModal();
     this.props.history.push(`/users/${id}`);
   }
 
@@ -93,11 +94,12 @@ class PostShow extends React.Component {
   }
 
   render() {
+    debugger
     if (this.props.post) {
-      const { post, key } = this.props;
+      const { post } = this.props;
       const { username, user_id, created_at, caption } = post;
       return (
-        <li key={key} className="index-item">
+        <li key={post.id} className="index-item">
           <div className="index-item-header">
             <h5
               className="post-username-link"
@@ -110,8 +112,6 @@ class PostShow extends React.Component {
           <div className="photo-container">
             <img
               className="post-image"
-              onDoubleClick={this.doubleTapLike}
-              // onClick={() => this.navigatePostShow()}
               src={post.image_url}
             />
           </div>

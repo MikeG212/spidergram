@@ -43,6 +43,7 @@ class UserForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
 
         if (this.state.bio.length > 150) {
             this.setState({ uploadErrors: ['Bio cannot be longer than 150 characters'] })

@@ -45,7 +45,6 @@ class SearchResults extends React.Component {
     }
 
     render() {
-        debugger
         let { searchResults } = this.state;
         let { searchTerm, currentUserId } = this.props;
 
@@ -64,7 +63,6 @@ class SearchResults extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    debugger
     return {
         searchResults: state.entities.search,
         currentUserId: state.session.id

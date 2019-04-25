@@ -31,7 +31,6 @@ class UserShow extends React.Component {
     let posts = [];
     if (this.props.posts.length > 0) {
       posts = this.props.posts.map(post => {
-        let that = this;
         return (
           <li key={`image-${post.id}`} className="user-show-post-container">
             <img
@@ -94,7 +93,6 @@ class UserShow extends React.Component {
         </div>
       );
     } else {
-      debugger
       return <div className="nullUser" />;
     }
   }

@@ -22,15 +22,14 @@ const PostsReducer = (state = {}, action) => {
       const newPost = { [action.post.id]: action.post };
       return merge(newState, newPost);
     case RECEIVE_COMMENT:
-      if (!newState[action.comment.post_id].comments) {
-        newState[action.comment.post_id].comments = {};
-      }
-      const { comment } = action;
-      newState[action.comment.post_id].comments[comment.id] = comment;
+      const comment = action.comment;
+      newState[comment.post_id].commentIds.push(comment.id);
       return newState;
     case REMOVE_COMMENT:
+      debugger
       const commentToDelete = action.comment;
-      delete newState[action.comment.post_id].comments[commentToDelete.id];
+      const newCommentIds = newState[action.comment.post_id].commentIds.filter(id => id !== commentToDelete.id)
+      newState[action.comment.post_id].commentIds = newCommentIds;
       return newState;
     case REMOVE_POST:
       delete newState[action.postId];
