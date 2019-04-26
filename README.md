@@ -22,20 +22,20 @@ I created a separate search reducer so that search results would not muddle up t
   end
 ```
 
-# Technology
+## Technology
 Spidergram was designed utilizing these key technologies:
 
-## Backend
+### Backend
 * Ruby on Rails
 * PostgreSQL database
-* Amazone Web Services for image storage
-## Frontend
+* Amazon Web Services for image storage
+### Frontend
 * React/Redux
 * React DOM
 * React Router
 * jQuery
 * Webpack
 
-# Future Additions
+## Future Additions
 Allowing users to tag other users in comments and photos.
 Allowing users to create a customized photo-feed.
