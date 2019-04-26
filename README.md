@@ -1,5 +1,5 @@
 # Spidergram
-[Link to Live Spidergram](https://spidergram.herokuapp.com/#/
+[Link to Live Spidergram](https://spidergram.herokuapp.com/#/)
 
 Spidergram is a photo-sharing full-stack web application inspired by Instagram.  Instagram allows users to post their photos and see other users' photos.  I designed Spidergram using Ruby on Rails and React/Redux.
 
