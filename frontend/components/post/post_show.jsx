@@ -121,9 +121,11 @@ class PostShow extends React.Component {
                 </span>
                 <span className="caption-text-modal"> {caption}</span>
               </div>
-              <ul className="comments-render">
-                {this.renderComments()}
-              </ul>
+              <div className="modal-comment-list">
+                <ul className="comments-render">
+                  {this.renderComments()}
+                </ul>
+              </div>
             </div>
             <div className="modal-like-comment-form">
               {this.renderHeart()}

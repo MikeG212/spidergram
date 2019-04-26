@@ -17,7 +17,7 @@ const PostsReducer = (state = {}, action) => {
       Object.values(postsCopy).map(post => {
         delete post.comments;
       })
-      return merge(newState, postsCopy);
+      return postsCopy;
     case RECEIVE_POST:
       const newPost = { [action.post.id]: action.post };
       return merge(newState, newPost);

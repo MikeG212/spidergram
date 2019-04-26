@@ -16,7 +16,7 @@ class UserShow extends React.Component {
   componentDidMount() {
     const { userId, fetchUser, fetchPosts } = this.props;
     fetchUser(userId);
-    fetchPosts();  //eventually only fetch this user's posts
+    fetchPosts(userId);  //eventually only fetch this user's posts
   }
 
   componentDidUpdate(prevProps) {
