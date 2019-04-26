@@ -71,7 +71,6 @@ class Search extends React.Component {
 
     render() {
         let listCssClass = "display-none";
-
         if (this.state.displaySearch && this.props.searchUsers.length > 0) {
             listCssClass = "search-results";
         } else {
