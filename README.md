@@ -37,5 +37,5 @@ Spidergram was designed utilizing these key technologies:
 * Webpack
 
 ## Future Additions
-Allowing users to tag other users in comments and photos.
-Allowing users to create a customized photo-feed.
+* Allowing users to tag other users in comments and photos.
+* Allowing users to create a customized photo-feed.
