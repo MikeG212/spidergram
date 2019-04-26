@@ -1,11 +1,22 @@
-.search-results {
-    
+.search-results-container {
+    width: 212px;
+    background: white;
+    top: 40px;
 }
 
-.search-result-user {
-    
-}
-.search-result-user-image {
-    height: 25px;
+.search-avatar {
+    height:25px;
     width: 25px;
+}
+
+.display-none {
+  display: none;
+}
+
+.search-results {
+  position: absolute;
+  top: 40px;
+  background: white;
+  width: 212px;
+  border-bottom: 1px solid #dbdbdb;
 }

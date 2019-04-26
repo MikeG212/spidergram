@@ -15,7 +15,11 @@ class NavBar extends React.Component {
           className="navBar-logo core-sprite main-logo"
           onClick={() => this.props.history.push("/")}
         />
-        <Search />
+        <Search
+          clearSearchUsers={this.props.clearSearchUsers}
+          requestUsers={this.props.requestUsers}
+          searchUsers={this.props.searchUsers}
+        />
         <div className="navBar-icons-group">
           <div
             className="core-sprite upload-icon hide-text navBar-icon"

@@ -19,7 +19,6 @@ class PostIndexItem extends React.Component {
   }
 
   navigateUserShow(id) {
-    debugger
     this.props.history.push(`/users/${id}`);
   }
 

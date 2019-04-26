@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root';
 
-// testing Post Actions from the console
-
-import { fetchComments } from './actions/post_actions'
-
-
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -21,12 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
-
-    window.dispatch = store.dispatch;
-    window.getState = store.dispatch;
-    window.fetchComments = fetchComments;
-
-
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);

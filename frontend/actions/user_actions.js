@@ -28,22 +28,6 @@ export const fetchUser = userId => {
   };
 };
 
-export const fetchUsers = () => {
-  return dispatch => {
-    return UserAPIUtil.fetchUsers().then(users => {
-      return dispatch(receiveUsers(users))
-    });
-  };
-};
-
-export const searchUsers = (username) => {
-  return dispatch => {
-    return UserAPIUtil.searchUsers(username).then(users => {
-      return dispatch(receiveSearchUsers(users))
-    });
-  };
-};
-
 export const updateUser = user => {
   return dispatch => {
     return UserAPIUtil.updateUser(user).then(user => dispatch(receiveUser(user)),

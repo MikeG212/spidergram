@@ -34,10 +34,27 @@ h3 {
   font-family: "Open Sans", sans-serif;
 }
 
-body {
+html {
   background-color: #fafafa;
+}
+
+body {
   font-size: 14px;
   color: #262626;
+}
+
+.boss-div {
+  background: #fafafa;
+}
+
+li,
+ul {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 .loginAsset {
@@ -94,15 +111,6 @@ body {
 .form-input:focus {
   outline: none;
   box-shadow: 0 0 1pt 1pt #999999;
-}
-
-li,
-ul {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  outline: 0;
-  text-decoration: none;
 }
 
 .errors-list > li {

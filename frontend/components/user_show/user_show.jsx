@@ -14,11 +14,19 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     const { userId, fetchUser, fetchPosts } = this.props;
     fetchUser(userId);
-    fetchPosts();
+    fetchPosts();  //eventually only fetch this user's posts
   }
+
+  componentDidUpdate(prevProps) {
+    const { userId, fetchUser, fetchPosts } = this.props;
+    if (prevProps.userId !== userId) {
+      fetchUser(userId);
+    }
+  }
+
+
 
   postText() {
     return this.props.user.posts.length === 1 ? (

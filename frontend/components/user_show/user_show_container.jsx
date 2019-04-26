@@ -7,7 +7,6 @@ import { fetchPosts } from "../../actions/post_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const currentUser = state.entities.users[state.session.id];
   const userId = parseInt(ownProps.match.params.userId);
   const user = state.entities.users[userId];

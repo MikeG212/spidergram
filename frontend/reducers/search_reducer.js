@@ -1,17 +1,15 @@
-import {
-    RECEIVE_SEARCH_USERS
-} from "../actions/user_actions";
-import merge from "lodash/merge";
+import merge from 'lodash/merge';
+import { RECEIVE_USERS, CLEAR_SEARCH_USERS } from '../actions/search_actions';
 
-const PostsReducer = (state = {}, action) => {
-    Object.freeze(state);
-    let newState = merge({}, state);
+const SearchReducer = (state = {}, action) => {
     switch (action.type) {
-        case RECEIVE_SEARCH_USERS:
+        case RECEIVE_USERS:
             return action.users;
+        case CLEAR_SEARCH_USERS:
+            return {};
         default:
             return state;
     }
 };
 
-export default PostsReducer;
+export default SearchReducer;

@@ -26,7 +26,6 @@ class PostShow extends React.Component {
   navigateUserShow(id) {
     this.props.closeModal();
     this.props.history.push(`/users/${id}`);
-    this.props.fetchUser(id);
   }
 
   renderComments() {
@@ -95,7 +94,6 @@ class PostShow extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.post) {
       const { post } = this.props;
       const { username, user_id, created_at, caption, image_url } = post;
@@ -113,7 +111,7 @@ class PostShow extends React.Component {
                   {this.renderLikeText()}
                 </span>
                 <span className="modal-time">
-                  {created_at}
+                  {post.created_at}
                 </span>
               </div>
               <div className="caption-text-modal">

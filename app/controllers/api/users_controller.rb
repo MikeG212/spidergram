@@ -30,15 +30,15 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if params[:username]
+      search_username = params[:username]
+      @users = User.where('lower(username) like ?', "%#{search_username.downcase}%").limit(5)
+    else
+      @users = User.all
+    end
   end
 
   def search
-    search_term = params[:search_term]
-    users = User.where('lower(username) like ?', "%#{search_term.downcase}%").limit(5)
-    curr_user = User.where(id: current_user.id)
-    @users = users + curr_user
-    render :index
   end
 
   private
