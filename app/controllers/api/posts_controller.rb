@@ -2,7 +2,11 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in
   
   def index
-    @posts = Post.includes(:comments).all.limit(10)
+    if params.has_key?(:user_id)
+      @posts = Post.includes(:comments).where(user_id: params[:user_id])
+    else
+      @posts = Post.includes(:comments).all.limit(10)
+    end
     render :index
   end
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 import Modal from "./modal/modal";
 import NavBarContainer from "./nav_bar/nav_bar_container";
@@ -20,7 +20,6 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute path="/users/:userId/edit" component={UserFormContainer} />
-      <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
       <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
       <ProtectedRoute path="/upload" component={CreatePostFormContainer} />
       <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />

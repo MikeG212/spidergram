@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       collection do
         get :search
       end
+      resources :posts, only: :index
     end
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:create, :show, :index] do

@@ -60,12 +60,10 @@ class Search extends React.Component {
     }
 
     showList() {
-        debugger
         this.setState({ displaySearch: true });
     }
 
     hideList() {
-        debugger
         setTimeout(() => this.setState({ displaySearch: false }), 200);
     }
 
