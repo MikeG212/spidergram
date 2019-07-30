@@ -56,7 +56,6 @@ class SessionForm extends React.Component {
       return (
         <div className="login-fields">
           <label htmlFor="email">
-            Email:
             <input
               type="text"
               value={this.state.email}
@@ -71,7 +70,6 @@ class SessionForm extends React.Component {
       return (
         <div className="signup-fields">
           <label htmlFor="email">
-            Email:
             <input
               type="email"
               value={this.state.email}
@@ -81,7 +79,6 @@ class SessionForm extends React.Component {
             />
           </label>
           <label htmlFor="username">
-            Username:
             <input
               type="text"
               value={this.state.username}
@@ -148,15 +145,14 @@ class SessionForm extends React.Component {
         </div>
         <div className="landing-right">
           <form onSubmit={this.handleSubmit} className="session-form-box">
-            <h3 className="app-name">Spidergram</h3>
+            <img className="logo" src={window.images.logo} alt="logo"></img>
             <div className="session-form toggle">
-              Please {this.props.formType} or {this.navLink()}
+              Sign up to see photos from your friends.
             </div>
             <br />
             <br />
             {this.renderInputFields()}
             <label htmlFor="password">
-              Password:
               <input
                 type="password"
                 value={this.state.password}
