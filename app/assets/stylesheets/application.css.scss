@@ -58,7 +58,9 @@ ul {
 }
 
 .login-asset {
-  height: 600px;
+  height: 618px;
+  margin-left: -35px;
+  margin-right: -1px;
 }
 
 .nav-item:not(:first-child) {
@@ -114,10 +116,13 @@ ul {
   height: 32px;
   margin-top: 7px;
   width: 258px;
-  padding-left: 8px;
+  padding: 9px 0 7px 8px;
+  background: #fafafa;
   border-radius: 3px;
   border-style: solid;
-  border-color: #dbdbdb;
+  border: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .form-input:focus {
@@ -125,12 +130,17 @@ ul {
   box-shadow: 0 0 1pt 1pt #999999;
 }
 
-.errors-list > li {
+.errors-list {
+  text-align: center;
+  list-style: none;
   color: #ed4956;
-  width: 245px;
   font-size: 12px;
-  margin: 5px 0 0 20px;
-  list-style-type: circle;
+  margin: auto;
+  width: 245px;
+}
+
+.errors-list li {
+  display: inline-block;
 }
 
 .errors-list > li:first-child {

@@ -13,37 +13,44 @@
 }
 
 .session-form-box {
-  max-width: 278px;
-  float: left;
-  background: white;
-  padding: 40px;
-  margin-left: 30px;
-  border: 1px solid #efefef;
+  max-width: 350px;
+  background: #FFF;
+  padding: 10px 0;
+  margin: 0 0 10px;
+  border: 1px solid #e6e6e6;
 }
 
 .session-button {
   background: #3897f0;
+  display: block;
+  text-align: center;
   border-radius: 4px;
   color: white;
   border: none;
   width: 270px;
   outline: none;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 5px 9px;
+  width: auto;
   font-size: 14px;
   padding: 10px;
   cursor: pointer;
-  margin-top: 14px;
-  cursor: pointer;
+  margin: auto;
+  position: relative;
 }
 
 .form-input {
+  font-size: 16px;
+  border: 0;
   display: block;
-  height: 32px;
-  margin-bottom: 7px;
+  height: 40px;
+  margin: auto;
+  outline: 0;
+  overflow: hidden;
+  background: #fafafa;
   width: 258px;
-  padding-left: 8px;
+  padding: 9px 0 7px 8px;
   border-radius: 3px;
-  border-style: solid;
   border-color: #dbdbdb;
 }
 
