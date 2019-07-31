@@ -50,6 +50,12 @@ class Search extends React.Component {
           </li>
         );
       });
+    } else {
+      return (
+        <li className="search-result-item">
+          <div className="search-item-info">No users :(</div>
+        </li>
+      );
     }
   }
 

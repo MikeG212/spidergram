@@ -62,6 +62,18 @@ ul {
   margin-right: -1px;
 }
 
+@media screen and (max-width: 768px) {
+  .landing-left {
+    display: none;
+  }
+  .session-form-container {
+    display: flex;
+  }
+  .landing-right {
+    margin: auto;
+  }
+}
+
 .nav-item:not(:first-child) {
   margin-left: 30px;
 }
