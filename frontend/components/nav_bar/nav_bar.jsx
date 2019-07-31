@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Search from './search';
+import Search from "./search";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -11,8 +11,9 @@ class NavBar extends React.Component {
     const { currentUser, logout, history } = this.props;
     return (
       <div className="navBar">
-        <div
-          className="navBar-logo core-sprite main-logo"
+        <img
+          className="navBar-logo"
+          src={window.images.logo}
           onClick={() => this.props.history.push("/")}
         />
         <Search

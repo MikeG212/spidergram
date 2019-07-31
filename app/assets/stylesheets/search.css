@@ -1,12 +1,14 @@
 .search-results-container {
-    width: 212px;
-    background: white;
-    top: 40px;
+  width: 212px;
+  background: white;
+  top: 40px;
 }
 
 .search-avatar {
-    height:25px;
-    width: 25px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .display-none {
@@ -20,4 +22,17 @@
   width: 212px;
   border-bottom: 1px solid #dbdbdb;
   cursor: pointer;
+}
+
+.user-search {
+  height: 34px;
+  width: 154px;
+  background-color: #fafafa;
+  box-shadow: none;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  padding: 6px;
+  font-family: helvetica;
+  font-size: 15px;
+  font-weight: lighter;
 }

@@ -15,27 +15,24 @@
   position: relative;
 }
 
-.post-index-item-header {
-  display: flex;
-  height: 50px;
-  justify-content: space-between;
-  align-items: center;
+.index-item-header {
+  padding: 11px;
+  height: 60px;
 }
 
 .post-time {
-  margin: 20px;
   font-size: 15px;
-}
-
-.post-index-item-footer {
+  display: inline;
 }
 
 .post-username-link {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 14px;
-  margin: 20px;
+  font-size: 17px;
   cursor: pointer;
+  display: inline;
+  margin: 11px;
+  vertical-align: middle;
 }
 
 .caption-comment-holder {
@@ -225,4 +222,10 @@
   background-position: -336px -62px;
   margin-left: auto;
   width: 20px;
+}
+
+.post-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
 }

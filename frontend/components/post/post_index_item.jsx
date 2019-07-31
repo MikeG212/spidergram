@@ -89,10 +89,11 @@ class PostIndexItem extends React.Component {
 
   render() {
     const { post, key } = this.props;
-    const { username, user_id, created_at, caption } = post;
+    const { username, user_id, created_at, caption, avatar_url } = post;
     return (
       <li key={key} className="index-item">
         <div className="index-item-header">
+          <img className="post-avatar" src={avatar_url} alt="avatar" />
           <h5
             className="post-username-link"
             onClick={() => this.navigateUserShow(user_id)}
@@ -102,10 +103,7 @@ class PostIndexItem extends React.Component {
           <div className="post-time">{created_at}</div>
         </div>
         <div className="photo-container">
-          <img
-            className="post-image"
-            src={post.image_url}
-          />
+          <img className="post-image" src={post.image_url} />
         </div>
         <div className="index-item-footer">
           <div className="caption-comment-holder">
