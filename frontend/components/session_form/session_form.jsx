@@ -14,6 +14,7 @@ class SessionForm extends React.Component {
     this.submitButton = this.submitButton.bind(this);
     this.renderInputFields = this.renderInputFields.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.navLink = this.navLink.bind(this);
   }
 
   componentDidMount() {
@@ -29,9 +30,19 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === "login") {
-      return <Link to="/signup">sign up</Link>;
+      return (
+        <p className="session-form-box signup-box">
+          Don't have an account? &nbsp;
+          <Link to="/signup">Sign up</Link>
+        </p>
+      );
     } else {
-      return <Link to="/login">log in</Link>;
+      return (
+        <p className="session-form-box signup-box">
+          Already have an account? &nbsp;
+          <Link to="/login">Log in</Link>
+        </p>
+      );
     }
   }
 
@@ -115,21 +126,9 @@ class SessionForm extends React.Component {
 
   submitButton() {
     if (this.props.formType === "login") {
-      return (
-        <input
-          className="session-button submit-button"
-          type="submit"
-          value="Login"
-        />
-      );
+      return <input className="session-button" type="submit" value="Login" />;
     } else {
-      return (
-        <input
-          className="session-button submit-button"
-          type="submit"
-          value="Sign up"
-        />
-      );
+      return <input className="session-button" type="submit" value="Sign up" />;
     }
   }
 
@@ -145,9 +144,11 @@ class SessionForm extends React.Component {
         </div>
         <div className="landing-right">
           <form onSubmit={this.handleSubmit} className="session-form-box">
-            <img className="logo" src={window.images.logo} alt="logo"></img>
+            <img className="logo" src={window.images.logo} alt="logo" />
             <div className="session-form toggle">
-              Sign up to see photos from your friends.
+              Come see photos of your friendly neighborhood
+              <br />
+              Spider-Man.
             </div>
             <br />
             <br />
@@ -157,7 +158,7 @@ class SessionForm extends React.Component {
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                placeholder="Password..."
+                placeholder="Password"
                 className="form-input"
               />
             </label>
@@ -167,6 +168,7 @@ class SessionForm extends React.Component {
             {this.demoLoginButton()}
             {this.renderErrors()}
           </form>
+          {this.navLink()}
         </div>
       </div>
     );
