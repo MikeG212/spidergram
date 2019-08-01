@@ -58,8 +58,11 @@ ul {
 
 .login-asset {
   height: 618px;
-  margin-left: -35px;
-  margin-right: -1px;
+}
+
+.session-form-container {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -153,12 +156,6 @@ ul {
   font-size: 14px;
 }
 
-.brand-name-img {
-  background-position: 0 0;
-  height: 51px;
-  width: 175px;
-}
-
 .landing-left {
   .dummy-phone {
     background-image: image-url("dummy-phone-2x.png");
@@ -167,8 +164,6 @@ ul {
     background-size: 454px 618px;
     position: relative;
     height: 618px;
-    margin-left: -35px;
-    margin-right: -15px;
   }
 
   .screen-shot {
@@ -189,7 +184,6 @@ ul {
     width: 350px;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-    margin: 10px;
 
     form {
       padding: 25px 40px;
@@ -210,10 +204,6 @@ ul {
         font-size: 15px;
         color: #262626;
       }
-    }
-
-    .brand-name-img {
-      margin: 22px auto 8px;
     }
   }
 }
