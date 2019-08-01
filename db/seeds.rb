@@ -100,7 +100,7 @@ post5 =  Post.new({caption: "New year, new me...", user_id: peterParker.id })
 url5 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/PeterParkerAvatar.jpg"
 attach_photo(post5, url5)
 
-post6 =  Post.new({caption: "Most legendary crossover since Allen Iverson", user_id: derekJeter.id })
+post6 =  Post.new({caption: "Most legendary crossover since Allen Iverson embarassed Jordan", user_id: derekJeter.id })
 url6 = "https://s3-us-west-1.amazonaws.com/spidergram-dev/images/derek-jeter-min.jpeg"
 attach_photo(post6, url6)
 

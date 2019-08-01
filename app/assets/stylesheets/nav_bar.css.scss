@@ -89,3 +89,12 @@ h3 {
   margin: 10px auto;
   list-style: none;
 }
+
+@media screen and (max-width: 785px) {
+  .navBar-icons-group {
+    display: none;
+  }
+  .navBar-logo {
+    display: none;
+  }
+}

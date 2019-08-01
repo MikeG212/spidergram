@@ -94,12 +94,12 @@ class PostIndexItem extends React.Component {
       <li key={key} className="index-item">
         <div className="index-item-header">
           <img className="post-avatar" src={avatar_url} alt="avatar" />
-          <h5
+          <div
             className="post-username-link"
             onClick={() => this.navigateUserShow(user_id)}
           >
             {username}
-          </h5>
+          </div>
           <div className="post-time">{created_at}</div>
         </div>
         <div className="photo-container">

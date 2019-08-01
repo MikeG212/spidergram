@@ -12,6 +12,8 @@
 }
 
 .index-item-header {
+  display: flex;
+  align-items: center;
   padding: 11px;
   height: 60px;
 }
@@ -26,9 +28,8 @@
   font-weight: 600;
   font-size: 17px;
   cursor: pointer;
-  display: inline;
+  display: inline-block;
   margin: 11px;
-  vertical-align: middle;
 }
 
 .caption-comment-holder {
@@ -221,7 +222,7 @@
 }
 
 .post-avatar {
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  width: 45px;
   border-radius: 100%;
 }
