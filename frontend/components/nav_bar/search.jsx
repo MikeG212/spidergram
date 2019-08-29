@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import debounce from "lodash/debounce";
 
 class Search extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class Search extends React.Component {
   handleChange(e) {
     e.preventDefault();
     const that = this;
+    // debounce(() => that.props.requestUsers(this.state.username), 300)
     this.setState({ username: e.currentTarget.value }, () =>
       that.props.requestUsers(this.state.username)
     );
