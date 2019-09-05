@@ -44,6 +44,7 @@ gem 'jquery-rails'
 gem 'toastr-rails'
 gem 'turbolinks', '~> 5'
 gem 'carrierwave', '~> 1.0'
+gem "nokogiri", ">= 1.10.4"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
@@ -65,7 +66,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'webdrivers'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~>3.1'
   # Easy installation and use of chromedriver to run system tests with Chrome

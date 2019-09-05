@@ -5,10 +5,8 @@ RSpec.describe User, type: :model do
   #Associations
   #Class Methods
   #Error Messages
+  subject(:user) { FactoryBot.build(:user) }
 
-  # subject(:user) { User.new(username: "test", email: "test@mail.com", password: "starwars")}
-  let (:user) { FactoryBot.build(:user) }
-  # describe "Upload avatar" do
 
   describe 'validations' do
     it { should validate_presence_of(:username) }
@@ -26,9 +24,11 @@ RSpec.describe User, type: :model do
     it {expect(user.avatar).to be_attached}
   end
 
-  describe 'class methods' do
-    describe '::find_by_credentials' do
-      it 'should find a user by email and password'
-    end
-  end
+  # describe 'class methods' do
+  #   describe '::find_by_credentials' do
+  #     it 'finds the right user based on credentials' do
+  #       expect(User.find_by_credentials("test@mail.com", "starwars")).to include(user)
+  #     end
+  #   end
+  # end
 end
