@@ -6,21 +6,24 @@ RSpec.describe User, type: :model do
   #Class Methods
   #Error Messages
 
+  # subject(:user) { User.new(username: "test", email: "test@mail.com", password: "starwars")}
+  let (:user) { FactoryBot.build(:user) }
+
   describe 'validations' do
-    it 'should validate presence of email'
-    it 'should validate presence of username'
-    it 'should validate presence of password digest'
-    it 'should validate presence of session token'
-    it 'should validate uniqueness of email'
-    it 'should validate uniqueness of username'
-    it 'should validate presence of session token'  
+    it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password_digest) }
+    it { should validate_presence_of(:session_token) }
+    it { should validate_uniqueness_of(:username) }
+    it { should validate_uniqueness_of(:email) }
   end
 
   describe 'associations' do
-    it 'should have many posts'
-    it 'should have many comments'
-    it 'should have many likes'
-    it 'should have one attached avatar'
+    it { should have_many(:posts) }
+    it { should have_many(:comments) }
+    it { should have_many(:likes) }
+    # it { should have_one(:avatar) }
+    # it {expect(valid_user.avatar).to be_attached}
   end
 
   describe 'class methods' do
