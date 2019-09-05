@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
 
   # subject(:user) { User.new(username: "test", email: "test@mail.com", password: "starwars")}
   let (:user) { FactoryBot.build(:user) }
+  # describe "Upload avatar" do
 
   describe 'validations' do
     it { should validate_presence_of(:username) }
@@ -22,8 +23,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:posts) }
     it { should have_many(:comments) }
     it { should have_many(:likes) }
-    # it { should have_one(:avatar) }
-    # it {expect(valid_user.avatar).to be_attached}
+    it {expect(user.avatar).to be_attached}
   end
 
   describe 'class methods' do
