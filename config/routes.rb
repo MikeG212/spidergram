@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'follows/create'
+  get 'follows/destroy'
   root "static_pages#root"
   
   namespace :api, defaults: {format: :json} do
