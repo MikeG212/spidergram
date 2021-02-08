@@ -43,7 +43,7 @@ gem 'annotate'
 gem 'jquery-rails'
 gem 'toastr-rails'
 gem 'turbolinks', '~> 5'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "nokogiri", ">= 1.10.4"
 
 group :development, :test do
